@@ -1,3 +1,15 @@
+const gameboard = document.getElementById('gameboard');
+const ctx = gameBoard.getContext("2d");
+const tile = 10;
+
+function draw() {
+    //code to write here
+}
+
+
+
+
+
 
 //Initial snake empty array
 let snake = [];
