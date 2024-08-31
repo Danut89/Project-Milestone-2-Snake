@@ -3,7 +3,6 @@ const ctx = gameBoard.getContext("2d");
 const tile = 10;
 
 // Initial gamestate
-let direction = "left";
 
 let food = {
     x: 15 * tile,
@@ -15,6 +14,24 @@ let snake = [];
 snake[0] = { x: 19 * tile, y: 19 * tile };
 snake[1] = { x: 20 * tile, y: 19 * tile };
 snake[2] = { x: 21 * tile, y: 19 * tile };
+
+let direction = "left";
+
+document.addEventListener("keydown", keyDownHandler);
+
+// Control snake direction with keyboard arrows
+function keyDownHandler(event) {
+    if(event.keyCode == 38) {
+        direction = "up"
+    } else if (event.keyCode == 40) {
+        direction = "down"
+    } else if (event.keyCode == 37) {
+        direction = "left"
+    } else if (event.keyCode == 39) {
+        direction = "right"
+    };
+}
+
 
 
 // Active gamestate
@@ -31,6 +48,7 @@ function draw() {
         ctx.fillRect(snake[i].x, snake[i].y, tile, tile);
     }
 
+   
     // Get current head position
     let currentHeadX = snake[0].x;
     let currentHeadY = snake[0].y;
@@ -49,8 +67,8 @@ function draw() {
     let newHead = { x: currentHeadX, y: currentHeadY };
 
     // Check if snake eats food
-    if (currentHeadX === food.x && currentHeadY === food.y) {
-        console.log('ATE FOOD');
+    if (snake[0].x === food.x && snake[0].y === food.y) {
+        console.log('Eat food');
         // Generate new food at random position
         food = {
             x: Math.floor(Math.random() * (gameBoard.width / tile)) * tile,
@@ -66,26 +84,23 @@ function draw() {
 
     // Detect collision with self
     for (let i = 1; i < snake.length; i++) {
-        if (currentHeadX === snake[i].x && currentHeadY === snake[i].y) {
-            console.log('ATE SELF');
+        if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
+            console.log("ATE SELF");
             clearInterval(game);
-        }
-    }
+        }; 
+    };
 
     // Detect collision with walls
-    if (currentHeadX >= gameBoard.width || currentHeadX < 0 || currentHeadY >= gameBoard.height || currentHeadY < 0) {
-        console.log('HIT WALL');
-        clearInterval(game);
-    }
-}
+    if (snake[0].x > gameBoard.width || snake[0].x < -tile) {
+        console.log("HIT X WALL");
 
-// Control snake direction with keyboard arrows
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'ArrowUp' && direction !== 'down') direction = 'up';
-    else if (event.key === 'ArrowDown' && direction !== 'up') direction = 'down';
-    else if (event.key === 'ArrowLeft' && direction !== 'right') direction = 'left';
-    else if (event.key === 'ArrowRight' && direction !== 'left') direction = 'right';
-});
+        clearInterval(game);
+
+    } else if (snake[0].y > gameBoard.height || snake[0].y < -tile) {             // Detects whether currentHeadY has coordinates outside of gameBoard. Stops game if true
+    console.log("HIT Y WALL");
+    clearInterval(game);
+    };
+};
 
 // Start the game
-let game = setInterval(draw, 100);
+let game = setInterval(draw, 200);
