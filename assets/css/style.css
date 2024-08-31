@@ -6,7 +6,7 @@ body {
     height: 100vh; /* Center the game board in the viewport */
 }
 
-#gameboard {
+#gameBoard {
     background-color: #ffffff;
     border-width: 2px;
 }
