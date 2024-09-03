@@ -46,6 +46,12 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
+const gameBoard = document.getElementById("gameBoard");
+gameBoard.width = window.innerWidth;
+gameBoard.height = window.innerHeight;
+
+
+
 
 // Active gamestate
 

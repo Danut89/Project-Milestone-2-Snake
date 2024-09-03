@@ -1,12 +1,19 @@
 body {
-    background-color: #f0f0f0;
+    background-color: #f5f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Center the game board in the viewport */
+    height: 90vh; /* Center the game board in the viewport */
 }
 
 #gameBoard {
-    background-color: #ffffff;
-    border-width: 2px;
+    background-color: #d9dcfd;
+    border: 3px solid black;
+}
+
+#gameBoardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
