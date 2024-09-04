@@ -37,3 +37,27 @@ body {
 #gameBoardContainer canvas {
     display: block;
 }
+
+
+/* Menu Style*/
+.menu {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.menu-button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #000;
+}

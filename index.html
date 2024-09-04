@@ -8,13 +8,44 @@
 </head>
 <body>
 
-    
 
-    <!-- Game board container for the snake game -->
-    <div id="gameBoardContainer">
-        <canvas id="gameCanvas" width="400" height="460"></canvas>
+        <!-- Main Menu -->
+    <section class="menu-container" id="main-menu">
+        <h1>Snake Game</h1>
+        <div class="button-container">
+            <button id="play-button">Play Game</button>
+            <button id="high-scores-button">High Scores</button>
+            <button id="options-button">Options</button>
+        </div>
+    </section>
+
+     <!-- Game Options -->
+     <section id="options-menu" class="menu hidden">
+        <h2>Options</h2>
+        <div class="options-container">
+            <label>
+                <input type="checkbox" id="walls-checkbox">Enable Walls
+            </label>
+            <label>
+                <input type="checkbox" id="audio-checkbox">Enable Audio
+            </label>
+        </div>
+        <button id="back-options-button" class="menu-button">Back</button>
+    </section>
+
+     <!-- High Scores Menu -->
+     <section id="high-scores-menu" class="menu hidden">
+        <h2>High Scores</h2>
+        <ul id="score-list"></ul>
+        <button id="back-scores-button" class="menu-button">Back</button>
+    </section>
+    
+    <!-- Game Board -->
+    <section id="game-board-container" class="hidden">
+        <canvas id="gameCanvas"></canvas>
         <canvas id="backgroundCanvas"></canvas>
-    </div>
+    </section>
+    
 
     <!-- JavaScript for the game -->
     <script src="assets/js/game.js"></script>
