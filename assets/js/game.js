@@ -17,9 +17,10 @@ const tileSize = 20; // Defines the size of each grid square on the game board
 
 // Initial snake configuration with 3 body segments
 let snake = [];
-snake[0] = { x: 15 * tile, y: 19 * tile };
-snake[1] = { x: 16 * tile, y: 19 * tile };
-snake[2] = { x: 17 * tile, y: 19 * tile };
+snake[0] = { x: 15 * tileSize, y: 19 * tileSize };
+snake[1] = { x: 16 * tileSize, y: 19 * tileSize };
+snake[2] = { x: 17 * tileSize, y: 19 * tileSize };
+console.log(snake);
 
 
 // Randomly generate food position on the board
@@ -59,14 +60,12 @@ document.addEventListener("keydown", function (event) {
   
 
 
-
-
 // Active gamestate
 
 function updateGame() {
     // Get the current position of the snake's head
-    let snakeHeadX = snakeBody[0].x;
-    let snakeHeadY = snakeBody[0].y;
+    let snakeHeadX = snake[0].x;
+    let snakeHeadY = snake[0].y;
 
 
      // Adjust the snake's head position based on the current direction
@@ -82,23 +81,23 @@ function updateGame() {
     // Check if the snake eats food, increase size and generate new food
   if (snakeHead.x === foodPosition.x && snakeHead.y === foodPosition.y) {
     generateNewFood();
-    snakeBody.unshift(snakeHead); // Add new head without removing the tail
+    snake.unshift(snakeHead); // Add new head without removing the tail
     score++; // Increment score when food is eaten
   } else {
-    snakeBody.unshift(snakeHead); // Add new head and remove tail to maintain length
-    snakeBody.pop();
+    snake.unshift(snakeHead); // Add new head and remove tail to maintain length
+    snake.pop();
   }
 
    // Ensure food doesn't spawn inside the snake's body
-  for (let i = 1; i < snakeBody.length; i++) {
-    if (snakeBody[i].x === foodPosition.x && snakeBody[i].y === foodPosition.y) {
+  for (let i = 1; i < snake.length; i++) {
+    if (snake[i].x === foodPosition.x && snake[i].y === foodPosition.y) {
       generateNewFood(); // Generate new food if it spawns inside the snake
     }
   }
 
    // Check for collisions between the snake's head and body
-  for (let i = 1; i < snakeBody.length; i++) {
-    if (snakeHead.x === snakeBody[i].x && snakeHead.y === snakeBody[i].y) {
+  for (let i = 1; i < snake.length; i++) {
+    if (snakeHead.x === snake[i].x && snakeHead.y === snake[i].y) {
       endGame(); // Stop the game if the snake collides with itself
     }
   }
@@ -147,10 +146,10 @@ function drawGame() {
 
     // Draw the snake
   gameCtx.fillStyle = "#181942";
-  for (let i = 0; i < snakeBody.length; i++) {
-    gameCtx.fillRect(snakeBody[i].x, snakeBody[i].y, tileSize, tileSize); // Draw snake segments
+  for (let i = 0; i < snake.length; i++) {
+    gameCtx.fillRect(snake[i].x, snake[i].y, tileSize, tileSize); // Draw snake segments
     gameCtx.strokeStyle = "white";
-    gameCtx.strokeRect(snakeBody[i].x, snakeBody[i].y, tileSize, tileSize);
+    gameCtx.strokeRect(snake[i].x, snake[i].y, tileSize, tileSize);
   }
 }
 
@@ -172,11 +171,3 @@ let mainLoop = function () {
   // Start the game loop
   requestAnimationFrame(mainLoop);
    
-
-   
-
-    
-    
-
-    
-

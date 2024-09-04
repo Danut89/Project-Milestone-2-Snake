@@ -3,17 +3,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh; /* Center the game board in the viewport */
-}
-
-#gameBoard {
-    background-color: #d9dcfd;
-    border: 3px solid black;
+    height: 100vh; /* Ensure the game is vertically centered */
+    margin: 0;
 }
 
 #gameBoardContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#backgroundCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure it sits behind the gameCanvas */
+}
+
+#gameCanvas {
+    background-color: #8788CC;
+    border: 5px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#gameBoardContainer canvas {
+    display: block;
 }
