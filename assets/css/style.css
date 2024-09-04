@@ -1,3 +1,5 @@
+
+/* === Global Styles === */
 body {
     background-color: #f5f4f4;
     display: flex;
@@ -7,7 +9,8 @@ body {
     margin: 0;
 }
 
-#gameBoardContainer {
+/* === Canvas Styles === */
+#game-board-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +18,9 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ensure proper positioning of background canvas */
 }
+
 
 #backgroundCanvas {
     background-color: #8788CC;
@@ -23,41 +28,114 @@ body {
     top: 0;
     left: 0;
     z-index: -1; /* Ensure it sits behind the gameCanvas */
-    width: 1515px;
-    height: 825px;
-}
-
-#gameCanvas {
-    background-color: #8788CC;
-    border: 5px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-}
-
-#gameBoardContainer canvas {
-    display: block;
-}
-
-
-/* Menu Style*/
-.menu {
-    text-align: center;
-    margin-top: 100px;
-}
-
-.menu-button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.hidden {
-    display: none;
+    width: 1515px; /* Manually set dimensions based on provided values */
+    height: 800px;
 }
 
 canvas {
     display: block;
     margin: 20px auto;
     border: 3px solid #000;
+}
+
+/* Button styles for menus */
+.menu-button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Button hover effects */
+.menu-button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hidden elements, used for switching screens */
+.hidden {
+    display: none;
+}
+
+/* === Game Options === */
+#options-menu {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for options menu checkboxes */
+#options-menu label {
+    display: block;
+    margin: 10px 0;
+}
+
+/* === High Scores === */
+#high-scores-menu {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for high scores list */
+#high-scores-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#high-scores-menu ul li {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+/* === Typography and Text Styling === */
+h1, h2 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #001440; /* Dark blue color */
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* === Score Display Styling === */
+#gameCanvas {
+    position: relative;
+}
+
+#gameCanvas:after {
+    content: attr(data-score); /* Use data-score attribute for displaying score */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* === Animations === */
+
+/* Example of button transition for better interactivity */
+.menu-button {
+    transition: transform 0.2s;
+}
+
+.menu-button:active {
+    transform: scale(0.95); /* Button pressed effect */
 }
