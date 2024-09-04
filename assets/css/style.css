@@ -18,10 +18,13 @@ body {
 }
 
 #backgroundCanvas {
+    background-color: #8788CC;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1; /* Ensure it sits behind the gameCanvas */
+    width: 1515px;
+    height: 825px;
 }
 
 #gameCanvas {
