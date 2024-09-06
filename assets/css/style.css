@@ -1,44 +1,31 @@
-
 /* === Global Styles === */
 body {
     background-color: #f5f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ensure the game is vertically centered */
+    height: 100vh;
     margin: 0;
+    position: relative;
+    font-family: 'Arial', sans-serif;
 }
 
-/* === Canvas Styles === */
-#game-board-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    position: relative; /* Ensure proper positioning of background canvas */
+/* === Menu Container Styles === */
+.menu-container {
+    text-align: center;
+    margin-top: 50px;
 }
 
-
-#backgroundCanvas {
-    background-color: #8788CC;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Ensure it sits behind the gameCanvas */
-    width: 1515px; /* Manually set dimensions based on provided values */
-    height: 800px;
+.menu {
+    text-align: center;
+    margin-top: 50px;
 }
 
-canvas {
-    display: block;
-    margin: 20px auto;
-    border: 3px solid #000;
+/* Center the buttons */
+.button-container {
+    margin-top: 20px;
 }
 
-/* Button styles for menus */
 .menu-button {
     padding: 10px 20px;
     margin: 10px;
@@ -62,7 +49,7 @@ canvas {
     display: none;
 }
 
-/* === Game Options === */
+/* === Game Options Menu === */
 #options-menu {
     padding: 20px;
     background-color: #ffffff;
@@ -76,7 +63,7 @@ canvas {
     margin: 10px 0;
 }
 
-/* === High Scores === */
+/* === High Scores Menu === */
 #high-scores-menu {
     padding: 20px;
     background-color: #ffffff;
@@ -99,7 +86,7 @@ canvas {
 h1, h2 {
     font-family: 'Arial', sans-serif;
     font-weight: bold;
-    color: #001440; /* Dark blue color */
+    color: #001440;
 }
 
 h1 {
@@ -111,31 +98,45 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* === Score Display Styling === */
-#gameCanvas {
+/* === Game Board Styling === */
+#game-board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
-#gameCanvas:after {
-    content: attr(data-score); /* Use data-score attribute for displaying score */
+#backgroundCanvas {
+    background-color: #8788CC;
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 24px;
-    font-family: 'Arial', sans-serif;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 5px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+#gameCanvas {
+    background-color: #8788CC;
+    border: 5px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: block;
+    position: relative;
 }
 
 /* === Animations === */
 
-/* Example of button transition for better interactivity */
+
 .menu-button {
     transition: transform 0.2s;
 }
 
 .menu-button:active {
-    transform: scale(0.95); /* Button pressed effect */
+    transform: scale(0.95); 
 }
+
