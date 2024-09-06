@@ -17,6 +17,7 @@ const backScoresButton = document.getElementById('back-scores-button');
 const optionsMenu = document.getElementById("options-menu");
 const highScoresMenu = document.getElementById("high-scores-menu");
 const gameBoardContainer = document.getElementById("game-board-container");
+const pauseOverlay = document.getElementById("pause-overlay");
 
 // Set up background canvas
 const backgroundCanvas = document.getElementById("backgroundCanvas");
@@ -66,15 +67,16 @@ function togglePauseResume() {
 
 // Pause the game
 function pauseGame() {
-    clearInterval(gameLoop);  // Stop the game loop
-    isPaused = true;  // Set game state to paused
-    alert("Game Paused! Press space to resume.");
+    clearInterval(gameLoop);  
+    isPaused = true;  
+    pauseOverlay.style.visibility = "visible";  
 }
 
 // Resume the game
 function resumeGame() {
-    startGameLoop();  // Restart the game loop
-    isPaused = false;  // Set game state to running
+    startGameLoop(); 
+    isPaused = false;  
+    pauseOverlay.style.visibility = "hidden";  
 }
 
 
