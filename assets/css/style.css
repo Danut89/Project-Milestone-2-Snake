@@ -1,6 +1,6 @@
 /* === Global Styles === */
 body {
-    background-color: #f5f4f4;
+    background-color: #21374f;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,6 +16,28 @@ body {
     margin-top: 50px;
 }
 
+.game-title {
+    font-size: 48px;
+    color: #FF69B4; /* Pink glow for the title */
+    text-shadow: 0px 0px 10px rgba(255, 105, 180, 0.7); /* Glow effect */
+    margin-bottom: 20px;
+}
+
+.game-instructions {
+    font-size: 18px;
+    color: white;
+    margin: 10px 0;
+}
+
+.highlighted {
+    color: #FFA500; /* Orange for key highlights */
+}
+
+.messy {
+    color: #FF00FF; /* Purple for the word "messier" */
+    text-shadow: 0px 0px 5px rgba(255, 0, 255, 0.7); /* Light glow */
+}
+
 .menu {
     text-align: center;
     margin-top: 50px;
@@ -23,25 +45,25 @@ body {
 
 /* Center the buttons */
 .button-container {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .menu-button {
-    padding: 10px 20px;
+    padding: 10px 30px;
     margin: 10px;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #f5f4f4;
+    background-color: #243b64;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Button hover effects */
 .menu-button:hover {
-    background-color: #e0e0e0;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: #415A77;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Hidden elements, used for switching screens */
@@ -98,15 +120,15 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* === Game Board Styling === */
+/* === Game Board Styles (hidden initially) === */
 #game-board-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #d1c3c3;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     position: relative;
 }
 

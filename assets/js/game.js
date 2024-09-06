@@ -1,4 +1,3 @@
-
 // Utility functions to show/hide elements
 function hideElement(element) {
     element.classList.add("hidden");
