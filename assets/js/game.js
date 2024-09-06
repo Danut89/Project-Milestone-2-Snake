@@ -39,7 +39,7 @@ let snake = [
 ];
 let foodPosition = { x: Math.floor(Math.random() * 20) * tileSize, y: Math.floor(Math.random() * 20 + 3) * tileSize };
 let score = 0, direction = "left", gameSpeed = 125, lastKey = 0, safeDelay = 130, gameLoop;
-
+let isPaused = false;
 // Keydown listener for snake movement
 document.addEventListener("keydown", function (event) {
     if (Date.now() - lastKey > safeDelay) {
@@ -49,7 +49,35 @@ document.addEventListener("keydown", function (event) {
         }
         lastKey = Date.now();
     }
+     // Pause/Resume when the spacebar is pressed
+    if (event.keyCode === 32) {
+        togglePauseResume();
+    }
 });
+
+// Toggle between pause and resume
+function togglePauseResume() {
+    if (!isPaused) {
+        pauseGame();
+    } else {
+        resumeGame();
+    }
+}
+
+// Pause the game
+function pauseGame() {
+    clearInterval(gameLoop);  // Stop the game loop
+    isPaused = true;  // Set game state to paused
+    alert("Game Paused! Press space to resume.");
+}
+
+// Resume the game
+function resumeGame() {
+    startGameLoop();  // Restart the game loop
+    isPaused = false;  // Set game state to running
+}
+
+
 
 // Generates a new random position for the food
 let generateNewFood = function () {
