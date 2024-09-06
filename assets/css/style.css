@@ -68,7 +68,7 @@ body {
 
 /* Hidden elements, used for switching screens */
 .hidden {
-    display: none;
+    display: none !important; 
 }
 
 /* === Game Options Menu === */
