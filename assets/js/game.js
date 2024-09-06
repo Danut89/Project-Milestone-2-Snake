@@ -1,73 +1,67 @@
 
+// Utility functions to show/hide elements
+function hideElement(element) {
+    element.classList.add("hidden");
+}
+
+function showElement(element) {
+    element.classList.remove("hidden");
+}
+
 //Dom Elements
 const mainMenu = document.getElementById('main-menu');
 const playButton = document.getElementById('play-button');
-const optionButton = document.getElementById('option-button');
-const highScoresButton = document.getElementById('high-socres-button');
-const backOptionButton  = document.getElementById('back-option-button');
-const backScoreButton = document.getElementById('back-scores-button');
+const optionsButton = document.getElementById('options-button');  
+const highScoresButton = document.getElementById('high-scores-button');  
+const backOptionsButton = document.getElementById('back-options-button');  
+const backScoresButton = document.getElementById('back-scores-button');  
 const optionsMenu = document.getElementById("options-menu");
 const highScoresMenu = document.getElementById("high-scores-menu");
 const gameBoardContainer = document.getElementById("game-board-container");
 
-
-
-// Set up background canvas to cover the entire screen
+// Set up background canvas
 const backgroundCanvas = document.getElementById("backgroundCanvas");
 backgroundCanvas.width = window.innerWidth;
 backgroundCanvas.height = window.innerHeight;
 let backgroundCtx = backgroundCanvas.getContext("2d");
 
-// Set up game canvas with fixed width and height
+// Set up game canvas
 const gameCanvas = document.getElementById("gameCanvas");
 gameCanvas.width = 400;
 gameCanvas.height = 460;
 const gameCtx = gameCanvas.getContext("2d");
-const tileSize = 20; // Defines the size of each grid square on the game board
+const tileSize = 20;
 
 // Initial game state
-let snake = [];
-snake[0] = { x: 15 * tileSize, y: 19 * tileSize };
-snake[1] = { x: 16 * tileSize, y: 19 * tileSize };
-snake[2] = { x: 17 * tileSize, y: 19 * tileSize };
+let snake = [
+    { x: 15 * tileSize, y: 19 * tileSize },
+    { x: 16 * tileSize, y: 19 * tileSize },
+    { x: 17 * tileSize, y: 19 * tileSize }
+];
+let foodPosition = { x: Math.floor(Math.random() * 20) * tileSize, y: Math.floor(Math.random() * 20 + 3) * tileSize };
+let score = 0, direction = "left", gameSpeed = 125, lastKey = 0, safeDelay = 130, gameLoop;
 
-let foodPosition = {
-    x: Math.floor(Math.random() * 20) * tileSize,
-    y: Math.floor(Math.random() * 20 + 3) * tileSize
-};
-
-let score = 0;
-let direction = "left"; 
-let gameSpeed = 125;
-let lastKey = 0;
-let safeDelay = 130;
-let gameLoop;
-
-// Keydown listener to change the snake's direction based on user input
+// Keydown listener for snake movement
 document.addEventListener("keydown", function (event) {
     if (Date.now() - lastKey > safeDelay) {
-        if (event.keyCode === 38 && direction !== "down") direction = "up";
-        else if (event.keyCode === 40 && direction !== "up") direction = "down";
-        else if (event.keyCode === 37 && direction !== "right") direction = "left";
-        else if (event.keyCode === 39 && direction !== "left") direction = "right";
+        const newDirection = { 38: "up", 40: "down", 37: "left", 39: "right" }[event.keyCode];
+        if (newDirection && newDirection !== { up: "down", down: "up", left: "right", right: "left" }[direction]) {
+            direction = newDirection;
+        }
         lastKey = Date.now();
     }
 });
 
 // Generates a new random position for the food
 let generateNewFood = function () {
-    foodPosition = {
-        x: Math.floor(Math.random() * 20) * tileSize,
-        y: Math.floor(Math.random() * 20 + 3) * tileSize
-    };
+    foodPosition = { x: Math.floor(Math.random() * 20) * tileSize, y: Math.floor(Math.random() * 20 + 3) * tileSize };
 };
 
-// Active game state
+// Update game state
 function updateGame() {
-    let snakeHeadX = snake[0].x;
-    let snakeHeadY = snake[0].y;
+    let snakeHeadX = snake[0].x, snakeHeadY = snake[0].y;
 
-    // Adjust the snake's head position based on the current direction
+    // Adjust the snake's head position
     if (direction === "up") snakeHeadY -= tileSize;
     else if (direction === "down") snakeHeadY += tileSize;
     else if (direction === "left") snakeHeadX -= tileSize;
@@ -75,61 +69,37 @@ function updateGame() {
 
     let snakeHead = { x: snakeHeadX, y: snakeHeadY };
 
-    // Check if the snake eats food, increase size and generate new food
     if (snakeHead.x === foodPosition.x && snakeHead.y === foodPosition.y) {
         generateNewFood();
-        snake.unshift(snakeHead); 
-        score++; 
+        snake.unshift(snakeHead);
+        score++;
     } else {
         snake.unshift(snakeHead);
         snake.pop();
     }
 
-    // Ensure food doesn't spawn inside the snake's body
-    for (let i = 1; i < snake.length; i++) {
-        if (snake[i].x === foodPosition.x && snake[i].y === foodPosition.y) {
-            generateNewFood();
-        }
+    if (snake.some((segment, index) => index > 0 && snakeHead.x === segment.x && snakeHead.y === segment.y)) {
+        endGame();
     }
-
-    // Check for collisions between the snake's head and body
-    for (let i = 1; i < snake.length; i++) {
-        if (snakeHead.x === snake[i].x && snakeHead.y === snake[i].y) {
-            endGame(); 
-        }
-    }
-
-    // Check for collisions with the game board boundaries
-    if (
-        snakeHead.x >= gameCanvas.width || 
-        snakeHead.x < 0 || 
-        snakeHead.y >= gameCanvas.height || 
-        snakeHead.y < tileSize * 3
-    ) {
-        endGame(); 
+    if (snakeHead.x >= gameCanvas.width || snakeHead.x < 0 || snakeHead.y >= gameCanvas.height || snakeHead.y < tileSize * 3) {
+        endGame();
     }
 }
 
-// Renders the game (background, snake, food, and score)
+// Draw game elements
 function drawGame() {
-    // Clear the background canvas
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
     backgroundCtx.fillStyle = "#34358F";
     backgroundCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
-    // Clear the game canvas
     gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-
-    // Draw the score background
     gameCtx.fillStyle = "#2C2C42";
     gameCtx.fillRect(0, 0, gameCanvas.width, tileSize * 3);
 
-    // Display the current score
     gameCtx.fillStyle = "white";
     gameCtx.font = "40px Verdana";
     gameCtx.fillText(score, tileSize, tileSize * 2.25);
 
-    // Draw the food
     gameCtx.beginPath();
     gameCtx.arc(foodPosition.x + (tileSize - 3) / 2, foodPosition.y + (tileSize - 3) / 2, tileSize / 2, 0, 2 * Math.PI);
     gameCtx.fillStyle = "#AE00C2";
@@ -137,24 +107,34 @@ function drawGame() {
     gameCtx.strokeStyle = "white";
     gameCtx.stroke();
 
-    // Draw the snake
     gameCtx.fillStyle = "#181942";
-    for (let i = 0; i < snake.length; i++) {
-        gameCtx.fillRect(snake[i].x, snake[i].y, tileSize, tileSize); 
-        gameCtx.strokeStyle = "white";
-        gameCtx.strokeRect(snake[i].x, snake[i].y, tileSize, tileSize);
-    }
+    snake.forEach(segment => {
+        gameCtx.fillRect(segment.x, segment.y, tileSize, tileSize);
+        gameCtx.strokeRect(segment.x, segment.y, tileSize, tileSize);
+    });
 }
 
-// Ends the game and stops the update loop
+// End the game and reset
 function endGame() {
-    console.log("Game Over");
-    clearInterval(gameLoop); 
-    alert("Game Over! Your final score is: " + score);
-    // Optionally reset the game
+    clearInterval(gameLoop);
+    alert(`Game Over! Your final score is: ${score}`);
+    resetGame();
 }
 
-// Starts the game loop
+// Reset game
+function resetGame() {
+    snake = [
+        { x: 15 * tileSize, y: 19 * tileSize },
+        { x: 16 * tileSize, y: 19 * tileSize },
+        { x: 17 * tileSize, y: 19 * tileSize }
+    ];
+    direction = "left";
+    score = 0;
+    generateNewFood();
+    showMainMenu();
+}
+
+// Game loop
 function startGameLoop() {
     gameLoop = setInterval(() => {
         updateGame();
@@ -162,10 +142,38 @@ function startGameLoop() {
     }, gameSpeed);
 }
 
-
 // === Main Menu Logic ===
+playButton.addEventListener("click", function () {
+    hideElement(mainMenu);
+    showElement(gameBoardContainer);
+    startGameLoop();  
+});
 
+highScoresButton.addEventListener("click", function () {
+    hideElement(mainMenu);
+    showElement(highScoresMenu);
+});
 
+optionsButton.addEventListener("click", function () {
+    hideElement(mainMenu);
+    showElement(optionsMenu);
+});
 
-// Start the game
-startGameLoop();
+backOptionsButton.addEventListener("click", function () {
+    hideElement(optionsMenu);
+    showElement(mainMenu);
+});
+
+backScoresButton.addEventListener("click", function () {
+    hideElement(highScoresMenu);
+    showElement(mainMenu);
+});
+
+// Show main menu at start
+function showMainMenu() {
+    showElement(mainMenu);
+    hideElement(gameBoardContainer);
+}
+
+// Start the game with main menu shown and game loop NOT started
+showMainMenu();
