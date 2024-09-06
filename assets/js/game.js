@@ -1,4 +1,17 @@
 
+//Dom Elements
+const mainMenu = document.getElementById('main-menu');
+const playButton = document.getElementById('play-button');
+const optionButton = document.getElementById('option-button');
+const highScoresButton = document.getElementById('high-socres-button');
+const backOptionButton  = document.getElementById('back-option-button');
+const backScoreButton = document.getElementById('back-scores-button');
+const optionsMenu = document.getElementById("options-menu");
+const highScoresMenu = document.getElementById("high-scores-menu");
+const gameBoardContainer = document.getElementById("game-board-container");
+
+
+
 // Set up background canvas to cover the entire screen
 const backgroundCanvas = document.getElementById("backgroundCanvas");
 backgroundCanvas.width = window.innerWidth;
@@ -148,6 +161,11 @@ function startGameLoop() {
         drawGame();
     }, gameSpeed);
 }
+
+
+// === Main Menu Logic ===
+
+
 
 // Start the game
 startGameLoop();
