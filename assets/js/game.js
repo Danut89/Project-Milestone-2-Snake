@@ -19,6 +19,12 @@ const highScoresMenu = document.getElementById("high-scores-menu");
 const gameBoardContainer = document.getElementById("game-board-container");
 const pauseOverlay = document.getElementById("pause-overlay");
 
+// Get game over elements
+const gameOverOverlay = document.getElementById("game-over-overlay");
+const finalScoreElement = document.getElementById("final-score");
+const restartButton = document.getElementById("restart-button");
+const backToMenuButton = document.getElementById("back-to-menu-button");
+
 // Set up background canvas
 const backgroundCanvas = document.getElementById("backgroundCanvas");
 backgroundCanvas.width = window.innerWidth;
@@ -78,7 +84,6 @@ function resumeGame() {
     isPaused = false;  
     pauseOverlay.style.visibility = "hidden";  
 }
-
 
 
 // Generates a new random position for the food
@@ -143,26 +148,42 @@ function drawGame() {
     });
 }
 
-// End the game and reset
+// End the game and show the game over screen
 function endGame() {
-    clearInterval(gameLoop);
-    alert(`Game Over! Your final score is: ${score}`);
-    resetGame();
+    clearInterval(gameLoop);  // Stop the game loop
+    isPaused = true;
+
+    // Show the game over overlay and display the final score
+    finalScoreElement.textContent = `Your final score is: ${score}`;
+    gameOverOverlay.classList.remove("hidden");  // Remove the 'hidden' class to show the game over screen
 }
 
-// Reset game
+// Reset game function
 function resetGame() {
+    // Reset the snake's position and length
     snake = [
         { x: 15 * tileSize, y: 19 * tileSize },
         { x: 16 * tileSize, y: 19 * tileSize },
         { x: 17 * tileSize, y: 19 * tileSize }
     ];
-    direction = "left";
+    direction = "left";  
     score = 0;
     generateNewFood();
-    showMainMenu();
 }
 
+// Event listener for restart button
+restartButton.addEventListener("click", function () {
+    resetGame();  // Reset the game state
+    gameOverOverlay.classList.add("hidden");  // Add the 'hidden' class to hide the game over screen
+    startGameLoop(); 
+});
+
+
+// Go back to the main menu
+backToMenuButton.addEventListener("click", function () {
+    gameOverOverlay.classList.add("hidden");  // Add the 'hidden' class to hide the game over screen
+    showMainMenu();  // Show the main menu
+});
 // Game loop
 function startGameLoop() {
     gameLoop = setInterval(() => {

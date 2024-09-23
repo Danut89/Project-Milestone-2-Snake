@@ -168,12 +168,43 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white;
+    background: rgba(0, 0, 0, 0.3); 
+    color: rgb(255, 255, 255);
     font-size: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden; /* Initially hidden */
-    z-index: 9999; /* Make sure it's above everything */
+    visibility: hidden; 
+    z-index: 9999; 
+}
+
+#game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#game-over-overlay:not(.hidden) {
+    display: flex; /* Show the game over screen when 'hidden' is removed */
+}
+
+
+
+#game-over-overlay h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+#game-over-overlay #final-score {
+    font-size: 24px;
+    margin-bottom: 30px;
 }
