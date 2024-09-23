@@ -64,9 +64,11 @@ document.addEventListener("keydown", function (event) {
 
 // Toggle between pause and resume
 function togglePauseResume() {
-    if (!isPaused) {
+    if (!isPaused && gameOverOverlay.classList.contains("hidden")) {
+        // Pause the game if it's running
         pauseGame();
-    } else {
+    } else if (isPaused && gameOverOverlay.classList.contains("hidden")) {
+        // Resume the game if it's paused
         resumeGame();
     }
 }
@@ -75,16 +77,27 @@ function togglePauseResume() {
 function pauseGame() {
     clearInterval(gameLoop);  
     isPaused = true;  
-    pauseOverlay.style.visibility = "visible";  
+    pauseOverlay.style.visibility = "visible"; 
 }
 
 // Resume the game
 function resumeGame() {
-    startGameLoop(); 
+    if (!gameOverOverlay.classList.contains("hidden")) return;  // Prevent resuming after game over
+
+    startGameLoop();  
     isPaused = false;  
     pauseOverlay.style.visibility = "hidden";  
 }
 
+// Start the game loop
+function startGameLoop() {
+    if (!isPaused) {
+        gameLoop = setInterval(() => {
+            updateGame();
+            drawGame();
+        }, gameSpeed);
+    }
+}
 
 // Generates a new random position for the food
 let generateNewFood = function () {
