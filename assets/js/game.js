@@ -194,9 +194,20 @@ restartButton.addEventListener("click", function () {
 
 // Go back to the main menu
 backToMenuButton.addEventListener("click", function () {
-    gameOverOverlay.classList.add("hidden");  // Add the 'hidden' class to hide the game over screen
-    showMainMenu();  // Show the main menu
+    // Hide the game over overlay and reset the game state
+    gameOverOverlay.classList.add("hidden");   // Hide game over overlay
+    pauseOverlay.style.visibility = "hidden";  // Hide pause overlay if visible
+
+    // Stop the game loop if it’s running
+    clearInterval(gameLoop);
+    
+    // Reset the game state
+    resetGame();
+    
+    // Return to the main menu
+    showMainMenu();
 });
+
 // Game loop
 function startGameLoop() {
     gameLoop = setInterval(() => {
