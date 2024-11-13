@@ -198,13 +198,23 @@ function drawGame() {
     });
 }
 
-// End the game and show the game over screen
+// When the game ends, save the score to high scores
 function endGame() {
     clearInterval(gameLoop);
     isPaused = true;
     finalScoreElement.textContent = `Your final score is: ${score}`;
     gameOverOverlay.classList.remove("hidden");
+
+    // Save the score to high scores
+    saveHighScore(score);
 }
+
+// Display high scores when the high scores menu is opened
+highScoresButton.addEventListener("click", function () {
+    hideElement(mainMenu);
+    showElement(highScoresMenu);
+    displayHighScores();  // Update high scores display
+});
 
 // Reset game function
 function resetGame() {
@@ -273,3 +283,5 @@ function showMainMenu() {
 
 // Start the game with main menu shown and game loop NOT started
 showMainMenu();
+
+
