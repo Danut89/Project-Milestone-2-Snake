@@ -22,50 +22,40 @@
         </div>
     </section>
 
-   <!-- Game Options -->
-<section id="options-menu" class="menu hidden">
-    <h2 class="menu-title">Options</h2>
-    <div class="options-content">
-        <!-- Left Column for Checkboxes -->
-        <div class="option-group">
-            <label>
-                <input type="checkbox" id="walls-checkbox"> Walls
-            </label>
-            <label>
-                <input type="checkbox" id="audio-checkbox"> Sound
-            </label>
+    <!-- Game Options -->
+    <section id="options-menu" class="menu hidden">
+        <h2 class="menu-title">Options</h2>
+        <div class="options-content">
+            <div class="option-group">
+                <label>
+                    <input type="checkbox" id="walls-checkbox"> Walls
+                </label>
+                <label>
+                    <input type="checkbox" id="audio-checkbox"> Sound
+                </label>
+            </div>
+            <div class="option-group">
+                <label>
+                    <input type="radio" name="speed" value="slow"> Slow
+                </label>
+                <label>
+                    <input type="radio" name="speed" value="medium" checked> Medium
+                </label>
+                <label>
+                    <input type="radio" name="speed" value="fast"> Fast
+                </label>
+            </div>
         </div>
+        <button id="back-options-button" class="menu-button">Back</button>
+    </section>
 
-        <!-- Right Column for Radio Buttons -->
-        <div class="option-group">
-            <label>
-                <input type="radio" name="speed" value="slow"> Slow
-            </label>
-            <label>
-                <input type="radio" name="speed" value="medium" checked> Medium
-            </label>
-            <label>
-                <input type="radio" name="speed" value="fast"> Fast
-            </label>
-        </div>
-    </div>
-
-    <!-- Bottom Buttons -->
-    <div class="button-container">
-        <button id="back-options-button" class="menu-button">Main</button>
-        <button id="high-scores-button" class="menu-button">Scores</button>
-    </div>
-</section>
-
-
-
-     <!-- High Scores Menu -->
-     <section id="high-scores-menu" class="menu hidden">
+    <!-- High Scores Menu -->
+    <section id="high-scores-menu" class="menu hidden">
         <h2>High Scores</h2>
         <ul id="score-list"></ul>
         <button id="back-scores-button" class="menu-button">Back</button>
     </section>
-    
+
     <!-- Game Board -->
     <section id="game-board-container" class="hidden">
         <canvas id="backgroundCanvas"></canvas>
@@ -79,8 +69,13 @@
         </section>
     </section>
 
+    <!-- Audio Elements -->
+    <audio id="eat-sound" src="assets/sounds/mixkit-game-ball-tap-2073.wav" preload="auto"></audio>
+    <audio id="game-over-sound" src="assets/sounds/mixkit-arcade-mechanical-bling-210.wav" preload="auto"></audio>
+
     <!-- JavaScript for the game -->
     <script src="assets/js/game.js"></script>
-    <script src="assets/highscores.js"></script>
+    <script src="assets/js/highscores.js"></script>
 </body>
 </html>
+

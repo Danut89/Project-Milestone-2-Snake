@@ -1,4 +1,5 @@
-// Utility functions to show/hide elements
+// ==================== Utility Functions ==================== //
+
 function hideElement(element) {
     element.classList.add("hidden");
 }
@@ -7,7 +8,9 @@ function showElement(element) {
     element.classList.remove("hidden");
 }
 
-// DOM Elements
+// ==================== DOM Elements ==================== //
+
+// Main Menu and Game Control Elements
 const mainMenu = document.getElementById('main-menu');
 const playButton = document.getElementById('play-button');
 const optionsButton = document.getElementById('options-button');  
@@ -19,26 +22,31 @@ const highScoresMenu = document.getElementById("high-scores-menu");
 const gameBoardContainer = document.getElementById("game-board-container");
 const pauseOverlay = document.getElementById("pause-overlay");
 
-// Get game over elements
+// Game Over Elements
 const gameOverOverlay = document.getElementById("game-over-overlay");
 const finalScoreElement = document.getElementById("final-score");
 const restartButton = document.getElementById("restart-button");
 const backToMenuButton = document.getElementById("back-to-menu-button");
 
-// Set up background canvas
+// Sound Elements
+const eatSound = document.getElementById("eat-sound");
+const gameOverSound = document.getElementById("game-over-sound");
+
+// Canvas Elements
 const backgroundCanvas = document.getElementById("backgroundCanvas");
 backgroundCanvas.width = window.innerWidth;
 backgroundCanvas.height = window.innerHeight;
 let backgroundCtx = backgroundCanvas.getContext("2d");
 
-// Set up game canvas
 const gameCanvas = document.getElementById("gameCanvas");
 gameCanvas.width = 400;
 gameCanvas.height = 460;
 const gameCtx = gameCanvas.getContext("2d");
-const tileSize = 20;
 
-// Initial game state and settings
+
+// ==================== Game Settings and State ==================== //
+
+const tileSize = 20;
 let snake = [
     { x: 15 * tileSize, y: 19 * tileSize },
     { x: 16 * tileSize, y: 19 * tileSize },
@@ -47,23 +55,26 @@ let snake = [
 let foodPosition = { x: Math.floor(Math.random() * 20) * tileSize, y: Math.floor(Math.random() * 20 + 3) * tileSize };
 let score = 0, direction = "left", gameSpeed = 125, lastKey = 0, safeDelay = 130, gameLoop;
 let isPaused = false;
-let soundEnabled = false; // New setting for sound
-let wallsEnabled = false; // New setting for walls
+let soundEnabled = false;
+let wallsEnabled = false;
 
-// Set up listener for walls checkbox
+
+// ==================== Event Listeners ==================== //
+
+// Options Toggle Listeners
 document.getElementById("walls-checkbox").addEventListener("change", function(event) {
     wallsEnabled = event.target.checked;
 });
 
-// Set up listeners for speed radio buttons
+document.getElementById("audio-checkbox").addEventListener("change", function(event) {
+    soundEnabled = event.target.checked;
+});
+
+// Speed Radio Button Listeners
 document.querySelectorAll('input[name="speed"]').forEach((radio) => {
     radio.addEventListener("change", (event) => {
         const selectedSpeed = event.target.value;
-        if (selectedSpeed === "slow") gameSpeed = 200;
-        else if (selectedSpeed === "medium") gameSpeed = 125;
-        else if (selectedSpeed === "fast") gameSpeed = 75;
-
-        // Restart game loop to apply new speed
+        gameSpeed = selectedSpeed === "slow" ? 200 : selectedSpeed === "medium" ? 125 : 75;
         if (!isPaused) {
             clearInterval(gameLoop);
             startGameLoop();
@@ -71,7 +82,7 @@ document.querySelectorAll('input[name="speed"]').forEach((radio) => {
     });
 });
 
-// Keydown listener for snake movement and pause
+// Keydown Listener for Snake Movement and Pause
 document.addEventListener("keydown", function (event) {
     if (Date.now() - lastKey > safeDelay) {
         const newDirection = { 38: "up", 40: "down", 37: "left", 39: "right" }[event.keyCode];
@@ -80,13 +91,13 @@ document.addEventListener("keydown", function (event) {
         }
         lastKey = Date.now();
     }
-    // Pause/Resume when the spacebar is pressed
-    if (event.keyCode === 32) {
-        togglePauseResume();
-    }
+    if (event.keyCode === 32) togglePauseResume();
 });
 
-// Toggle between pause and resume
+
+// ==================== Game Control Functions ==================== //
+
+// Toggle Pause and Resume
 function togglePauseResume() {
     if (!isPaused && gameOverOverlay.classList.contains("hidden")) {
         pauseGame();
@@ -95,14 +106,14 @@ function togglePauseResume() {
     }
 }
 
-// Pause the game
+// Pause Game
 function pauseGame() {
     clearInterval(gameLoop);  
     isPaused = true;  
     pauseOverlay.style.visibility = "visible"; 
 }
 
-// Resume the game
+// Resume Game
 function resumeGame() {
     if (!gameOverOverlay.classList.contains("hidden")) return;
     startGameLoop();
@@ -110,39 +121,54 @@ function resumeGame() {
     pauseOverlay.style.visibility = "hidden";  
 }
 
-// Start the game loop
+// Start Game Loop
 function startGameLoop() {
-    clearInterval(gameLoop); // Clear any existing game loop
+    clearInterval(gameLoop);
     gameLoop = setInterval(() => {
         updateGame();
         drawGame();
     }, gameSpeed);
 }
 
-// Generates a new random position for the food
+// Reset Game
+function resetGame() {
+    snake = [
+        { x: 15 * tileSize, y: 19 * tileSize },
+        { x: 16 * tileSize, y: 19 * tileSize },
+        { x: 17 * tileSize, y: 19 * tileSize }
+    ];
+    direction = "left";  
+    score = 0;
+    generateNewFood();
+    isPaused = false;
+    lastKey = 0;
+    gameOverOverlay.classList.add("hidden");
+    pauseOverlay.style.visibility = "hidden";
+}
+
+
+// ==================== Game Logic ==================== //
+
+// Generate New Food Position
 function generateNewFood() {
     foodPosition = { x: Math.floor(Math.random() * 20) * tileSize, y: Math.floor(Math.random() * 20 + 3) * tileSize };
 }
 
-// Update game state
+// Update Game State
 function updateGame() {
     let snakeHeadX = snake[0].x, snakeHeadY = snake[0].y;
 
-    // Adjust the snake's head position
     if (direction === "up") snakeHeadY -= tileSize;
     else if (direction === "down") snakeHeadY += tileSize;
     else if (direction === "left") snakeHeadX -= tileSize;
     else if (direction === "right") snakeHeadX += tileSize;
 
-    // Handle wall or wrap-around logic based on wallsEnabled
     if (wallsEnabled) {
-        // End game if snake hits the wall
         if (snakeHeadX >= gameCanvas.width || snakeHeadX < 0 || snakeHeadY >= gameCanvas.height || snakeHeadY < tileSize * 3) {
             endGame();
             return;
         }
     } else {
-        // Wrap-around behavior
         if (snakeHeadX >= gameCanvas.width) snakeHeadX = 0;
         if (snakeHeadX < 0) snakeHeadX = gameCanvas.width - tileSize;
         if (snakeHeadY >= gameCanvas.height) snakeHeadY = tileSize * 3;
@@ -151,26 +177,22 @@ function updateGame() {
 
     let snakeHead = { x: snakeHeadX, y: snakeHeadY };
 
-    // Check for food collision
     if (snakeHead.x === foodPosition.x && snakeHead.y === foodPosition.y) {
         generateNewFood();
         snake.unshift(snakeHead);
         score++;
-        if (soundEnabled) {
-            console.log("Play eat sound"); // Placeholder for sound effect
-        }
+        if (soundEnabled) eatSound.play();  // Play eating sound
     } else {
         snake.unshift(snakeHead);
         snake.pop();
     }
 
-    // Check for self-collision
     if (snake.some((segment, index) => index > 0 && snakeHead.x === segment.x && snakeHead.y === segment.y)) {
         endGame();
     }
 }
 
-// Draw game elements
+// Draw Game Elements
 function drawGame() {
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
     backgroundCtx.fillStyle = "#34358F";
@@ -198,56 +220,21 @@ function drawGame() {
     });
 }
 
-// When the game ends, save the score to high scores
+
+// ==================== Game Over Logic ==================== //
+
 function endGame() {
     clearInterval(gameLoop);
     isPaused = true;
     finalScoreElement.textContent = `Your final score is: ${score}`;
     gameOverOverlay.classList.remove("hidden");
-
-    // Save the score to high scores
+    if (soundEnabled) gameOverSound.play();
     saveHighScore(score);
 }
 
-// Display high scores when the high scores menu is opened
-highScoresButton.addEventListener("click", function () {
-    hideElement(mainMenu);
-    showElement(highScoresMenu);
-    displayHighScores();  // Update high scores display
-});
 
-// Reset game function
-function resetGame() {
-    snake = [
-        { x: 15 * tileSize, y: 19 * tileSize },
-        { x: 16 * tileSize, y: 19 * tileSize },
-        { x: 17 * tileSize, y: 19 * tileSize }
-    ];
-    direction = "left";  
-    score = 0;
-    generateNewFood();
-    isPaused = false;
-    lastKey = 0;
-    gameOverOverlay.classList.add("hidden");
-    pauseOverlay.style.visibility = "hidden";
-}
+// ==================== Menu Navigation ==================== //
 
-// Event listener for restart button
-restartButton.addEventListener("click", function () {
-    clearInterval(gameLoop);
-    resetGame();
-    startGameLoop();
-});
-
-// Go back to the main menu
-backToMenuButton.addEventListener("click", function () {
-    clearInterval(gameLoop);
-    resetGame();
-    hideElement(gameBoardContainer);
-    showMainMenu();
-});
-
-// Main Menu Logic
 playButton.addEventListener("click", function () {
     hideElement(mainMenu);
     showElement(gameBoardContainer);
@@ -257,6 +244,8 @@ playButton.addEventListener("click", function () {
 highScoresButton.addEventListener("click", function () {
     hideElement(mainMenu);
     showElement(highScoresMenu);
+
+    displayHighScores();  // Update high scores display
 });
 
 optionsButton.addEventListener("click", function () {
@@ -274,6 +263,21 @@ backScoresButton.addEventListener("click", function () {
     showElement(mainMenu);
 });
 
+restartButton.addEventListener("click", function () {
+    clearInterval(gameLoop);
+    resetGame();
+    startGameLoop();
+});
+
+backToMenuButton.addEventListener("click", function () {
+    clearInterval(gameLoop);
+    resetGame();
+    hideElement(gameBoardContainer);
+    showMainMenu();
+});
+
+
+// ==================== Initial Setup ==================== //
 
 // Show main menu at start
 function showMainMenu() {
@@ -283,5 +287,3 @@ function showMainMenu() {
 
 // Start the game with main menu shown and game loop NOT started
 showMainMenu();
-
-
