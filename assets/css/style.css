@@ -85,6 +85,63 @@ body {
     margin: 10px 0;
 }
 
+/* Style Options Menu Title */
+.menu-title {
+    font-size: 32px;
+    color: #FF69B4;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 10px rgba(255, 105, 180, 0.7);
+}
+
+/* Options Content */
+.options-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+/* Option Groups */
+.option-group {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: 18px;
+    color: white;
+}
+
+/* Label Styling */
+.option-group label {
+    margin-bottom: 10px;
+    color: #FF69B4;
+}
+
+/* Border Between Columns */
+.options-content::before {
+    content: "";
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+}
+
+/* Style Buttons */
+.menu-button {
+    padding: 10px 30px;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: #243b64;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #415A77;
+}
+
+
 /* === High Scores Menu === */
 #high-scores-menu {
     padding: 20px;

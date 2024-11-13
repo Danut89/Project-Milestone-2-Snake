@@ -22,19 +22,42 @@
         </div>
     </section>
 
-    <!-- Game Options -->
-    <section id="options-menu" class="menu hidden">
-        <h2>Options</h2>
-        <div class="options-container">
+   <!-- Game Options -->
+<section id="options-menu" class="menu hidden">
+    <h2 class="menu-title">Options</h2>
+    <div class="options-content">
+        <!-- Left Column for Checkboxes -->
+        <div class="option-group">
             <label>
-                <input type="checkbox" id="walls-checkbox"> Enable Walls
+                <input type="checkbox" id="walls-checkbox"> Walls
             </label>
             <label>
-                <input type="checkbox" id="audio-checkbox"> Enable Audio
+                <input type="checkbox" id="audio-checkbox"> Sound
             </label>
         </div>
-        <button id="back-options-button" class="menu-button">Back</button>
-    </section>
+
+        <!-- Right Column for Radio Buttons -->
+        <div class="option-group">
+            <label>
+                <input type="radio" name="speed" value="slow"> Slow
+            </label>
+            <label>
+                <input type="radio" name="speed" value="medium" checked> Medium
+            </label>
+            <label>
+                <input type="radio" name="speed" value="fast"> Fast
+            </label>
+        </div>
+    </div>
+
+    <!-- Bottom Buttons -->
+    <div class="button-container">
+        <button id="back-options-button" class="menu-button">Main</button>
+        <button id="high-scores-button" class="menu-button">Scores</button>
+    </div>
+</section>
+
+
 
      <!-- High Scores Menu -->
      <section id="high-scores-menu" class="menu hidden">
