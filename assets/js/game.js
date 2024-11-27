@@ -43,6 +43,67 @@ gameCanvas.width = 400;
 gameCanvas.height = 460;
 const gameCtx = gameCanvas.getContext("2d");
 
+// Utility Functions
+const randomNumber = (min, max) => Math.random() * (max - min) + min;
+
+const convertSecondsToHms = (d) => {
+    d = Number(d);
+    let h = Math.floor(d / 3600);
+    let m = Math.floor((d % 3600) / 60);
+    let s = Math.floor((d % 3600) % 60);
+    let hDisplay = h > 0 ? h + (h == 1 ? " hour " : " hours ") : "";
+    let mDisplay = m > 0 ? m + (m == 1 ? " minute " : " minutes ") : "";
+    let sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    return hDisplay + mDisplay + sDisplay;
+};
+
+const dynamicOutput = (ratio) => tileSize * ratio;
+
+// Spark Class Constructor
+class Spark {
+    constructor(x, y, dx, dy, color) {
+        this.x = x;
+        this.y = y;
+        this.dx = dx; // Velocity in x-direction
+        this.dy = dy; // Velocity in y-direction
+        this.radius = randomNumber(2, 5); // Random size for the spark
+        this.color = color; // Color of the spark
+        this.gravity = dynamicOutput(0.02); // Gravity effect
+        this.ttl = 50; // Time to live (frames)
+    }
+
+    draw() {
+        gameCtx.save();
+        gameCtx.beginPath();
+        gameCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        gameCtx.fillStyle = this.color;
+        gameCtx.fill();
+        gameCtx.closePath();
+        gameCtx.restore();
+    }
+
+    update() {
+        this.x += this.dx; // Move the spark horizontally
+        this.y += this.dy; // Move the spark vertically
+        this.dy += this.gravity; // Apply gravity
+        this.ttl--; // Decrease time to live
+        this.draw(); // Render the spark
+    }
+}
+
+// Generate Sparks function
+const sparks = []; // Array to hold all sparks
+
+function generateSparks(x, y) {
+    for (let i = 0; i < 20; i++) { // Create 20 sparks per food eaten
+        const angle = randomNumber(0, Math.PI * 2); // Random direction
+        const speed = randomNumber(1, 3); // Random speed
+        const dx = Math.cos(angle) * speed; // X velocity
+        const dy = Math.sin(angle) * speed; // Y velocity
+        sparks.push(new Spark(x, y, dx, dy, "rgba(255, 255, 0, 1)")); // Add spark to array
+    }
+}
+
 
 // ==================== Game Settings and State ==================== //
 
@@ -178,9 +239,10 @@ function updateGame() {
     let snakeHead = { x: snakeHeadX, y: snakeHeadY };
 
     if (snakeHead.x === foodPosition.x && snakeHead.y === foodPosition.y) {
-        generateNewFood();
-        snake.unshift(snakeHead);
-        score++;
+        generateSparks(foodPosition.x + tileSize / 2, foodPosition.y + tileSize / 2); // Generate sparks
+        generateNewFood(); // Generate a new food position
+        snake.unshift(snakeHead); // Add to snake
+        score++; // Increase the score
         if (soundEnabled) eatSound.play();  // Play eating sound
     } else {
         snake.unshift(snakeHead);
@@ -218,7 +280,16 @@ function drawGame() {
         gameCtx.fillRect(segment.x, segment.y, tileSize, tileSize);
         gameCtx.strokeRect(segment.x, segment.y, tileSize, tileSize);
     });
+
+    // Update and draw sparks
+    sparks.forEach((spark, index) => {
+        spark.update();
+        if (spark.ttl <= 0) {
+            sparks.splice(index, 1); // Remove expired sparks
+        }
+    });
 }
+
 
 
 // ==================== Game Over Logic ==================== //
