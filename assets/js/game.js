@@ -8,6 +8,22 @@ function showElement(element) {
     element.classList.remove("hidden");
 }
 
+// Utility Functions
+const randomNumber = (min, max) => Math.random() * (max - min) + min;
+
+const convertSecondsToHms = (d) => {
+    d = Number(d);
+    let h = Math.floor(d / 3600);
+    let m = Math.floor((d % 3600) / 60);
+    let s = Math.floor((d % 3600) % 60);
+    let hDisplay = h > 0 ? h + (h == 1 ? " hour " : " hours ") : "";
+    let mDisplay = m > 0 ? m + (m == 1 ? " minute " : " minutes ") : "";
+    let sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+    return hDisplay + mDisplay + sDisplay;
+};
+
+const dynamicOutput = (ratio) => tileSize * ratio;
+
 // ==================== DOM Elements ==================== //
 
 // Main Menu and Game Control Elements
@@ -43,68 +59,6 @@ gameCanvas.width = 400;
 gameCanvas.height = 460;
 const gameCtx = gameCanvas.getContext("2d");
 
-// Utility Functions
-const randomNumber = (min, max) => Math.random() * (max - min) + min;
-
-const convertSecondsToHms = (d) => {
-    d = Number(d);
-    let h = Math.floor(d / 3600);
-    let m = Math.floor((d % 3600) / 60);
-    let s = Math.floor((d % 3600) % 60);
-    let hDisplay = h > 0 ? h + (h == 1 ? " hour " : " hours ") : "";
-    let mDisplay = m > 0 ? m + (m == 1 ? " minute " : " minutes ") : "";
-    let sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
-    return hDisplay + mDisplay + sDisplay;
-};
-
-const dynamicOutput = (ratio) => tileSize * ratio;
-
-// Spark Class Constructor
-class Spark {
-    constructor(x, y, dx, dy, color) {
-        this.x = x;
-        this.y = y;
-        this.dx = dx; // Velocity in x-direction
-        this.dy = dy; // Velocity in y-direction
-        this.radius = randomNumber(2, 5); // Random size for the spark
-        this.color = color; // Color of the spark
-        this.gravity = dynamicOutput(0.02); // Gravity effect
-        this.ttl = 50; // Time to live (frames)
-    }
-
-    draw() {
-        gameCtx.save();
-        gameCtx.beginPath();
-        gameCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        gameCtx.fillStyle = this.color;
-        gameCtx.fill();
-        gameCtx.closePath();
-        gameCtx.restore();
-    }
-
-    update() {
-        this.x += this.dx; // Move the spark horizontally
-        this.y += this.dy; // Move the spark vertically
-        this.dy += this.gravity; // Apply gravity
-        this.ttl--; // Decrease time to live
-        this.draw(); // Render the spark
-    }
-}
-
-// Generate Sparks function
-const sparks = []; // Array to hold all sparks
-
-function generateSparks(x, y) {
-    for (let i = 0; i < 20; i++) { // Create 20 sparks per food eaten
-        const angle = randomNumber(0, Math.PI * 2); // Random direction
-        const speed = randomNumber(1, 3); // Random speed
-        const dx = Math.cos(angle) * speed; // X velocity
-        const dy = Math.sin(angle) * speed; // Y velocity
-        sparks.push(new Spark(x, y, dx, dy, "rgba(255, 255, 0, 1)")); // Add spark to array
-    }
-}
-
-
 // ==================== Game Settings and State ==================== //
 
 const tileSize = 20;
@@ -119,6 +73,60 @@ let isPaused = false;
 let soundEnabled = false;
 let wallsEnabled = false;
 
+// Colors
+const sparks = [];
+const colorArray = [
+    "rgba(255, 53, 94, 1)", "rgba(253, 91, 120, 1)", "rgba(255, 96, 55, 1)",
+    "rgba(255, 153, 102, 1)", "rgba(255, 153, 51, 1)", "rgba(255, 204, 51, 1)",
+    "rgba(255, 255, 102, 1)", "rgba(204, 255, 0, 1)", "rgba(102, 255, 102, 1)",
+    "rgba(170, 240, 209, 1)", "rgba(80, 191, 230, 1)"
+];
+
+// Spark Class Constructor
+class Spark {
+    constructor(x, y, dx, dy, color) {
+        this.x = x;
+        this.y = y;
+        this.dx = dx;
+        this.dy = dy;
+        this.radius = randomNumber(2, 5);
+        this.color = color;
+        this.gravity = dynamicOutput(0.02);
+        this.ttl = 50;
+    }
+
+    draw() {
+        gameCtx.save();
+        gameCtx.beginPath();
+        gameCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        gameCtx.fillStyle = this.color;
+        gameCtx.fill();
+        gameCtx.closePath();
+        gameCtx.restore();
+    }
+
+    update() {
+        this.x += this.dx;
+        this.y += this.dy;
+        this.dy += this.gravity;
+        this.ttl--;
+        this.draw();
+    }
+}
+
+// Generate Sparks function
+
+
+function generateSparks(x, y) {
+    const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)]; // Choose one random color for all sparks
+    for (let i = 0; i < 20; i++) { // Create 20 sparks per food eaten
+        const angle = randomNumber(0, Math.PI * 2); // Random direction
+        const speed = randomNumber(1, 3); // Random speed
+        const dx = Math.cos(angle) * speed; // X velocity
+        const dy = Math.sin(angle) * speed; // Y velocity
+        sparks.push(new Spark(x, y, dx, dy, randomColor)); // Assign the same color to all sparks
+    }
+}
 
 // ==================== Event Listeners ==================== //
 
@@ -155,10 +163,8 @@ document.addEventListener("keydown", function (event) {
     if (event.keyCode === 32) togglePauseResume();
 });
 
-
 // ==================== Game Control Functions ==================== //
 
-// Toggle Pause and Resume
 function togglePauseResume() {
     if (!isPaused && gameOverOverlay.classList.contains("hidden")) {
         pauseGame();
@@ -167,14 +173,12 @@ function togglePauseResume() {
     }
 }
 
-// Pause Game
 function pauseGame() {
     clearInterval(gameLoop);  
     isPaused = true;  
     pauseOverlay.style.visibility = "visible"; 
 }
 
-// Resume Game
 function resumeGame() {
     if (!gameOverOverlay.classList.contains("hidden")) return;
     startGameLoop();
@@ -182,7 +186,6 @@ function resumeGame() {
     pauseOverlay.style.visibility = "hidden";  
 }
 
-// Start Game Loop
 function startGameLoop() {
     clearInterval(gameLoop);
     gameLoop = setInterval(() => {
@@ -191,7 +194,6 @@ function startGameLoop() {
     }, gameSpeed);
 }
 
-// Reset Game
 function resetGame() {
     snake = [
         { x: 15 * tileSize, y: 19 * tileSize },
@@ -207,15 +209,18 @@ function resetGame() {
     pauseOverlay.style.visibility = "hidden";
 }
 
-
 // ==================== Game Logic ==================== //
 
 // Generate New Food Position
 function generateNewFood() {
-    foodPosition = { x: Math.floor(Math.random() * 20) * tileSize, y: Math.floor(Math.random() * 20 + 3) * tileSize };
+    foodPosition = { 
+        x: Math.floor(Math.random() * 20) * tileSize, 
+        y: Math.floor(Math.random() * 20 + 3) * tileSize 
+    };
+    foodColor = colorArray[Math.floor(Math.random() * colorArray.length)]; // Randomly choose a new color for the food
 }
 
-// Update Game State
+
 function updateGame() {
     let snakeHeadX = snake[0].x, snakeHeadY = snake[0].y;
 
@@ -239,11 +244,11 @@ function updateGame() {
     let snakeHead = { x: snakeHeadX, y: snakeHeadY };
 
     if (snakeHead.x === foodPosition.x && snakeHead.y === foodPosition.y) {
-        generateSparks(foodPosition.x + tileSize / 2, foodPosition.y + tileSize / 2); // Generate sparks
-        generateNewFood(); // Generate a new food position
-        snake.unshift(snakeHead); // Add to snake
-        score++; // Increase the score
-        if (soundEnabled) eatSound.play();  // Play eating sound
+        generateSparks(foodPosition.x + tileSize / 2, foodPosition.y + tileSize / 2);
+        generateNewFood();
+        snake.unshift(snakeHead);
+        score++;
+        if (soundEnabled) eatSound.play();
     } else {
         snake.unshift(snakeHead);
         snake.pop();
@@ -254,7 +259,6 @@ function updateGame() {
     }
 }
 
-// Draw Game Elements
 function drawGame() {
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
     backgroundCtx.fillStyle = "#34358F";
@@ -281,18 +285,12 @@ function drawGame() {
         gameCtx.strokeRect(segment.x, segment.y, tileSize, tileSize);
     });
 
-    // Update and draw sparks
+    // Draw and update sparks
     sparks.forEach((spark, index) => {
         spark.update();
-        if (spark.ttl <= 0) {
-            sparks.splice(index, 1); // Remove expired sparks
-        }
+        if (spark.ttl <= 0) sparks.splice(index, 1);
     });
 }
-
-
-
-// ==================== Game Over Logic ==================== //
 
 function endGame() {
     clearInterval(gameLoop);
@@ -300,9 +298,7 @@ function endGame() {
     finalScoreElement.textContent = `Your final score is: ${score}`;
     gameOverOverlay.classList.remove("hidden");
     if (soundEnabled) gameOverSound.play();
-    saveHighScore(score);
 }
-
 
 // ==================== Menu Navigation ==================== //
 
@@ -357,14 +353,11 @@ backToMenuButton.addEventListener("click", function () {
     showMainMenu();
 });
 
-
 // ==================== Initial Setup ==================== //
 
-// Show main menu at start
 function showMainMenu() {
     showElement(mainMenu);
     hideElement(gameBoardContainer);
 }
 
-// Start the game with main menu shown and game loop NOT started
 showMainMenu();
