@@ -241,11 +241,21 @@ playButton.addEventListener("click", function () {
     startGameLoop();  
 });
 
+const optionsPlayButton = document.getElementById("options-play-button");
+optionsPlayButton.addEventListener("click", function () {
+    hideElement(optionsMenu);
+
+    showElement(gameBoardContainer);
+    resetGame();
+    startGameLoop();
+});
+
+
 highScoresButton.addEventListener("click", function () {
     hideElement(mainMenu);
     showElement(highScoresMenu);
 
-    displayHighScores();  // Update high scores display
+    displayHighScores();
 });
 
 optionsButton.addEventListener("click", function () {
