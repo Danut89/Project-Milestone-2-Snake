@@ -8,9 +8,10 @@ function showElement(element) {
     element.classList.remove("hidden");
 }
 
-// Utility Functions
+// Generate a random number between min and max
 const randomNumber = (min, max) => Math.random() * (max - min) + min;
 
+// Convert seconds into HH:MM:SS format
 const convertSecondsToHms = (d) => {
     d = Number(d);
     let h = Math.floor(d / 3600);
@@ -22,11 +23,12 @@ const convertSecondsToHms = (d) => {
     return hDisplay + mDisplay + sDisplay;
 };
 
+// Calculate dynamic output based on tile size
 const dynamicOutput = (ratio) => tileSize * ratio;
 
 // ==================== DOM Elements ==================== //
 
-// Main Menu and Game Control Elements
+// Menu and game control elements
 const mainMenu = document.getElementById('main-menu');
 const playButton = document.getElementById('play-button');
 const optionsButton = document.getElementById('options-button');  
@@ -38,17 +40,17 @@ const highScoresMenu = document.getElementById("high-scores-menu");
 const gameBoardContainer = document.getElementById("game-board-container");
 const pauseOverlay = document.getElementById("pause-overlay");
 
-// Game Over Elements
+// Game Over elements
 const gameOverOverlay = document.getElementById("game-over-overlay");
 const finalScoreElement = document.getElementById("final-score");
 const restartButton = document.getElementById("restart-button");
 const backToMenuButton = document.getElementById("back-to-menu-button");
 
-// Sound Elements
+// Sound elements
 const eatSound = document.getElementById("eat-sound");
 const gameOverSound = document.getElementById("game-over-sound");
 
-// Canvas Elements
+// Canvas elements
 const backgroundCanvas = document.getElementById("backgroundCanvas");
 backgroundCanvas.width = window.innerWidth;
 backgroundCanvas.height = window.innerHeight;
@@ -68,12 +70,13 @@ let snake = [
     { x: 17 * tileSize, y: 19 * tileSize }
 ];
 let foodPosition = { x: Math.floor(Math.random() * 20) * tileSize, y: Math.floor(Math.random() * 20 + 3) * tileSize };
+let foodColor = null;
 let score = 0, direction = "left", gameSpeed = 125, lastKey = 0, safeDelay = 130, gameLoop;
 let isPaused = false;
 let soundEnabled = false;
 let wallsEnabled = false;
 
-// Colors
+// Colors and sparks
 const sparks = [];
 const colorArray = [
     "rgba(255, 53, 94, 1)", "rgba(253, 91, 120, 1)", "rgba(255, 96, 55, 1)",
@@ -82,7 +85,9 @@ const colorArray = [
     "rgba(170, 240, 209, 1)", "rgba(80, 191, 230, 1)"
 ];
 
-// Spark Class Constructor
+// ==================== Spark Class and Generation ==================== //
+
+// Spark class for creating animated effects
 class Spark {
     constructor(x, y, dx, dy, color) {
         this.x = x;
@@ -92,7 +97,7 @@ class Spark {
         this.radius = randomNumber(2, 5);
         this.color = color;
         this.gravity = dynamicOutput(0.02);
-        this.ttl = 50;
+        this.ttl = 50; // Time to live for each spark
     }
 
     draw() {
@@ -114,23 +119,21 @@ class Spark {
     }
 }
 
-// Generate Sparks function
-
-
+// Generate sparks at the given position
 function generateSparks(x, y) {
-    const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)]; // Choose one random color for all sparks
-    for (let i = 0; i < 20; i++) { // Create 20 sparks per food eaten
-        const angle = randomNumber(0, Math.PI * 2); // Random direction
-        const speed = randomNumber(1, 3); // Random speed
-        const dx = Math.cos(angle) * speed; // X velocity
-        const dy = Math.sin(angle) * speed; // Y velocity
-        sparks.push(new Spark(x, y, dx, dy, randomColor)); // Assign the same color to all sparks
+    const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+    for (let i = 0; i < 20; i++) {
+        const angle = randomNumber(0, Math.PI * 2);
+        const speed = randomNumber(1, 3);
+        const dx = Math.cos(angle) * speed;
+        const dy = Math.sin(angle) * speed;
+        sparks.push(new Spark(x, y, dx, dy, randomColor));
     }
 }
 
 // ==================== Event Listeners ==================== //
 
-// Options Toggle Listeners
+// Toggle options for walls and audio
 document.getElementById("walls-checkbox").addEventListener("change", function(event) {
     wallsEnabled = event.target.checked;
 });
@@ -139,7 +142,7 @@ document.getElementById("audio-checkbox").addEventListener("change", function(ev
     soundEnabled = event.target.checked;
 });
 
-// Speed Radio Button Listeners
+// Adjust game speed
 document.querySelectorAll('input[name="speed"]').forEach((radio) => {
     radio.addEventListener("change", (event) => {
         const selectedSpeed = event.target.value;
@@ -151,7 +154,7 @@ document.querySelectorAll('input[name="speed"]').forEach((radio) => {
     });
 });
 
-// Keydown Listener for Snake Movement and Pause
+// Movement and pause controls
 document.addEventListener("keydown", function (event) {
     if (Date.now() - lastKey > safeDelay) {
         const newDirection = { 38: "up", 40: "down", 37: "left", 39: "right" }[event.keyCode];
@@ -165,6 +168,7 @@ document.addEventListener("keydown", function (event) {
 
 // ==================== Game Control Functions ==================== //
 
+// Pause and resume game
 function togglePauseResume() {
     if (!isPaused && gameOverOverlay.classList.contains("hidden")) {
         pauseGame();
@@ -211,16 +215,16 @@ function resetGame() {
 
 // ==================== Game Logic ==================== //
 
-// Generate New Food Position
+// Generate new food at a random position with a random color
 function generateNewFood() {
     foodPosition = { 
         x: Math.floor(Math.random() * 20) * tileSize, 
         y: Math.floor(Math.random() * 20 + 3) * tileSize 
     };
-    foodColor = colorArray[Math.floor(Math.random() * colorArray.length)]; // Randomly choose a new color for the food
+    foodColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 }
 
-
+// Update game state
 function updateGame() {
     let snakeHeadX = snake[0].x, snakeHeadY = snake[0].y;
 
@@ -259,6 +263,7 @@ function updateGame() {
     }
 }
 
+// Draw all game elements
 function drawGame() {
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
     backgroundCtx.fillStyle = "#34358F";
@@ -274,7 +279,7 @@ function drawGame() {
 
     gameCtx.beginPath();
     gameCtx.arc(foodPosition.x + (tileSize - 3) / 2, foodPosition.y + (tileSize - 3) / 2, tileSize / 2, 0, 2 * Math.PI);
-    gameCtx.fillStyle = "#AE00C2";
+    gameCtx.fillStyle = foodColor;
     gameCtx.fill();
     gameCtx.strokeStyle = "white";
     gameCtx.stroke();
@@ -292,6 +297,7 @@ function drawGame() {
     });
 }
 
+// End the game
 function endGame() {
     clearInterval(gameLoop);
     isPaused = true;
@@ -316,7 +322,6 @@ optionsPlayButton.addEventListener("click", function () {
     resetGame();
     startGameLoop();
 });
-
 
 highScoresButton.addEventListener("click", function () {
     hideElement(mainMenu);
@@ -355,9 +360,11 @@ backToMenuButton.addEventListener("click", function () {
 
 // ==================== Initial Setup ==================== //
 
+// Show main menu at the start
 function showMainMenu() {
     showElement(mainMenu);
     hideElement(gameBoardContainer);
 }
 
 showMainMenu();
+
