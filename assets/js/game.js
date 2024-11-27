@@ -97,7 +97,7 @@ class Spark {
         this.radius = randomNumber(2, 5);
         this.color = color;
         this.gravity = dynamicOutput(0.02);
-        this.ttl = 50; // Time to live for each spark
+        this.ttl = 10; // Time to live for each spark
     }
 
     draw() {
@@ -114,7 +114,7 @@ class Spark {
         this.x += this.dx;
         this.y += this.dy;
         this.dy += this.gravity;
-        this.ttl--;
+        this.ttl -= 2;
         this.draw();
     }
 }
