@@ -324,6 +324,8 @@ function drawGame() {
 // End the game
 function endGame() {
     clearInterval(gameLoop);
+    saveHighScore(score); // Save the current score
+    displayHighScores();  // Immediately update the displayed high scores
     isPaused = true;
     finalScoreElement.textContent = `Your final score is: ${score}`;
     gameOverOverlay.classList.remove("hidden");
