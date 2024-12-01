@@ -88,10 +88,12 @@ body {
 
 /* ==================== Options Menu ==================== */
 #options-menu {
-    padding: 25px;
-    background: #2f3640; /* Dark slate */
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
+    padding: 20px; /* Added padding for spacing */
+    border-radius: 15px; /* Added rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
 }
 
 .menu-title {
@@ -123,10 +125,12 @@ body {
 
 /* ==================== High Scores Menu ==================== */
 #high-scores-menu {
-    padding: 25px;
-    background: #2f3640;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
+    padding: 20px; /* Added padding for spacing */
+    border-radius: 15px; /* Added rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
 }
 
 #high-scores-menu ul {
