@@ -45,6 +45,9 @@ const gameOverOverlay = document.getElementById("game-over-overlay");
 const finalScoreElement = document.getElementById("final-score");
 const restartButton = document.getElementById("restart-button");
 const backToMenuButton = document.getElementById("back-to-menu-button");
+const buttonSound = document.getElementById("button-sound");
+
+
 
 // Sound elements
 const eatSound = document.getElementById("eat-sound");
@@ -153,6 +156,13 @@ document.getElementById("walls-checkbox").addEventListener("change", function (e
 
 document.getElementById("audio-checkbox").addEventListener("change", function(event) {
     soundEnabled = event.target.checked;
+});
+
+document.querySelectorAll(".menu-button").forEach((button) => {
+    button.addEventListener("click", () => {
+        buttonSound.currentTime = 0;
+        buttonSound.play();
+    });
 });
 
 // Adjust game speed
