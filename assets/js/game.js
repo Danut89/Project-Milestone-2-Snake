@@ -87,49 +87,56 @@ const colorArray = [
 
 // ==================== Spark Class and Generation ==================== //
 
-// Spark class for creating animated effects
+// Spark Class Constructor
 class Spark {
     constructor(x, y, dx, dy, color) {
-        this.x = x;
-        this.y = y;
-        this.dx = dx;
-        this.dy = dy;
-        this.radius = randomNumber(2, 5);
-        this.color = color;
-        this.gravity = dynamicOutput(0.02);
-        this.ttl = 10; // Time to live for each spark
+        this.x = x; // Initial x position
+        this.y = y; // Initial y position
+        this.dx = dx; // Horizontal velocity for spread
+        this.dy = dy; // Vertical velocity
+        this.radius = randomNumber(2, 5); // Random size
+        this.color = color; // Spark color
+        this.gravity = 10; // Gravity effect for smoother fall
+        this.friction = 1; // Friction to slow down horizontal motion
+        this.ttl = 30; // Time to live (frames)
+        this.opacity = 1; // Opacity for fading effect
     }
 
     draw() {
         gameCtx.save();
         gameCtx.beginPath();
         gameCtx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-        gameCtx.fillStyle = this.color;
+        gameCtx.fillStyle = this.color.replace("1)", `${this.opacity})`); // Adjust opacity
         gameCtx.fill();
         gameCtx.closePath();
         gameCtx.restore();
     }
 
     update() {
-        this.x += this.dx;
-        this.y += this.dy;
-        this.dy += this.gravity;
-        this.ttl -= 2;
-        this.draw();
+        this.x += this.dx; // Apply horizontal velocity
+        this.y += this.dy; // Apply vertical velocity
+        this.dy += this.gravity; // Simulate gravity
+        this.dx *= this.friction; // Apply friction to horizontal motion
+        this.ttl--; // Reduce time to live
+        this.opacity -= 1 / this.ttl; // Gradually decrease opacity
+        this.draw(); // Draw the spark
     }
 }
 
-// Generate sparks at the given position
+// Generate Sparks Function
 function generateSparks(x, y) {
-    const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
-    for (let i = 0; i < 20; i++) {
-        const angle = randomNumber(0, Math.PI * 2);
-        const speed = randomNumber(1, 3);
-        const dx = Math.cos(angle) * speed;
-        const dy = Math.sin(angle) * speed;
-        sparks.push(new Spark(x, y, dx, dy, randomColor));
+    const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)]; // Random color for all sparks
+    for (let i = 0; i < 30; i++) { // Increase number of sparks for a fuller effect
+        const angle = Math.random() * 2 * Math.PI; // Random direction
+        const speed = randomNumber(1, 3); // Random speed for movement
+        const dx = Math.cos(angle) * speed; // Horizontal velocity
+        const dy = Math.sin(angle) * speed; // Vertical velocity
+        sparks.push(new Spark(x, y, dx, dy, randomColor)); // Add spark with adjusted behavior
     }
 }
+
+
+
 
 // ==================== Event Listeners ==================== //
 
@@ -290,10 +297,11 @@ function drawGame() {
         gameCtx.strokeRect(segment.x, segment.y, tileSize, tileSize);
     });
 
+
     // Draw and update sparks
     sparks.forEach((spark, index) => {
         spark.update();
-        if (spark.ttl <= 0) sparks.splice(index, 1);
+        if (spark.ttl <= 0 || spark.opacity <= 0) sparks.splice(index, 1); // Remove spark if time to live or opacity is 0
     });
 }
 
