@@ -378,3 +378,42 @@ h2 {
         font-size: 18px;
     }
 }
+
+/* ==================== Pause Overlay for Mobile ==================== */
+@media (max-width: 768px) {
+    #pause-overlay {
+        padding: 20px;
+        font-size: 32px; /* Reduce font size for mobile */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #pause-overlay h1 {
+        font-size: 40px; /* Slightly larger title for mobile */
+        margin-bottom: 15px;
+    }
+
+    #pause-overlay p {
+        font-size: 20px; /* Smaller text for instructions */
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
+
+    .options-button, .quit-button {
+        width: 80%; /* Make buttons full width for mobile */
+        padding: 16px;
+        font-size: 18px; /* Slightly smaller text for buttons */
+        margin: 8px 0;
+    }
+
+    .options-button:hover, .quit-button:hover {
+        transform: scale(1.05); /* Slight hover effect */
+    }
+
+    .options-button:active, .quit-button:active {
+        transform: scale(0.95);
+    }
+}
