@@ -1,48 +1,60 @@
 /* ==================== Global Styles ==================== */
 body {
-    background: linear-gradient(135deg, #1e2746, #141824); /* Gradient background */
+    background-image: url(../images/wp3906251-snake-game-wallpapers.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: 'Poppins', sans-serif; /* Modern font */
-    color: #e4e4eb;
+    color: #ffffff;
+    
 }
 
 /* ==================== Menu Container ==================== */
 .menu-container {
     text-align: center;
     margin-top: 40px;
+    background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
+    padding: 20px; /* Added padding for spacing */
+    border-radius: 15px; /* Added rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
 }
 
 .game-title {
     font-size: 56px;
-    color: #6C5CE7; /* Soft purple */
-    text-shadow: 0px 0px 15px rgba(108, 92, 231, 0.9); /* Brighter glow */
+    color: #fbc531; /* Changed to bright yellow for visual impact */
+    text-shadow: 0px 0px 20px rgba(251, 197, 49, 0.8); /* Added glow for prominence */
     margin-bottom: 30px;
-    font-weight: 700;
+    font-weight: 800; /* Increased weight for bold appearance */
     letter-spacing: 2px;
 }
 
 .game-instructions {
     font-size: 20px;
-    color: #dfe6e9;
+    color: #dfe6e9; /* Softened white for contrast */
     margin: 15px 0;
+    line-height: 1.6; /* Added line spacing for readability */
 }
 
 .highlighted {
-    color: #f9ca24; /* Bright yellow */
+    color: #00cec9; /* Changed to bright teal for emphasis */
+    font-weight: bold;
+    text-shadow: 0px 0px 8px rgba(0, 206, 201, 0.8); /* Added glow */
 }
 
 .messy {
-    color: #e17055; /* Warm red */
-    text-shadow: 0px 0px 10px rgba(225, 112, 85, 0.8);
+    color: #e17055;
+    text-shadow: 0px 0px 10px rgba(225, 112, 85, 0.8); /* Enhanced glow effect */
 }
 
 .button-container {
     margin-top: 30px;
 }
+
 
 /* ==================== Buttons ==================== */
 .menu-button {
@@ -53,16 +65,16 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(145deg, #6c5ce7, #4834d4); /* Gradient button */
-    color: #f5f6fa;
+    background: linear-gradient(145deg, #fbc531, #e1b12c); /* Changed gradient to match title color */
+    color: #2f3640; /* Changed text to dark for better contrast */
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
-    box-shadow: 0 6px 15px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 6px 15px rgba(251, 197, 49, 0.4); /* Updated shadow to match yellow tones */
 }
 
 .menu-button:hover {
-    background: linear-gradient(145deg, #8e7bf5, #6c5ce7);
+    background: linear-gradient(145deg, #ffd32a, #fbc531); /* Updated hover effect */
     transform: scale(1.07);
-    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
+    box-shadow: 0 8px 20px rgba(251, 197, 49, 0.6); /* Enhanced hover shadow */
 }
 
 .menu-button:active {
@@ -149,10 +161,10 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(145deg, #2b324a, #232837); /* Subtle gradient */
+    background: rgba(0, 0, 0, 0.7); /* Added semi-transparent dark background */
     padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 20px; /* Added rounded corners */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
     position: relative;
 }
 
@@ -168,7 +180,7 @@ h2 {
 }
 
 #gameCanvas {
-    background: linear-gradient(145deg, #1e283d, #101221); /* Stylish gradient */
+    background: rgba(0, 0, 0, 0.8); /* Changed to darker background for better focus */
     border-radius: 15px;
     border: 3px solid #141a29;
     display: block;
@@ -224,8 +236,9 @@ h2 {
 #game-over-overlay #final-score {
     font-size: 26px;
     margin-bottom: 30px;
-    color: #fbc531; /* Bright yellow for emphasis */
+    color: #fbc531; /* Highlighted bright yellow for emphasis */
 }
+
 
 /* ==================== Game Over Buttons ==================== */
 #game-over-overlay button {
@@ -235,19 +248,39 @@ h2 {
     cursor: pointer;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(145deg, #6c5ce7, #4834d4);
-    color: #f5f6fa;
+    background: linear-gradient(145deg, #fbc531, #e1b12c); /* Changed gradient to match title */
+    color: #2f3640; /* Updated text color for contrast */
     transition: background 0.3s ease, transform 0.2s, box-shadow 0.3s ease;
     margin: 12px;
-    box-shadow: 0 6px 15px rgba(108, 92, 231, 0.4);
+    box-shadow: 0 6px 15px rgba(251, 197, 49, 0.4); /* Enhanced shadow for prominence */
 }
 
 #game-over-overlay button:hover {
-    background: linear-gradient(145deg, #8e7bf5, #6c5ce7);
+    background: linear-gradient(145deg, #ffd32a, #fbc531); /* Updated hover gradient */
     transform: scale(1.07);
-    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.6);
+    box-shadow: 0 8px 20px rgba(251, 197, 49, 0.6); /* Enhanced hover effect */
 }
 
 #game-over-overlay button:active {
     transform: scale(0.95);
+}
+
+/* Game Board with Walls */
+#gameCanvas.walls-enabled {
+    border: 4px solid #f9ca24; /* Bright yellow border */
+    box-shadow: 0 0 10px #f9ca24; /* Glow effect for visibility */
+    animation: pulseBorder 1s infinite; /* Optional pulse animation */
+}
+
+/* Pulse Animation */
+@keyframes pulseBorder {
+    0% {
+        box-shadow: 0 0 10px #f9ca24;
+    }
+    50% {
+        box-shadow: 0 0 20px #f9ca24;
+    }
+    100% {
+        box-shadow: 0 0 10px #f9ca24;
+    }
 }

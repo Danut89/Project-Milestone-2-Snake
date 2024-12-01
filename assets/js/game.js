@@ -141,8 +141,14 @@ function generateSparks(x, y) {
 // ==================== Event Listeners ==================== //
 
 // Toggle options for walls and audio
-document.getElementById("walls-checkbox").addEventListener("change", function(event) {
+document.getElementById("walls-checkbox").addEventListener("change", function (event) {
     wallsEnabled = event.target.checked;
+    const gameCanvas = document.getElementById("gameCanvas");
+    if (wallsEnabled) {
+        gameCanvas.classList.add("walls-enabled");
+    } else {
+        gameCanvas.classList.remove("walls-enabled");
+    }
 });
 
 document.getElementById("audio-checkbox").addEventListener("change", function(event) {
