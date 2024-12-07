@@ -74,7 +74,7 @@ const hammer = new Hammer(document.body);
 // Configure Hammer.js for swipe gestures and multi-touch
 hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 hammer.get('tap').set({ taps: 1 });
-hammer.get('pinch').set({ enable: true });
+hammer.get('doubletap').set({ taps: 2 }); // Enable double-tap detection
 
 
 // ==================== Game Settings and State ==================== //
@@ -217,14 +217,11 @@ hammer.on('panleft panright panup pandown', (event) => {
 });
 // ==================== Game Control Functions ==================== //
 
-// Handle two-finger tap for pause and resume
-hammer.on('tap', (event) => {
-    if (event.pointers.length === 2) { // Detect two fingers
-        if (isPaused) {
-            resumeGame(); // Resume the game
-        } else {
-            pauseGame(); // Pause the game
-        }
+hammer.on('doubletap', (event) => {
+    if (isPaused) {
+        resumeGame(); // Resume the game
+    } else {
+        pauseGame(); // Pause the game
     }
 });
 
