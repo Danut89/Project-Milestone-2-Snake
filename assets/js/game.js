@@ -39,7 +39,7 @@ const optionsMenu = document.getElementById("options-menu");
 const highScoresMenu = document.getElementById("high-scores-menu");
 const gameBoardContainer = document.getElementById("game-board-container");
 const pauseOverlay = document.getElementById("pause-overlay");
-const optionsButtonPause = document.querySelector('.options-button');
+const pauseRestartButton = document.getElementById("pause-restart-button");
 const quitButtonPause = document.querySelector('.quit-button');
 
 // Game Over elements
@@ -407,10 +407,10 @@ backToMenuButton.addEventListener("click", function () {
     showMainMenu();
 });
 
-optionsButtonPause.addEventListener("click", function () {
-    hideElement(mainMenu);
-    hideElement(gameBoardContainer);
-    showElement(optionsMenu);
+pauseRestartButton.addEventListener("click", function () {
+    clearInterval(gameLoop); // Stop the current game loop
+    resetGame(); // Reset the game state
+    startGameLoop(); // Start a new game loop
 });
 
 quitButtonPause.addEventListener("click", function () {
