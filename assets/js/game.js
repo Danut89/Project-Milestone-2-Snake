@@ -47,11 +47,12 @@ const gameOverOverlay = document.getElementById("game-over-overlay");
 const finalScoreElement = document.getElementById("final-score");
 const restartButton = document.getElementById("restart-button");
 const backToMenuButton = document.getElementById("back-to-menu-button");
-const buttonSound = document.getElementById("button-sound");
+
 
 
 
 // Sound elements
+const buttonSound = document.getElementById("button-sound");
 const eatSound = document.getElementById("eat-sound");
 const gameOverSound = document.getElementById("game-over-sound");
 
@@ -301,6 +302,14 @@ function drawGame() {
     gameCtx.fillStyle = "white";
     gameCtx.font = "40px Verdana";
     gameCtx.fillText(score, tileSize, tileSize * 2.25);
+
+    // Draw the border underneath the header
+    if (wallsEnabled) {
+    gameCtx.fillStyle = "#f9ca24"; // Yellow border when walls are enabled
+    } else {
+    gameCtx.fillStyle ="#00ffcc"; // Match the header background color when walls are disabled
+    }
+    gameCtx.fillRect(0, tileSize * 3, gameCanvas.width, 4); // Draw the border
 
     gameCtx.beginPath();
     gameCtx.arc(foodPosition.x + (tileSize - 3) / 2, foodPosition.y + (tileSize - 3) / 2, tileSize / 2, 0, 2 * Math.PI);

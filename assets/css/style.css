@@ -185,11 +185,7 @@ h2 {
 
 #gameCanvas {
     background: linear-gradient(to right, #2b5876, #4e4376);
-
-
-
-
-    border: 3px solid #00ffcc; /* Neon green border */
+    border: 5px solid #00ffcc; /* Neon green border */
     display: block;
     position: relative;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
