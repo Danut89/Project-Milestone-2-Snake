@@ -37,7 +37,7 @@ To get started, clone the repository and open the `index.html` file in your brow
 
 ## 🐛 Bug Section
 
-### Bug: Missing Top Border When Walls Are Enabled
+### 1. Bug: Missing Top Border When Walls Are Enabled
 **Description:**  
 When the "Walls" option was enabled, a yellow border was displayed around the game area to indicate the walls. However, the top border (directly beneath the score header) was missing, causing the wall to appear incomplete.
 
@@ -80,4 +80,61 @@ if (wallsEnabled) {
     gameCtx.fillStyle = "#2C2C42"; // Green neon background color for walls disabled
 }
 gameCtx.fillRect(0, tileSize * 3, gameCanvas.width, 3); // Draw the border
+```
+
+### 2. Bug: Food Overlapping Snake
+**Description:**  
+The food sometimes spawned on a segment of the snake’s body, making it impossible for the player to collect it. This resulted in a frustrating gameplay experience.
+
+---
+
+#### Steps to Reproduce:
+1. Play the game until the snake grows larger.
+2. Observe that food may occasionally spawn on top of the snake's body.
+
+---
+
+#### Cause:
+The function responsible for generating the food position (`generateNewFood`) did not check if the generated position overlapped with the snake’s segments.
+
+---
+
+#### Resolution:
+To fix this issue:
+1. Added a **check for overlap** between the food position and the snake's body.
+2. Used a `do...while` loop to ensure the food position is valid (not overlapping) before assigning it.
+
+---
+
+#### Relevant Code Snippet:
+**Before Fixing:**
+```javascript
+function generateNewFood() {
+    foodPosition = { 
+        x: Math.floor(Math.random() * 20) * tileSize, 
+        y: Math.floor(Math.random() * 20 + 3) * tileSize 
+    };
+    foodColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+}
+```
+**After Fixing:**
+```javascript
+function generateNewFood() {
+    let isOverlapping;
+
+    do {
+        // Generate random food position
+        foodPosition = { 
+            x: Math.floor(Math.random() * 20) * tileSize, 
+            y: Math.floor(Math.random() * 20 + 3) * tileSize 
+        };
+
+        // Check if food position overlaps with the snake
+        isOverlapping = snake.some(segment => segment.x === foodPosition.x && segment.y === foodPosition.y);
+
+    } while (isOverlapping); // Repeat until a valid position is found
+
+    // Assign a random color to the food
+    foodColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+}
 ```

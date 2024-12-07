@@ -243,12 +243,24 @@ function resetGame() {
 
 // Generate new food at a random position with a random color
 function generateNewFood() {
-    foodPosition = { 
-        x: Math.floor(Math.random() * 20) * tileSize, 
-        y: Math.floor(Math.random() * 20 + 3) * tileSize 
-    };
+    let isOverlapping;
+
+    do {
+        // Generate random food position
+        foodPosition = { 
+            x: Math.floor(Math.random() * 20) * tileSize, 
+            y: Math.floor(Math.random() * 20 + 3) * tileSize 
+        };
+
+        // Check if food position overlaps with the snake
+        isOverlapping = snake.some(segment => segment.x === foodPosition.x && segment.y === foodPosition.y);
+
+    } while (isOverlapping); // Repeat until a valid position is found
+
+    // Assign a random color to the food
     foodColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 }
+
 
 // Update game state
 function updateGame() {
