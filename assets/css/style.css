@@ -248,20 +248,56 @@ h2 {
 
 
 
-/* Game Board with Walls */
+
+/* ==================== Game board with walls ==================== */
 #gameCanvas.walls-enabled {
     border: 4px solid #f9ca24;
     box-shadow: 0 0 10px #f9ca24; 
 }
 
 
+/* ==================== Align form elements ==================== */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px; 
+    width: 20px; 
+    height: 20px; 
+    display: flex;
+}
+
+/* Align labels to be on the same line as the radio button/checkbox */
+label {
+    display: flex;
+    margin-bottom: 10px; 
+    vertical-align: middle;
+}
+
+/* Create a better structure for the radio buttons and checkboxes */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.radio-group, .checkbox-group {
+    margin-bottom: 10px;
+}
+
+
 /* ==================== Mobile Styles ==================== */
 @media (max-width: 768px) {
-    /* Stack the buttons vertically */
     .button-container {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center buttons horizontally */
+        align-items: center; 
         margin-top: 20px;
     }
 
@@ -345,3 +381,5 @@ h2 {
         background-position: 10% center; /* Focus on the left side of the image */
     }
 }
+
+

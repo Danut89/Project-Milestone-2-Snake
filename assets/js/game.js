@@ -48,9 +48,6 @@ const finalScoreElement = document.getElementById("final-score");
 const restartButton = document.getElementById("restart-button");
 const backToMenuButton = document.getElementById("back-to-menu-button");
 
-
-
-
 // Sound elements
 const buttonSound = document.getElementById("button-sound");
 const eatSound = document.getElementById("eat-sound");
@@ -67,15 +64,15 @@ gameCanvas.width = 400;
 gameCanvas.height = 460;
 const gameCtx = gameCanvas.getContext("2d");
 
+// ==================== Hammer.js Configuration ==================== //
+
 // Initialize Hammer.js on the game canvas
-const gameCanvasElement = document.getElementById("gameCanvas");
 const hammer = new Hammer(document.body);
 
 // Configure Hammer.js for swipe gestures and multi-touch
 hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
 hammer.get('tap').set({ taps: 1 });
 hammer.get('doubletap').set({ taps: 2 }); // Enable double-tap detection
-
 
 // ==================== Game Settings and State ==================== //
 
@@ -151,9 +148,6 @@ function generateSparks(x, y) {
     }
 }
 
-
-
-
 // ==================== Event Listeners ==================== //
 
 // Toggle options for walls and audio
@@ -202,7 +196,6 @@ document.addEventListener("keydown", function (event) {
     if (event.keyCode === 32) togglePauseResume();
 });
 
-
 // Add gesture controls with Hammer.js
 hammer.on('panleft panright panup pandown', (event) => {
     if (event.type === 'panleft' && direction !== 'right') {
@@ -215,15 +208,10 @@ hammer.on('panleft panright panup pandown', (event) => {
         direction = 'down';
     }
 });
-// ==================== Game Control Functions ==================== //
 
-hammer.on('doubletap', (event) => {
-    if (isPaused) {
-        resumeGame(); // Resume the game
-    } else {
-        pauseGame(); // Pause the game
-    }
-});
+hammer.on('doubletap', togglePauseResume);
+
+// ==================== Game Control Functions ==================== //
 
 // Pause and resume game
 function togglePauseResume() {
@@ -335,7 +323,7 @@ function updateGame() {
 // Draw all game elements
 function drawGame() {
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
-    backgroundCtx.fillStyle = "#34358F";
+    backgroundCtx.fillStyle = "#242423";
     backgroundCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
     gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
