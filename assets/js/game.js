@@ -69,10 +69,13 @@ const gameCtx = gameCanvas.getContext("2d");
 
 // Initialize Hammer.js on the game canvas
 const gameCanvasElement = document.getElementById("gameCanvas");
-const hammer = new Hammer(gameCanvasElement);
+const hammer = new Hammer(document.body);
 
-// Configure Hammer.js to recognize swipe gestures
+// Configure Hammer.js for swipe gestures and multi-touch
 hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+hammer.get('tap').set({ taps: 1 });
+hammer.get('pinch').set({ enable: true });
+
 
 // ==================== Game Settings and State ==================== //
 
@@ -212,13 +215,16 @@ hammer.on('panleft panright panup pandown', (event) => {
         direction = 'down';
     }
 });
-
 // ==================== Game Control Functions ==================== //
 
-// Handle two-finger tap for pause/resume
+// Handle two-finger tap for pause and resume
 hammer.on('tap', (event) => {
-    if (event.pointers.length === 2) {
-        togglePauseResume();
+    if (event.pointers.length === 2) { // Detect two fingers
+        if (isPaused) {
+            resumeGame(); // Resume the game
+        } else {
+            pauseGame(); // Pause the game
+        }
     }
 });
 

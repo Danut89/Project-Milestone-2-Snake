@@ -246,9 +246,7 @@ h2 {
 
 
 
-#game-over-overlay button:active {
-    transform: scale(0.95);
-}
+
 
 /* Game Board with Walls */
 #gameCanvas.walls-enabled {
@@ -276,7 +274,7 @@ h2 {
     .menu-container {
         box-shadow: none; /* Remove shadow */
         padding: 15px; /* Reduce padding */
-        margin-bottom: 70px;
+        margin-bottom: 170px;
     }
 
     #game-board-container {
@@ -323,18 +321,18 @@ h2 {
         line-height: 1.4;
     }
 
-    .options-button, .quit-button {
+    .menu-button {
         width: 80%; /* Make buttons full width for mobile */
         padding: 16px;
         font-size: 18px; /* Slightly smaller text for buttons */
         margin: 8px 0;
     }
 
-    .options-button:hover, .quit-button:hover {
+    .menu-button:hover{
         transform: scale(1.05); /* Slight hover effect */
     }
 
-    .options-button:active, .quit-button:active {
+    .menu-button:active{
         transform: scale(0.95);
     }
 }
