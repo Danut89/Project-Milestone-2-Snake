@@ -67,6 +67,13 @@ gameCanvas.width = 400;
 gameCanvas.height = 460;
 const gameCtx = gameCanvas.getContext("2d");
 
+// Initialize Hammer.js on the game canvas
+const gameCanvasElement = document.getElementById("gameCanvas");
+const hammer = new Hammer(gameCanvasElement);
+
+// Configure Hammer.js to recognize swipe gestures
+hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+
 // ==================== Game Settings and State ==================== //
 
 const tileSize = 20;
@@ -192,7 +199,28 @@ document.addEventListener("keydown", function (event) {
     if (event.keyCode === 32) togglePauseResume();
 });
 
+
+// Add gesture controls with Hammer.js
+hammer.on('panleft panright panup pandown', (event) => {
+    if (event.type === 'panleft' && direction !== 'right') {
+        direction = 'left';
+    } else if (event.type === 'panright' && direction !== 'left') {
+        direction = 'right';
+    } else if (event.type === 'panup' && direction !== 'down') {
+        direction = 'up';
+    } else if (event.type === 'pandown' && direction !== 'up') {
+        direction = 'down';
+    }
+});
+
 // ==================== Game Control Functions ==================== //
+
+// Handle two-finger tap for pause/resume
+hammer.on('tap', (event) => {
+    if (event.pointers.length === 2) {
+        togglePauseResume();
+    }
+});
 
 // Pause and resume game
 function togglePauseResume() {
