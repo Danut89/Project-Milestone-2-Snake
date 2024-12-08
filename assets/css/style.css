@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Press+Start+2P&display=swap');
-
-
 /* ==================== Global Styles ==================== */
 body {
     background-image: url(../images/wp3906251-snake-game-wallpapers.jpg);
@@ -14,7 +11,6 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif; /* Modern font */
     color: #ffffff;
-    
 }
 
 /* ==================== Menu Container ==================== */
@@ -22,25 +18,25 @@ body {
     text-align: center;
     margin-top: 40px;
     background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
-    padding: 20px; /* Added padding for spacing */
-    border-radius: 15px; /* Added rounded corners */
+    padding: 20px;
+    border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
 }
 
 .game-title {
-    font-size: 56px;
+    font-size: 55px; 
     color: #fbc531; /* Changed to bright yellow for visual impact */
     text-shadow: 0px 0px 15px rgba(108, 92, 231, 0.9); /* Added glow for prominence */
     margin-bottom: 30px;
-    font-weight: 800; /* Increased weight for bold appearance */
-    letter-spacing: 2px;
+    font-weight: 800;
+    letter-spacing: 3px;
 }
 
 .game-instructions {
-    font-size: 20px;
-    color: #dfe6e9; /* Softened white for contrast */
+    font-size: 1.7rem;
+    color: #dfe6e9;
     margin: 15px 0;
-    line-height: 1.6; /* Added line spacing for readability */
+    line-height: 1.8;
 }
 
 .highlighted {
@@ -51,25 +47,24 @@ body {
 
 .messy {
     color: #e17055;
-    text-shadow: 0px 0px 10px rgba(225, 112, 85, 0.8); /* Enhanced glow effect */
+    text-shadow: 0px 0px 10px rgba(225, 112, 85, 0.8);
 }
 
 .button-container {
     margin-top: 30px;
 }
 
-
 /* ==================== Buttons General Rules ==================== */
 .menu-button {
     padding: 14px 40px;
     margin: 12px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 600;
     cursor: pointer;
     border: none;
     border-radius: 10px;
     background: linear-gradient(145deg, #fbc531, #e1b12c); /* Changed gradient to match title color */
-    color: #2f3640; /* Changed text to dark for better contrast */
+    color: #1e2229;
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
     box-shadow: 0 6px 15px rgba(251, 197, 49, 0.4); /* Updated shadow to match yellow tones */
 }
@@ -94,18 +89,19 @@ body {
     text-align: center;
     margin-top: 40px;
     background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
-    padding: 20px; /* Added padding for spacing */
-    border-radius: 15px; /* Added rounded corners */
+    padding: 20px;
+    border-radius: 15px; 
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
 }
 
 .menu-title {
-    font-size: 36px;
+    font-size: 40px;
     color: #fbc531;
     text-align: center;
     margin-bottom: 25px;
     text-shadow: 0px 0px 15px rgba(108, 92, 231, 0.9);
     font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .options-content {
@@ -118,7 +114,7 @@ body {
 .option-group {
     display: flex;
     flex-direction: column;
-    font-size: 20px;
+    font-size: 22px;
     color: #dcdde1;
 }
 
@@ -130,10 +126,10 @@ body {
 #high-scores-menu {
     text-align: center;
     margin-top: 40px;
-    background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
-    padding: 20px; /* Added padding for spacing */
-    border-radius: 15px; /* Added rounded corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px; 
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 #high-scores-menu ul {
@@ -142,7 +138,7 @@ body {
 }
 
 #high-scores-menu ul li {
-    font-size: 20px;
+    font-size: 22px;
     margin: 8px 0;
     color: #ffffff;
 }
@@ -154,12 +150,13 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 45px;
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 35px;
     margin-bottom: 20px;
+    letter-spacing: 0.5px;
 }
 
 /* ==================== Game Board ==================== */
@@ -171,7 +168,7 @@ h2 {
     border: 5px solid #594910; /* Match the neon green border to the score area */
     box-shadow: 0 0 15px #594910; /* Add a glowing effect */
     padding: 20px;
-    border-radius: 20px; /* Added rounded corners */
+    border-radius: 20px; 
     position: relative;
 }
 
@@ -194,8 +191,6 @@ h2 {
     position: relative;
     width: 500px;
 }
-
-
 
 /* ==================== Overlays ==================== */
 #pause-overlay {
@@ -232,7 +227,7 @@ h2 {
 }
 
 #game-over-overlay h2 {
-    font-size: 48px;
+    font-size: 55px;
     margin-bottom: 20px;
     text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8);
 }
@@ -242,23 +237,17 @@ h2 {
 }
 
 #game-over-overlay #final-score {
-    font-size: 26px;
+    font-size: 30px;
     margin-bottom: 30px;
-    color: #fbc531; /* Highlighted bright yellow for emphasis */
+    color: #fbc531;
+    text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8);
 }
-
-
-
-
-
-
 
 /* ==================== Game board with walls ==================== */
 #gameCanvas.walls-enabled {
     border: 4px solid #f9ca24;
     box-shadow: 0 0 10px #f9ca24; 
 }
-
 
 /* ==================== Align form elements ==================== */
 input[type="radio"], input[type="checkbox"] {
@@ -385,5 +374,3 @@ label {
         background-position: 10% center; /* Focus on the left side of the image */
     }
 }
-
-

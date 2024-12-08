@@ -331,7 +331,7 @@ function drawGame() {
     gameCtx.fillRect(0, 0, gameCanvas.width, tileSize * 3);
 
     gameCtx.fillStyle = "white";
-    gameCtx.font = "40px Verdana";
+    gameCtx.font = "40px Poppins";
     gameCtx.fillText(score, tileSize, tileSize * 2.25);
 
     // Draw the border underneath the header
