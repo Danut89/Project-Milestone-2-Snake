@@ -310,14 +310,14 @@ label {
 
     #game-board-container {
         padding: 10px; /* Reduce padding on game board */
-        width: 450px;
+        width: 360px;
         
     }
 
     #gameCanvas {
         box-shadow: none; /* Remove shadow */
-        width: 450px;
-        border:4px solid #00ffcc; /* Neon green border */;
+        width: 350px;
+        border: 4px solid #00ffcc; /* Neon green border */;
     }
     
     /* Adjust game title for better readability on small screens */
@@ -328,7 +328,7 @@ label {
 
     /* Adjust other text for mobile */
     .game-instructions {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 
