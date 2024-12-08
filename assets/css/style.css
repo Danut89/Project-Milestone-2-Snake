@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Press+Start+2P&display=swap');
+
+
 /* ==================== Global Styles ==================== */
 body {
     background-image: url(../images/wp3906251-snake-game-wallpapers.jpg);
@@ -164,15 +167,16 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7); /* Added semi-transparent dark background */
+    background: #4e4376; /* Subtle gradient */
+    border: 5px solid #594910; /* Match the neon green border to the score area */
+    box-shadow: 0 0 15px #594910; /* Add a glowing effect */
     padding: 20px;
     border-radius: 20px; /* Added rounded corners */
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
     position: relative;
 }
 
 #backgroundCanvas {
-    background: #502c2e;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
     border-radius: 12px;
     position: absolute;
     top: 0;
@@ -183,11 +187,11 @@ h2 {
 }
 
 #gameCanvas {
-    background: #2D3A41;
-    border: 5px solid #00ffcc; /* Neon green border */
+    background:#202a34;
+    border: 5px solid #42e2b8; /* Softer neon */
+    box-shadow: 0 0 15px #42e2b8, 0 0 40px #6ae3f4; /* Layered glow for depth */
     display: block;
     position: relative;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     width: 500px;
 }
 
@@ -310,7 +314,7 @@ label {
     .menu-container {
         box-shadow: none; /* Remove shadow */
         padding: 15px; /* Reduce padding */
-        margin-bottom: 170px;
+        margin-bottom: 100px;
     }
 
     #game-board-container {

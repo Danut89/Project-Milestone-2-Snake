@@ -323,11 +323,11 @@ function updateGame() {
 // Draw all game elements
 function drawGame() {
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
-    backgroundCtx.fillStyle = "#242423";
+    backgroundCtx.fillStyle = "#152f20";
     backgroundCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
     gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-    gameCtx.fillStyle = "#F5CB5C";
+    gameCtx.fillStyle = "#594910";
     gameCtx.fillRect(0, 0, gameCanvas.width, tileSize * 3);
 
     gameCtx.fillStyle = "white";

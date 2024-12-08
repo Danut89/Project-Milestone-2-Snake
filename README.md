@@ -1,4 +1,4 @@
-# Funny Snake Game
+# Sssnake-Snack Attack
 
 A fun, interactive, and mobile-responsive Snake game built with JavaScript. This game offers a classic Snake experience with additional features such as sound effects, mobile touch controls, and smooth animations.
 
