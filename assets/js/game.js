@@ -331,16 +331,42 @@ function drawGame() {
     gameCtx.fillRect(0, 0, gameCanvas.width, tileSize * 3);
 
     gameCtx.fillStyle = "white";
-    gameCtx.font = "40px Poppins";
-    gameCtx.fillText(score, tileSize, tileSize * 2.25);
+    gameCtx.font = "36px Poppins";
+    gameCtx.fillText("Score: " + score, tileSize, tileSize * 2.25);
 
     // Draw the border underneath the header
     if (wallsEnabled) {
-    gameCtx.fillStyle = "#f9ca24"; // Yellow border when walls are enabled
+        gameCtx.fillStyle = "#f9ca24"; // Yellow border when walls are enabled
     } else {
-    gameCtx.fillStyle ="#00ffcc"; // Match the header background color when walls are disabled
+        gameCtx.fillStyle ="#00ffcc"; // Match the header background color when walls are disabled
     }
     gameCtx.fillRect(0, tileSize * 3, gameCanvas.width, 4); // Draw the border
+
+    // Wall icon for "walls on" and "walls off"
+    const iconX = gameCanvas.width - tileSize * 6;  // Move icon and text further left for better alignment
+    const iconY = tileSize * 2.25 - 18;  // Align icon vertically with the score
+
+    // Set smaller font size for the wall status text
+    gameCtx.font = "18px Poppins"; // Smaller font size for text
+
+    // Add space between icon and text
+    const spaceBetween = 10; // Adjust the space between icon and text
+
+    if (wallsEnabled) {
+        // Draw a small rectangle to represent a "wall" (solid)
+        gameCtx.fillStyle = "#f9ca24"; // Yellow color for walls
+        gameCtx.fillRect(iconX, iconY, 16, 16);  // Small solid square as icon
+        gameCtx.fillText("Walls On", iconX + 18 + spaceBetween, iconY + 12); // Text with added space after icon
+    } else {
+        // Draw an outline of a rectangle for "walls off"
+        gameCtx.strokeStyle = "#00ffcc";  // Light color for the walls off state
+        gameCtx.lineWidth = 2;
+        gameCtx.strokeRect(iconX, iconY, 16, 16);  // Draw an empty square
+        gameCtx.fillText("Walls Off", iconX + 18 + spaceBetween, iconY + 12); // Text with added space after icon
+    }
+
+
+
 
     gameCtx.beginPath();
     gameCtx.arc(foodPosition.x + (tileSize - 3) / 2, foodPosition.y + (tileSize - 3) / 2, tileSize / 2, 0, 2 * Math.PI);
