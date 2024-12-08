@@ -172,7 +172,7 @@ h2 {
 }
 
 #backgroundCanvas {
-    background: #2c3e50;
+    background: #502c2e;
     border-radius: 12px;
     position: absolute;
     top: 0;
@@ -183,7 +183,7 @@ h2 {
 }
 
 #gameCanvas {
-    background: linear-gradient(to right, #2b5876, #4e4376);
+    background: #2D3A41;
     border: 5px solid #00ffcc; /* Neon green border */
     display: block;
     position: relative;

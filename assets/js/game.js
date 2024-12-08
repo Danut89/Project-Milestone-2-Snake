@@ -327,7 +327,7 @@ function drawGame() {
     backgroundCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
     gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-    gameCtx.fillStyle = "#2C2C42";
+    gameCtx.fillStyle = "#F5CB5C";
     gameCtx.fillRect(0, 0, gameCanvas.width, tileSize * 3);
 
     gameCtx.fillStyle = "white";
@@ -349,11 +349,47 @@ function drawGame() {
     gameCtx.strokeStyle = "white";
     gameCtx.stroke();
 
-    gameCtx.fillStyle = "#181942";
-    snake.forEach(segment => {
+    gameCtx.fillStyle = "#2E8B57"; // Snake color
+    snake.forEach((segment, index) => {
+        // Draw the body segments
         gameCtx.fillRect(segment.x, segment.y, tileSize, tileSize);
+        gameCtx.strokeStyle = "#502c2e"; // Stroke color for the body (optional)
+        gameCtx.lineWidth = 2; // Stroke width
         gameCtx.strokeRect(segment.x, segment.y, tileSize, tileSize);
+        
+        // Add eyes and tongue to the head (first segment in the snake array)
+        if (index === 0) { // Head of the snake
+            gameCtx.fillStyle = "white"; // Eye color
+            // Left eye
+            gameCtx.beginPath();
+            gameCtx.arc(segment.x + tileSize * 0.3, segment.y + tileSize * 0.3, 4, 0, 2 * Math.PI);
+            gameCtx.fill();
+        
+            // Right eye
+            gameCtx.beginPath();
+            gameCtx.arc(segment.x + tileSize * 0.7, segment.y + tileSize * 0.3, 4, 0, 2 * Math.PI);
+            gameCtx.fill();
+        
+            // Optionally, add pupils for the eyes
+            gameCtx.fillStyle = "black"; // Pupil color
+            gameCtx.beginPath();
+            gameCtx.arc(segment.x + tileSize * 0.3, segment.y + tileSize * 0.3, 2, 0, 2 * Math.PI); // Left pupil
+            gameCtx.arc(segment.x + tileSize * 0.7, segment.y + tileSize * 0.3, 2, 0, 2 * Math.PI); // Right pupil
+            gameCtx.fill();
+    
+            // Draw the tongue
+            gameCtx.fillStyle = "#2E8B57"; // Tongue color
+            gameCtx.beginPath();
+            gameCtx.moveTo(segment.x + tileSize * 0.5, segment.y + tileSize); // Starting point (center of the head)
+            gameCtx.lineTo(segment.x + tileSize * 0.5, segment.y + tileSize * 1.2); // Extend the tongue down
+            gameCtx.lineWidth = 3; // Make the tongue slightly thicker
+            gameCtx.strokeStyle = "red"; // Optional: add stroke to the tongue
+            gameCtx.stroke();
+            gameCtx.fill();
+        }
     });
+    
+    
 
 
     // Draw and update sparks
