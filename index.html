@@ -17,9 +17,10 @@
             <p class="game-instructions">The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become</p>
             <p class="game-instructions"><em>Don't eat yourself</em></p>
             <div class="button-container">
-                <button id="play-button" class="menu-button">Play</button>
-                <button id="options-button" class="menu-button">Options</button>
+                <button id="play-snake-button" class="menu-button">Play Snake</button>
+                <button id="options-button" class="menu-button">Snake-Options</button>
                 <button id="high-scores-button" class="menu-button">Scores</button>
+                <button id="play-trivia-button" class="menu-button"> Play Trivia</button>
             </div>
         </section>
     
@@ -64,7 +65,7 @@
     <section id="game-board-container" class="hidden">
         <canvas id="backgroundCanvas"></canvas>
         <canvas id="gameCanvas"></canvas>
-        <div id="pause-overlay">Game Paused
+        <div id="pause-overlay">Game Paused            
             <button id="pause-restart-button" class="menu-button">Restart</button>
             <button class="quit-button menu-button">Quit to Menu</button>
         </div>
@@ -75,6 +76,19 @@
             <button id="back-to-menu-button" class="menu-button">Back to Menu</button>
         </section>
     </section>
+
+    <div id="trivia-container" class="hidden">
+        <h1 id="trivia-title">Trivia Game</h1>
+        <div id="trivia-question-box">
+            <p id="trivia-question"></p>
+        </div>
+        <div id="trivia-answers"></div>
+        <p id="feedback"></p>
+        <button id="next-question-button" class="trivia-button">Next Question</button>
+        <button id="back-to-main-menu" class="trivia-button">Back to Main Menu</button>
+    </div>
+    
+    
 
     <!-- Audio Elements -->
     <audio id="eat-sound" src="assets/sounds/mixkit-game-ball-tap-2073.wav" preload="auto"></audio>

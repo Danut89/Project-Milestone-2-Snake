@@ -30,7 +30,7 @@ const dynamicOutput = (ratio) => tileSize * ratio;
 
 // Menu and game control elements
 const mainMenu = document.getElementById('main-menu');
-const playButton = document.getElementById('play-button');
+const playButton = document.getElementById("play-snake-button")
 const optionsButton = document.getElementById('options-button');  
 const highScoresButton = document.getElementById('high-scores-button');  
 const backOptionsButton = document.getElementById('back-options-button');  
@@ -40,6 +40,7 @@ const highScoresMenu = document.getElementById("high-scores-menu");
 const gameBoardContainer = document.getElementById("game-board-container");
 const pauseOverlay = document.getElementById("pause-overlay");
 const pauseRestartButton = document.getElementById("pause-restart-button");
+const optionsPlayButton = document.getElementById("options-play-button");
 const quitButtonPause = document.querySelector('.quit-button');
 
 // Game Over elements
@@ -218,10 +219,12 @@ function pauseGame() {
 
 function resumeGame() {
     if (!gameOverOverlay.classList.contains("hidden")) return;
+  
     startGameLoop();
-    isPaused = false;  
-    pauseOverlay.style.visibility = "hidden";  
-}
+    isPaused = false;
+    pauseOverlay.style.visibility = "hidden";
+  }
+  
 
 function startGameLoop() {
     clearInterval(gameLoop);
@@ -448,10 +451,8 @@ playButton.addEventListener("click", function () {
     startGameLoop();  
 });
 
-const optionsPlayButton = document.getElementById("options-play-button");
 optionsPlayButton.addEventListener("click", function () {
     hideElement(optionsMenu);
-
     showElement(gameBoardContainer);
     resetGame();
     startGameLoop();
@@ -460,7 +461,6 @@ optionsPlayButton.addEventListener("click", function () {
 highScoresButton.addEventListener("click", function () {
     hideElement(mainMenu);
     showElement(highScoresMenu);
-
     displayHighScores();
 });
 
@@ -505,6 +505,7 @@ quitButtonPause.addEventListener("click", function () {
     showMainMenu();
 });
 
+
 // ==================== Initial Setup ==================== //
 
 // Show main menu at the start
@@ -515,3 +516,119 @@ function showMainMenu() {
 
 showMainMenu();
 
+// Trivia Game
+
+const playTrivia = document.getElementById('play-trivia-button')
+const backToMenuTrivia = document.getElementById("back-to-main-menu")
+const triviaContainer = document.getElementById('trivia-container')
+
+// Trivia-specific elements
+const nextQuestionButton = document.getElementById('next-question-button');
+const triviaQuestion = document.getElementById('trivia-question');
+const triviaAnswers = document.getElementById('trivia-answers');
+const feedbackBox = document.getElementById('feedback');
+
+// Fetch a trivia question
+function fetchTriviaQuestion() {
+    // Disable the Next Question button while fetching
+    nextQuestionButton.disabled = true;
+    nextQuestionButton.textContent = "Loading...";
+
+    fetch('https://opentdb.com/api.php?amount=20&category=18&difficulty=easy&type=multiple')
+        .then((response) => response.json())
+        .then((data) => {
+            const questionData = data.results[0];
+            displayTriviaQuestion(questionData);
+
+            // Re-enable the Next Question button after successful fetch
+            nextQuestionButton.disabled = false;
+            nextQuestionButton.textContent = "Next Question";
+        })
+        .catch((error) => {
+            console.error('Failed to fetch trivia question:', error);
+            triviaQuestion.textContent = 'Failed to load trivia question. Please try again.';
+            
+            // Re-enable the Next Question button to allow retry
+            nextQuestionButton.disabled = false;
+            nextQuestionButton.textContent = "Try Again";
+        });
+}
+
+// Display the trivia question and possible answers
+function displayTriviaQuestion(questionData) {
+    triviaQuestion.innerHTML = questionData.question;
+    triviaAnswers.innerHTML = ''; // Clear previous answers
+    feedbackBox.textContent = ''; // Clear feedback from the previous question
+
+    // Combine correct and incorrect answers, then shuffle them
+    const answers = [...questionData.incorrect_answers, questionData.correct_answer];
+    answers.sort(() => Math.random() - 0.5);
+
+    // Create buttons for each answer
+    answers.forEach((answer) => {
+        const answerButton = document.createElement('button');
+        answerButton.textContent = answer;
+        answerButton.className = 'trivia-answer-button';
+
+        // Onclick logic for selecting an answer
+        answerButton.onclick = () => handleAnswerSelection(answer, questionData.correct_answer, answerButton);
+
+        triviaAnswers.appendChild(answerButton);
+    });
+
+    // Ensure the Next Question button is hidden until an answer is selected
+    nextQuestionButton.classList.add('hidden');
+}
+
+// Handle the selection of an answer
+function handleAnswerSelection(selectedAnswer, correctAnswer, selectedButton) {
+    const buttons = document.querySelectorAll('.trivia-answer-button');
+
+    // Disable all buttons after an answer is selected
+    buttons.forEach((button) => {
+        button.disabled = true;
+
+        // Highlight the correct answer
+        if (button.textContent === correctAnswer) {
+            button.style.backgroundColor = '#4CAF50'; // Green for correct
+            button.style.color = 'white';
+        }
+
+        // Highlight the selected wrong answer
+        if (button === selectedButton && selectedAnswer !== correctAnswer) {
+            button.style.backgroundColor = '#F44336'; // Red for wrong
+            button.style.color = 'white';
+        }
+    });
+
+    // Provide feedback
+    feedbackBox.textContent = selectedAnswer === correctAnswer
+        ? 'Correct! 🎉'
+        : `Wrong! The correct answer is: ${correctAnswer}`;
+
+    // Show the Next Question button
+    nextQuestionButton.classList.remove('hidden');
+}
+
+
+// Event listener for the Next Question button
+document.getElementById('next-question-button').addEventListener('click', () => {
+    fetchTriviaQuestion(); // Load a new question
+});
+
+//Event listners
+
+playTrivia.addEventListener("click", () => {
+    hideElement(mainMenu);
+    showElement(triviaContainer); // Trivia game container
+    fetchTriviaQuestion(); // Start trivia
+});
+
+backToMenuTrivia.addEventListener("click", () => {
+    hideElement(triviaContainer);
+    showElement(mainMenu);
+
+    // Clear the trivia question and answers
+    document.getElementById('trivia-question').textContent = '';
+    document.getElementById('trivia-answers').innerHTML = '';
+});

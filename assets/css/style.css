@@ -245,6 +245,122 @@ h2 {
     text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8);
 }
 
+
+
+/* ==================== Trivia Game Styles ==================== */
+
+
+
+#trivia-container {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.85); /* Slightly muted black background */
+    color: #ffffff; /* White text for good contrast */
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    max-width: 600px; /* Keep it compact and centered */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Question Text */
+#trivia-question {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px; /* Larger and easy-to-read */
+    color: #F8F9FA;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Trivia Answers */
+#trivia-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#trivia-answers button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #343a40; /* Neutral gray background */
+    border: 2px solid transparent;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+/* Hover Effect */
+#trivia-answers button:hover {
+    background-color: #495057; /* Darker shade on hover */
+    transform: scale(1.03); /* Slight pop-out effect */
+}
+
+/* Correct Answer */
+.trivia-answer-button.correct {
+    background-color: #28A745; /* Muted green */
+    border-color: #218838;
+}
+
+/* Incorrect Answer */
+.trivia-answer-button.wrong {
+    background-color: #DC3545; /* Muted red */
+    border-color: #C82333;
+}
+
+/* Feedback Message */
+#feedback {
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #FFC107; /* Muted yellow for feedback */
+    font-weight: 500;
+}
+
+/* Buttons for Navigation */
+.trivia-button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #17A2B8; /* Soft blue */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-right: 10px;
+    transition: background-color 0.2s ease;
+}
+.trivia-button:hover {
+    background-color: #138496; /* Slightly darker on hover */
+}
+
+/* Center Navigation Buttons */
+#navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+  
+
 /* ==================== Game board with walls ==================== */
 #gameCanvas.walls-enabled {
     border: 4px solid #f9ca24;
