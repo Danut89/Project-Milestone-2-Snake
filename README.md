@@ -138,3 +138,114 @@ function generateNewFood() {
     foodColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 }
 ```
+## 3. Bug: Sparks Defaulting to White or Causing Errors
+
+### Issue:
+The sparks that appear when the snake eats food were either defaulting to white (when `foodColor` was `null`) or causing an error in the console. This issue occurred because the `foodColor` variable was initialized as `null` and was not assigned a valid value before `generateSparks` was called the first time.
+
+### Error Message:
+```plaintext
+Uncaught TypeError: Cannot read properties of null (reading 'replace')
+```
+
+### Cause:
+- `foodColor` was not properly assigned before the `generateSparks` function was called.
+- The `generateSparks` function expected a valid color but received `null` on the first call.
+
+---
+
+### Fix: Adding a Fallback for `foodColor`
+
+To ensure the sparks always have a valid color, i implemented two changes:
+1. Added a fallback value for `foodColor` inside the `generateNewFood` function to guarantee it always has a default color.
+2. Updated the `generateSparks` function to check for and handle `null` values with a fallback color (white).
+
+---
+
+### Before Code
+
+#### 1. `generateNewFood` (No Fallback for `foodColor`):
+```javascript
+function generateNewFood() {
+    let isOverlapping;
+
+    do {
+        foodPosition = { 
+            x: Math.floor(Math.random() * 20) * tileSize, 
+            y: Math.floor(Math.random() * 20 + 3) * tileSize 
+        };
+
+        isOverlapping = snake.some(segment => segment.x === foodPosition.x && segment.y === foodPosition.y);
+    } while (isOverlapping);
+
+    // Assign a random color to the food
+    foodColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+}
+```
+
+#### 2. `generateSparks` (No Check for `null`):
+```javascript
+function generateSparks(x, y, color) {
+    for (let i = 0; i < 30; i++) {
+        const angle = Math.random() * 2 * Math.PI;
+        const speed = randomNumber(1, 3);
+        const dx = Math.cos(angle) * speed;
+        const dy = Math.sin(angle) * speed;
+        sparks.push(new Spark(x, y, dx, dy, color)); // Error if color is null
+    }
+}
+```
+
+---
+
+### After Code
+
+#### 1. `generateNewFood` (Added Fallback for `foodColor`):
+```javascript
+function generateNewFood() {
+    let isOverlapping;
+
+    do {
+        foodPosition = { 
+            x: Math.floor(Math.random() * 20) * tileSize, 
+            y: Math.floor(Math.random() * 20 + 3) * tileSize 
+        };
+
+        isOverlapping = snake.some(segment => segment.x === foodPosition.x && segment.y === foodPosition.y);
+    } while (isOverlapping);
+
+    // Ensure foodColor is always valid
+    foodColor = colorArray[Math.floor(Math.random() * colorArray.length)] || "rgba(255, 255, 255, 1)";
+}
+```
+
+#### 2. `generateSparks` (Added Fallback for `color`):
+```javascript
+function generateSparks(x, y, color) {
+    if (!color) {
+        color = "rgba(255, 255, 255, 1)"; // Default to white
+    }
+    for (let i = 0; i < 30; i++) {
+        const angle = Math.random() * 2 * Math.PI;
+        const speed = randomNumber(1, 3);
+        const dx = Math.cos(angle) * speed;
+        const dy = Math.sin(angle) * speed;
+        sparks.push(new Spark(x, y, dx, dy, color));
+    }
+}
+```
+
+---
+
+### Results
+
+- **First Food:** Sparks default to white on the first food eaten (since `foodColor` is `null` at the beginning).
+- **Subsequent Foods:** Sparks correctly match the color of the food eaten.
+- **No Errors:** The error (`Cannot read properties of null`) is no longer thrown in the console.
+
+---
+
+### Conclusion
+
+This fix ensures that the sparks always have a valid color, even in edge cases. The game now provides a consistent visual effect when the snake eats food, enhancing the user experience.
+

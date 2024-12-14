@@ -136,18 +136,6 @@ class Spark {
     }
 }
 
-// Generate Sparks Function
-function generateSparks(x, y) {
-    const randomColor = colorArray[Math.floor(Math.random() * colorArray.length)]; // Random color for all sparks
-    for (let i = 0; i < 30; i++) { // Increase number of sparks for a fuller effect
-        const angle = Math.random() * 2 * Math.PI; // Random direction
-        const speed = randomNumber(1, 3); // Random speed for movement
-        const dx = Math.cos(angle) * speed; // Horizontal velocity
-        const dy = Math.sin(angle) * speed; // Vertical velocity
-        sparks.push(new Spark(x, y, dx, dy, randomColor)); // Add spark with adjusted behavior
-    }
-}
-
 // ==================== Event Listeners ==================== //
 
 // Toggle options for walls and audio
@@ -280,6 +268,21 @@ function generateNewFood() {
     foodColor = colorArray[Math.floor(Math.random() * colorArray.length)];
 }
 
+// Generate Sparks Function
+function generateSparks(x, y, color) {
+    if (!color) {
+        color = "rgba(255, 255, 255, 1)"; // Default to white
+    }
+    for (let i = 0; i < 30; i++) {
+        const angle = Math.random() * 2 * Math.PI;
+        const speed = randomNumber(1, 3);
+        const dx = Math.cos(angle) * speed;
+        const dy = Math.sin(angle) * speed;
+        sparks.push(new Spark(x, y, dx, dy, color));
+    }
+}
+
+
 
 // Update game state
 function updateGame() {
@@ -305,7 +308,7 @@ function updateGame() {
     let snakeHead = { x: snakeHeadX, y: snakeHeadY };
 
     if (snakeHead.x === foodPosition.x && snakeHead.y === foodPosition.y) {
-        generateSparks(foodPosition.x + tileSize / 2, foodPosition.y + tileSize / 2);
+        generateSparks(foodPosition.x + tileSize / 2, foodPosition.y + tileSize / 2, foodColor);
         generateNewFood();
         snake.unshift(snakeHead);
         score++;
@@ -314,6 +317,7 @@ function updateGame() {
         snake.unshift(snakeHead);
         snake.pop();
     }
+    
 
     if (snake.some((segment, index) => index > 0 && snakeHead.x === segment.x && snakeHead.y === segment.y)) {
         endGame();
