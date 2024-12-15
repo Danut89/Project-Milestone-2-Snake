@@ -4,25 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
-    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
 
     <!-- Main Menu -->
-        <section class="menu-container" id="main-menu">
-            <h1 class="game-title">Snacky Snake</h1>
-            <p class="game-instructions">Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> anywhere to change direction</p>
-            <p class="game-instructions">Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume</p>
-            <p class="game-instructions">The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become</p>
-            <p class="game-instructions"><em>Don't eat yourself</em></p>
-            <div class="button-container">
-                <button id="play-snake-button" class="menu-button">Play Snake</button>
-                <button id="options-button" class="menu-button">Snake-Options</button>
-                <button id="high-scores-button" class="menu-button">Scores</button>
-                <button id="play-trivia-button" class="menu-button"> Play Trivia</button>
+        <!-- Main Menu -->
+    <section class="menu-container" id="main-menu">
+        <h1 class="game-title">Snacky Snake</h1>
+        <p class="game-instructions">Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> anywhere to change direction</p>
+        <p class="game-instructions">Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume</p>
+        <p class="game-instructions">The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become</p>
+        <p class="game-instructions"><em>Don't eat yourself</em></p>
+        <div class="button-container">
+            <button id="play-snake-button" class="menu-button">Play Snake</button>
+            <button id="options-button" class="menu-button">Options</button>
+            <button id="high-scores-button" class="menu-button">Scores</button>
+            <button id="instructions-button" class="menu-button">Instructions</button>
+            <!-- Instructions Modal -->
+            <div id="instructions-container">
+                <h2>Game Instructions</h2>
+                <p>Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> to change direction.</p>
+                <p>Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume.</p>
+                <p>The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become.</p>
+                <p><em>Don't eat yourself!</em></p>
+                <button id="close-instructions" class="close">Close</button>
             </div>
-        </section>
+            
+
+    <!-- Trivia Bonus Section -->
+    <div class="bonus-container">
+        <button id="play-trivia-button" class="menu-button trivia-button bonus-button">
+            <i class="fas fa-brain"></i> Play Trivia
+        </button>
+        <p class="bonus-subtext">Bonus Content: Test and train your coding skills!</p>
+    </div>
+     
+        </div>
+    </section>
     
     
 
@@ -98,6 +118,7 @@
 
     <!-- JavaScript for the game -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script src="assets/js/game.js"></script>
     <script src="assets/js/highscores.js"></script>
 </body>
