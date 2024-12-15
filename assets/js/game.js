@@ -329,23 +329,33 @@ function updateGame() {
 
 // Draw all game elements
 function drawGame() {
-    backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
-    backgroundCtx.fillStyle = "#152f20";
-    backgroundCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+   // Clear the background and draw the new background color
+backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+backgroundCtx.fillStyle = "#2c2f3f"; // Subtle dark gradient-like color
+backgroundCtx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
-    gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-    gameCtx.fillStyle = "#594910";
-    gameCtx.fillRect(0, 0, gameCanvas.width, tileSize * 3);
+// Clear the game canvas and draw the score area
+gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+gameCtx.fillStyle = "#4b426e"; // Dark purple shade for the score area
+gameCtx.fillRect(0, 0, gameCanvas.width, tileSize * 3);
 
-    gameCtx.fillStyle = "white";
-    gameCtx.font = "36px Poppins";
-    gameCtx.fillText("Score: " + score, tileSize, tileSize * 2.25);
+// Add a glowing border effect to the score area
+gameCtx.shadowColor = "rgba(108, 92, 231, 0.8)"; // Neon purple glow
+gameCtx.shadowBlur = 20;
+
+// Draw the score text
+gameCtx.fillStyle = "#fff"; // Bright yellow for text
+gameCtx.font = "30px Poppins";
+gameCtx.fillText("Score: " + score, tileSize, tileSize * 2.25);
+
+// Reset the shadow effect after drawing
+gameCtx.shadowBlur = 0;
 
     // Draw the border underneath the header
     if (wallsEnabled) {
         gameCtx.fillStyle = "#f9ca24"; // Yellow border when walls are enabled
     } else {
-        gameCtx.fillStyle ="#00ffcc"; // Match the header background color when walls are disabled
+        gameCtx.fillStyle ="#6c5ce7"; // Match the header background color when walls are disabled
     }
     gameCtx.fillRect(0, tileSize * 3, gameCanvas.width, 4); // Draw the border
 
@@ -366,12 +376,11 @@ function drawGame() {
         gameCtx.fillText("Walls On", iconX + 18 + spaceBetween, iconY + 12); // Text with added space after icon
     } else {
         // Draw an outline of a rectangle for "walls off"
-        gameCtx.strokeStyle = "#00ffcc";  // Light color for the walls off state
+        gameCtx.strokeStyle = "#6c5ce7";  // Light color for the walls off state
         gameCtx.lineWidth = 2;
         gameCtx.strokeRect(iconX, iconY, 16, 16);  // Draw an empty square
         gameCtx.fillText("Walls Off", iconX + 18 + spaceBetween, iconY + 12); // Text with added space after icon
     }
-
 
 
 

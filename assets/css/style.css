@@ -168,16 +168,38 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #4e4376; /* Subtle gradient */
-    border: 5px solid #6c5ce7e6; /* Match the neon green border to the score area */
-    box-shadow: 0 0 15px #4e4376; /* Add a glowing effect */
+    background: rgba(20, 20, 60, 0.95); /* Semi-transparent dark blue, matching Trivia */
+    border: 5px solid #6c5ce7; /* Neon purple border for consistency */
+    box-shadow: 0 0 20px #6c5ce7, 0 0 40px #8e44ad; /* Enhanced glowing effect */
     padding: 20px;
-    border-radius: 20px; 
+    border-radius: 20px;
     position: relative;
 }
 
+/* Game Board Glow Animation */
+#game-board-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 25px; /* Match the container's border radius */
+    background: linear-gradient(135deg, #6c5ce7, #8e44ad, #9b59b6); /* Animated glow gradient */
+    filter: blur(12px);
+    opacity: 0.8;
+    z-index: -1;
+    animation: trivia-glow 3s infinite alternate; /* Reusing Trivia glow animation */
+}
+
+@keyframes trivia-glow {
+    0% { opacity: 0.6; filter: blur(8px); }
+    100% { opacity: 1; filter: blur(12px); }
+}
+
+/* Background Canvas */
 #backgroundCanvas {
-    background: linear-gradient(135deg, #2c3e50, #34495e);
+    background: linear-gradient(135deg, #202a34, #34495e); /* Dark gradient for depth */
     border-radius: 12px;
     position: absolute;
     top: 0;
@@ -187,12 +209,14 @@ h2 {
     height: 100%;
 }
 
+/* Game Canvas */
 #gameCanvas {
-    background:#202a34;
-    border: 5px solid #42e2b8; /* Softer neon */
-    box-shadow: 0 0 10px #42e2b8, 0 0 40px #6ae3f4; /* Layered glow for depth */
+    background: #202a34; /* Match the darker tone */
+    border: 5px solid #6c5ce7; /* Neon purple border for consistency */
+    box-shadow: 0 0 15px #6c5ce7, 0 0 30px #8e44ad; /* Enhanced glowing effect */
     display: block;
     position: relative;
+    border-radius: 15px; /* Rounded edges to match the container */
     width: 600px;
 }
 
