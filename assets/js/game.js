@@ -43,6 +43,11 @@ const pauseRestartButton = document.getElementById("pause-restart-button");
 const optionsPlayButton = document.getElementById("options-play-button");
 const quitButtonPause = document.querySelector('.quit-button');
 
+// Instructions-container elements
+const instructionsButton = document.getElementById("instructions-button");
+const instructionsModal = document.getElementById("instructions-container");
+const closeModalButton = document.getElementById("close-instructions");
+
 // Game Over elements
 const gameOverOverlay = document.getElementById("game-over-overlay");
 const finalScoreElement = document.getElementById("final-score");
@@ -512,6 +517,23 @@ quitButtonPause.addEventListener("click", function () {
     resetGame();
     hideElement(gameBoardContainer);
     showMainMenu();
+});
+
+// Show the modal when the "Instructions" button is clicked
+instructionsButton.addEventListener("click", () => {
+    instructionsModal.style.display = "block";
+});
+
+// Hide the modal when the "Close" button is clicked
+closeModalButton.addEventListener("click", () => {
+    instructionsModal.style.display = "none";
+});
+
+// Hide the modal when clicking outside of it
+window.addEventListener("click", (event) => {
+    if (event.target === instructionsModal) {
+        instructionsModal.style.display = "none";
+    }
 });
 
 

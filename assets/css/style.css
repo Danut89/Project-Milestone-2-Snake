@@ -213,7 +213,6 @@ h2 {
 #gameCanvas {
     background: #202a34; /* Match the darker tone */
     border: 5px solid #6c5ce7; /* Neon purple border for consistency */
-    box-shadow: 0 0 15px #6c5ce7, 0 0 30px #8e44ad; /* Enhanced glowing effect */
     display: block;
     position: relative;
     border-radius: 15px; /* Rounded edges to match the container */
@@ -779,7 +778,7 @@ label {
     .menu-button {
         width: 80%; /* Make buttons full width for mobile */
         padding: 16px;
-        font-size: 22px; /* Slightly smaller text for buttons */
+        font-size: 18px; /* Slightly smaller text for buttons */
         margin: 8px 0;
     }
 
@@ -800,6 +799,63 @@ label {
         background-position: 10% center; /* Focus on the left side of the image */
     }
 }
+
+/* Modal for instructions */
+#instructions-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(20, 20, 60, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+#instructions-container h2 {
+    font-size: 24px;
+    color: #fbc531;
+    margin-bottom: 20px;
+}
+
+#instructions-container p {
+    font-size: 16px;
+    color: #dfe6e9;
+    line-height: 1.5;
+}
+#close-instructions {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+}
+
+#close-instructions:hover {
+    background: linear-gradient(145deg, #c0392b, #e74c3c);
+    transform: scale(1.05);
+}
+
+#close-instructionsl:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    /* Hide the game instructions text */
+    .game-instructions {
+        display: none;
+    }
+}
+
 
 /* ==================== Desktop Styles ==================== */
 @media (min-width: 769px) {
