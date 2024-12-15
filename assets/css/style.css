@@ -249,28 +249,59 @@ h2 {
 
 /* ==================== Trivia Game Styles ==================== */
 
+/* ==================== Trivia Game Styles ==================== */
+
+/* ==================== Trivia Game Container ==================== */
 #trivia-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
-    padding: 25px;
-    border-radius: 16px;
-    background: linear-gradient(135deg, rgba(9, 121, 162, 0.9), rgba(0, 41, 61, 0.9)); /* Gradient background */
-    color: #ffffff; /* White text for good contrast */
-    text-align: center;
-    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
-    max-width: 700px; /* Slightly wider container */
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(20, 20, 60, 0.95); /* Semi-transparent dark blue */
+    border: 5px solid #6c5ce7; /* Neon purple border to differentiate trivia */
+    box-shadow: 0 0 20px #6c5ce7, 0 0 40px #8e44ad; /* Glowing effect similar to snake game */
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
-    animation: fadeIn 0.5s ease-in-out; /* Fade-in effect */
+    animation: fadeIn 0.5s ease-in-out;
+    position: relative;
+    backdrop-filter: blur(6px); /* Blurs the area behind the container */
+}
+
+/* Trivia Container Glow Animation */
+#trivia-container::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 1opx;
+    bottom: 10px;
+    border-radius: 25px; /* Match trivia container border radius */
+    background: linear-gradient(135deg, #6c5ce7, #8e44ad, #9b59b6); /* Animated glow gradient */
+    filter: blur(10px);
+    opacity: 0.8;
+    z-index: -1;
+    animation: trivia-glow 3s infinite alternate;
+}
+
+@keyframes trivia-glow {
+    0% { opacity: 0.6; filter: blur(8px); }
+    100% { opacity: 1; filter: blur(12px); }
 }
 
 /* Question Text */
+/* Question Text */
 #trivia-question {
     font-family: 'Poppins', sans-serif;
-    font-size: 24px; /* Bigger and bolder text */
-    color: #F1F1F1;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
     margin-bottom: 20px;
     line-height: 1.8;
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for emphasis */
+    text-align: center;
 }
 
 /* Trivia Answers */
@@ -278,28 +309,30 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%; /* Full width for uniform alignment */
+    max-width: 600px;
 }
 
+/* Trivia Answer Buttons */
 #trivia-answers button {
     font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
     color: #ffffff;
-    background: linear-gradient(135deg, #495057, #343a40); /* Subtle gradient */
-    border: 2px solid transparent;
+    background: linear-gradient(135deg, #202a34, #3a3e44); /* Neutral gradient */
+    border: 4px solid #6c5ce7; /* Neon purple border for consistency */
     padding: 14px 18px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: center;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Button shadow */
 }
 
-/* Hover Effect */
+/* Hover Effect for Trivia Answer Buttons */
 #trivia-answers button:hover {
-    background: linear-gradient(135deg, #5A6268, #343a40); /* Lighter gradient on hover */
-    transform: scale(1.05); /* Slightly larger on hover */
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    background: linear-gradient(135deg, #3a3e44, #4e4376); /* Slightly lighter gradient on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 0 15px #8e44ad, 0 0 30px #9b59b6; /* Enhanced glow on hover */
 }
 
 /* Feedback Message */
@@ -307,40 +340,47 @@ h2 {
     margin-top: 20px;
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
-    color: #FFC107; /* Muted yellow for feedback */
+    color: #FFC107; /* Yellow feedback color */
     font-weight: 600;
-    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); /* Slight glow for feedback text */
+    text-shadow: 0px 0px 8px rgba(255, 193, 7, 0.8); /* Glow effect for feedback */
 }
 
-/* Buttons for Navigation */
+/* Navigation Buttons */
 .trivia-button {
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: #ffffff;
-    background: linear-gradient(135deg, #17A2B8, #138496); /* Gradient blue */
+    background: linear-gradient(135deg, #8e44ad, #9b59b6); /* Purple gradient */
     border: none;
     padding: 12px 24px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     margin-top: 20px;
     margin-right: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Button shadow */
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
 }
 
+/* Hover Effect for Navigation Buttons */
 .trivia-button:hover {
-    background: linear-gradient(135deg, #138496, #117a8b); /* Darker gradient on hover */
-    transform: scale(1.05); /* Slightly larger on hover */
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+    background: linear-gradient(135deg, #9b59b6, #6c5ce7); /* Slightly lighter purple on hover */
+    transform: scale(1.07); /* Slight zoom on hover */
+    box-shadow: 0 0 15px #9b59b6, 0 0 30px #8e44ad; /* Enhanced glow */
 }
 
-/* Center Navigation Buttons */
+/* Active Effect (Click) */
+.trivia-button:active {
+    transform: scale(0.95); /* Shrink effect */
+    background: linear-gradient(135deg, #6c5ce7, #8e44ad); /* Reverse gradient */
+    box-shadow: 0 0 10px #6c5ce7, 0 0 20px #8e44ad; /* Subtle glow when active */
+}
+
+/* Align Navigation Buttons */
 #navigation-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
 }
 
 /* Animations */
@@ -355,6 +395,14 @@ h2 {
     }
 }
 
+#feedback {
+    animation: fadeInFeedback 0.5s ease;
+}
+
+@keyframes fadeInFeedback {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 
   

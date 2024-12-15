@@ -534,7 +534,7 @@ function fetchTriviaQuestion() {
     nextQuestionButton.disabled = true;
     nextQuestionButton.textContent = "Loading...";
 
-    fetch('https://opentdb.com/api.php?amount=25&category=18&difficulty=easy&type=multiple')
+    fetch('https://opentdb.com/api.php?amount=50&category=18')
         .then((response) => response.json())
         .then((data) => {
             const questionData = data.results[0];
@@ -605,8 +605,10 @@ function handleAnswerSelection(selectedAnswer, correctAnswer, selectedButton) {
 
     // Provide feedback
     feedbackBox.textContent = selectedAnswer === correctAnswer
-        ? 'Correct! 🎉'
-        : `Wrong! The correct answer is: ${correctAnswer}`;
+    ? 'Correct! 🎉'
+    : `Wrong! The correct answer is: ${correctAnswer}`;
+    feedbackBox.classList.add(selectedAnswer === correctAnswer ? 'correct-feedback' : 'wrong-feedback');
+
 
     // Show the Next Question button
     nextQuestionButton.classList.remove('hidden');
