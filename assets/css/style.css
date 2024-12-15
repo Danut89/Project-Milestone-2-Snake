@@ -249,94 +249,90 @@ h2 {
 
 /* ==================== Trivia Game Styles ==================== */
 
-
-
 #trivia-container {
     margin-top: 20px;
-    padding: 20px;
+    padding: 25px;
     border-radius: 16px;
-    background: rgba(0, 0, 0, 0.85); /* Slightly muted black background */
+    background: linear-gradient(135deg, rgba(9, 121, 162, 0.9), rgba(0, 41, 61, 0.9)); /* Gradient background */
     color: #ffffff; /* White text for good contrast */
     text-align: center;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-    max-width: 600px; /* Keep it compact and centered */
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
+    max-width: 700px; /* Slightly wider container */
     margin-left: auto;
     margin-right: auto;
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in effect */
 }
 
 /* Question Text */
 #trivia-question {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px; /* Larger and easy-to-read */
-    color: #F8F9FA;
+    font-size: 24px; /* Bigger and bolder text */
+    color: #F1F1F1;
     margin-bottom: 20px;
-    line-height: 1.6;
+    line-height: 1.8;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for emphasis */
 }
 
 /* Trivia Answers */
 #trivia-answers {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 #trivia-answers button {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     color: #ffffff;
-    background-color: #343a40; /* Neutral gray background */
+    background: linear-gradient(135deg, #495057, #343a40); /* Subtle gradient */
     border: 2px solid transparent;
-    padding: 12px 16px;
-    border-radius: 8px;
+    padding: 14px 18px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Button shadow */
 }
 
 /* Hover Effect */
 #trivia-answers button:hover {
-    background-color: #495057; /* Darker shade on hover */
-    transform: scale(1.03); /* Slight pop-out effect */
-}
-
-/* Correct Answer */
-.trivia-answer-button.correct {
-    background-color: #28A745; /* Muted green */
-    border-color: #218838;
-}
-
-/* Incorrect Answer */
-.trivia-answer-button.wrong {
-    background-color: #DC3545; /* Muted red */
-    border-color: #C82333;
+    background: linear-gradient(135deg, #5A6268, #343a40); /* Lighter gradient on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
 }
 
 /* Feedback Message */
 #feedback {
-    margin-top: 15px;
+    margin-top: 20px;
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     color: #FFC107; /* Muted yellow for feedback */
-    font-weight: 500;
+    font-weight: 600;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); /* Slight glow for feedback text */
 }
 
 /* Buttons for Navigation */
 .trivia-button {
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
     color: #ffffff;
-    background-color: #17A2B8; /* Soft blue */
+    background: linear-gradient(135deg, #17A2B8, #138496); /* Gradient blue */
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
     cursor: pointer;
     margin-top: 20px;
     margin-right: 10px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Button shadow */
 }
+
 .trivia-button:hover {
-    background-color: #138496; /* Slightly darker on hover */
+    background: linear-gradient(135deg, #138496, #117a8b); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
 }
 
 /* Center Navigation Buttons */
@@ -347,16 +343,18 @@ h2 {
     margin-top: 20px;
 }
 
-
 /* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(-10px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
+
 
 
   

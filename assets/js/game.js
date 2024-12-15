@@ -534,7 +534,7 @@ function fetchTriviaQuestion() {
     nextQuestionButton.disabled = true;
     nextQuestionButton.textContent = "Loading...";
 
-    fetch('https://opentdb.com/api.php?amount=20&category=18&difficulty=easy&type=multiple')
+    fetch('https://opentdb.com/api.php?amount=25&category=18&difficulty=easy&type=multiple')
         .then((response) => response.json())
         .then((data) => {
             const questionData = data.results[0];
@@ -588,16 +588,18 @@ function handleAnswerSelection(selectedAnswer, correctAnswer, selectedButton) {
     buttons.forEach((button) => {
         button.disabled = true;
 
-        // Highlight the correct answer
         if (button.textContent === correctAnswer) {
-            button.style.backgroundColor = '#4CAF50'; // Green for correct
-            button.style.color = 'white';
+            // Highlight the correct answer
+            button.style.background = 'linear-gradient(135deg, #28A745, #218838)'; // Green gradient
+            button.style.borderColor = '#218838';
+            button.style.color = '#fff';
         }
 
-        // Highlight the selected wrong answer
         if (button === selectedButton && selectedAnswer !== correctAnswer) {
-            button.style.backgroundColor = '#F44336'; // Red for wrong
-            button.style.color = 'white';
+            // Highlight the wrong answer
+            button.style.background = 'linear-gradient(135deg, #DC3545, #C82333)'; // Red gradient
+            button.style.borderColor = '#C82333';
+            button.style.color = '#fff';
         }
     });
 
@@ -609,7 +611,6 @@ function handleAnswerSelection(selectedAnswer, correctAnswer, selectedButton) {
     // Show the Next Question button
     nextQuestionButton.classList.remove('hidden');
 }
-
 
 // Event listener for the Next Question button
 document.getElementById('next-question-button').addEventListener('click', () => {
