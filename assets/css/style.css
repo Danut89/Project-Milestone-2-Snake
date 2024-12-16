@@ -11,7 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: 'Poppins', sans-serif; /* Modern font */
+    font-family: 'Poppins', sans-serif;
     color: #ffffff;
 }
 
@@ -19,16 +19,16 @@ body {
 .menu-container {
     text-align: center;
     margin-top: 40px;
-    background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
+    background: rgba(0, 0, 0, 0.6); 
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 .game-title {
     font-size: 55px; 
-    color: #fbc531; /* Changed to bright yellow for visual impact */
-    text-shadow: 0px 0px 15px rgba(108, 92, 231, 0.9); /* Added glow for prominence */
+    color: #fbc531; 
+    text-shadow: 0px 0px 15px rgba(108, 92, 231, 0.9);
     margin-bottom: 30px;
     font-weight: 800;
     letter-spacing: 3px;
@@ -42,9 +42,9 @@ body {
 }
 
 .highlighted {
-    color: #00cec9; /* Changed to bright teal for emphasis */
+    color: #00cec9; 
     font-weight: bold;
-    text-shadow: 0px 0px 8px rgba(0, 206, 201, 0.8); /* Added glow */
+    text-shadow: 0px 0px 8px rgba(0, 206, 201, 0.8); 
 }
 
 .messy {
@@ -65,16 +65,16 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(145deg, #fbc531, #e1b12c); /* Changed gradient to match title color */
+    background: linear-gradient(145deg, #fbc531, #e1b12c); 
     color: #1e2229;
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
-    box-shadow: 0 6px 15px rgba(251, 197, 49, 0.4); /* Updated shadow to match yellow tones */
+    box-shadow: 0 6px 15px rgba(251, 197, 49, 0.4); 
 }
 
 .menu-button:hover {
-    background: linear-gradient(145deg, #ffd32a, #fbc531); /* Updated hover effect */
+    background: linear-gradient(145deg, #ffd32a, #fbc531);
     transform: scale(1.07);
-    box-shadow: 0px 0px 15px rgba(108, 92, 231, 0.9); /* Enhanced hover shadow */
+    box-shadow: 0px 0px 15px rgba(108, 92, 231, 0.9); 
 }
 
 .menu-button:active {
@@ -90,10 +90,10 @@ body {
 #options-menu {
     text-align: center;
     margin-top: 40px;
-    background: rgba(0, 0, 0, 0.6); /* Added semi-transparent dark background */
+    background: rgba(0, 0, 0, 0.6); 
     padding: 20px;
     border-radius: 15px; 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Added shadow for better emphasis */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); 
 }
 
 .menu-title {
@@ -168,9 +168,9 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(20, 20, 60, 0.95); /* Semi-transparent dark blue, matching Trivia */
-    border: 5px solid #6c5ce7; /* Neon purple border for consistency */
-    box-shadow: 0 0 20px #6c5ce7, 0 0 40px #8e44ad; /* Enhanced glowing effect */
+    background: rgba(20, 20, 60, 0.95); 
+    border: 5px solid #6c5ce7;
+    box-shadow: 0 0 20px #6c5ce7, 0 0 40px #8e44ad;
     padding: 20px;
     border-radius: 20px;
     position: relative;
@@ -184,12 +184,12 @@ h2 {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    border-radius: 25px; /* Match the container's border radius */
-    background: linear-gradient(135deg, #6c5ce7, #8e44ad, #9b59b6); /* Animated glow gradient */
+    border-radius: 25px; 
+    background: linear-gradient(135deg, #6c5ce7, #8e44ad, #9b59b6); 
     filter: blur(12px);
     opacity: 0.8;
     z-index: -1;
-    animation: trivia-glow 3s infinite alternate; /* Reusing Trivia glow animation */
+    animation: trivia-glow 3s infinite alternate;
 }
 
 @keyframes trivia-glow {
@@ -199,7 +199,7 @@ h2 {
 
 /* Background Canvas */
 #backgroundCanvas {
-    background: linear-gradient(135deg, #202a34, #34495e); /* Dark gradient for depth */
+    background: linear-gradient(135deg, #202a34, #34495e);
     border-radius: 12px;
     position: absolute;
     top: 0;
@@ -211,12 +211,72 @@ h2 {
 
 /* Game Canvas */
 #gameCanvas {
-    background: #202a34; /* Match the darker tone */
-    border: 5px solid #6c5ce7; /* Neon purple border for consistency */
+    background: #202a34; 
+    border: 5px solid #6c5ce7; 
     display: block;
     position: relative;
-    border-radius: 15px; /* Rounded edges to match the container */
+    border-radius: 15px;
     width: 600px;
+}
+
+/* ==================== Game board with walls ==================== */
+#gameCanvas.walls-enabled {
+    border: 4px solid #f9ca24;
+    box-shadow: 0 0 10px #f9ca24; 
+}
+
+/* ==================== Align form elements ==================== */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 10px; 
+    width: 20px; 
+    height: 20px; 
+    display: flex;
+}
+
+/* Align labels to be on the same line as the radio button/checkbox */
+label {
+    display: flex;
+    margin-bottom: 10px; 
+    vertical-align: middle;
+}
+
+/* Create a better structure for the radio buttons and checkboxes */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.radio-group, .checkbox-group {
+    margin-bottom: 10px;
+}
+
+/* Fieldset for Game Speed */
+fieldset.option-group {
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+fieldset legend {
+    font-size: 1.3rem;
+    color: #fbc531;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 /* ==================== Overlays ==================== */
@@ -274,7 +334,6 @@ h2 {
 
 /* ==================== Trivia Game Styles ==================== */
 
-/* ==================== Trivia Game Container ==================== */
 #trivia-container {
     display: flex;
     flex-direction: column;
@@ -319,8 +378,8 @@ h2 {
 /* Question Text */
 #trivia-question {
     font-family: 'Poppins', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 700;
     color: #ffffff;
     margin-bottom: 20px;
     line-height: 1.8;
@@ -339,7 +398,7 @@ h2 {
 /* Trivia Answer Buttons */
 #trivia-answers button {
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     color: #ffffff;
     background: linear-gradient(135deg, #202a34, #3a3e44); /* Neutral gradient */
@@ -357,6 +416,7 @@ h2 {
     transform: scale(1.05); /* Slight zoom effect */
     box-shadow: 0 0 15px #8e44ad, 0 0 30px #9b59b6; /* Enhanced glow on hover */
 }
+
 
 /* Feedback Message */
 #feedback {
@@ -399,175 +459,42 @@ h2 {
     box-shadow: 0 0 10px #6c5ce7, 0 0 20px #8e44ad; /* Subtle glow when active */
 }
 
-/* Align Navigation Buttons */
-#navigation-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+.fa-lightbulb {
+    padding-right: 5px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+
+/* Trivia Button Animation (subtle pulse) */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(138, 43, 226, 0.8), 0 0 30px rgba(211, 84, 212, 0.8);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#feedback {
-    animation: fadeInFeedback 0.5s ease;
-}
-
-@keyframes fadeInFeedback {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==================== Trivia Game: Mobile Styles ==================== */
-
-/* Trivia Container */
-@media (max-width: 768px) {
-    #trivia-container {
-        width: 90%; /* Adjust container width for smaller screens */
-        padding: 15px; /* Reduce padding for mobile */
-        border-radius: 15px; /* Slightly smaller border radius */
-        box-shadow: 0 0 10px #6c5ce7, 0 0 20px #8e44ad; /* Adjusted shadow intensity */
-    }
-
-    #trivia-container::before {
-        border-radius: 20px; /* Match trivia container border radius */
-        filter: blur(8px); /* Adjust blur for smaller screens */
-    }
-
-    /* Trivia Question */
-    #trivia-question {
-        font-size: 18px; /* Reduce font size for better readability */
-        line-height: 1.5; /* Adjust line height */
-        margin-bottom: 15px; /* Reduce spacing */
-    }
-
-    /* Trivia Answers - Buttons */
-    #trivia-answers {
-        gap: 10px; /* Reduce gap between buttons */
-    }
-
-    #trivia-answers button {
-        font-size: 16px; /* Reduce button text size */
-        padding: 12px; /* Adjust padding */
-        border-radius: 12px; /* Smaller border radius */
-    }
-
-    #trivia-answers button:hover {
-        box-shadow: 0 0 10px #8e44ad, 0 0 20px #9b59b6; /* Subtle hover effect */
-    }
-
-    /* Feedback Message */
-    #feedback {
-        font-size: 16px; /* Adjust feedback text size */
-    }
-
-    /* Navigation Buttons */
-    .trivia-button {
-        font-size: 16px; /* Reduce font size */
-        padding: 10px 20px; /* Adjust padding */
-        margin-top: 15px; /* Reduce margin */
-        width: 100%; /* Full-width buttons for mobile */
-        border-radius: 10px;
-    }
-
-    .trivia-button:hover {
-        box-shadow: 0 0 12px #9b59b6, 0 0 20px #8e44ad; /* Adjust hover effect */
-    }
-
-    /* High Scores - Mobile Layout */
-    #high-scores-container {
-        flex-direction: column; /* Stack highscore boxes vertically */
-        gap: 15px; /* Space between stacked boxes */
-    }
-
-    #snake-highscore-box,
-    #trivia-highscore-box {
-        width: 100%; /* Full width on mobile */
-        padding: 10px; /* Reduce padding */
-        box-shadow: 0 0 10px #6c5ce7, 0 0 20px #8e44ad; /* Adjust glow */
-        border-radius: 12px; /* Smaller radius for smaller screens */
-    }
-
-    #snake-highscore-box h3,
-    #trivia-highscore-box h3 {
-        font-size: 18px; /* Reduce font size */
-        margin-bottom: 10px; /* Adjust spacing */
-    }
-
-    #snake-score-list li,
-    #trivia-score-list li {
-        font-size: 16px; /* Reduce list item size */
-        margin: 5px 0; /* Adjust spacing */
-    }
-
-    /* Adjust Back Button */
-    #back-scores-button {
-        margin-top: 20px;
-        font-size: 16px;
-        padding: 12px 20px;
-        width: 100%; /* Full-width button for mobile */
-        border-radius: 10px;
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(138, 43, 226, 1), 0 0 40px rgba(211, 84, 212, 1);
     }
 }
 
-/* Extra Small Screens (Phones below 576px) */
-@media (max-width: 576px) {
-    #trivia-container {
-        width: 95%; /* Further reduce container width */
-        padding: 10px; /* Reduce padding */
-    }
+/*Animations*/
 
-    #trivia-question {
-        font-size: 16px; /* Smaller font for very small screens */
-        margin-bottom: 10px;
+/* Keyframe Animation for Button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(108, 92, 231, 0.8);
     }
-
-    #trivia-answers button {
-        font-size: 14px; /* Smaller button text */
-        padding: 10px; /* Reduce padding */
-        border-radius: 10px;
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(108, 92, 231, 1);
     }
-
-    .trivia-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-
-    #high-scores-container {
-        gap: 10px; /* Reduce gap between boxes */
-    }
-
-    #snake-highscore-box,
-    #trivia-highscore-box {
-        padding: 8px; /* Reduce padding further */
-    }
-
-    #snake-highscore-box h3,
-    #trivia-highscore-box h3 {
-        font-size: 16px; /* Adjust heading size */
-    }
-
-    #snake-score-list li,
-    #trivia-score-list li {
-        font-size: 14px; /* Smaller list items */
-    }
-
-    #back-scores-button {
-        font-size: 14px;
-        padding: 10px;
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(108, 92, 231, 0.8);
     }
 }
 
-  /* Apply Animation to Trivia Button */
+/* Apply Animation to Trivia Button */
 .bonus-button {
     animation: pulse 2s infinite; /* Pulse animation runs indefinitely */
 }
@@ -606,24 +533,264 @@ h2 {
     animation: gradient-flow 2s infinite;
 }
 
+
+
+
+
+/* Align Navigation Buttons */
+#navigation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#feedback {
+    animation: fadeInFeedback 0.5s ease;
+}
+
+@keyframes fadeInFeedback {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ==================== Animations ==================== */
+@keyframes trivia-glow {
+    0% { opacity: 0.6; filter: blur(8px); }
+    100% { opacity: 1; filter: blur(12px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(108, 92, 231, 0.8); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(108, 92, 231, 1); }
+}
+
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(142, 68, 173, 0.7); }
+    50% { box-shadow: 0 0 20px rgba(142, 68, 173, 0.9), 0 0 30px rgba(155, 89, 182, 0.7); }
+    100% { box-shadow: 0 0 10px rgba(142, 68, 173, 0.7); }
+}
+
+
+/* ==================== Trivia Game: Mobile Styles ==================== */
+
+/* Trivia Container */
+@media (max-width: 768px) {
+    #trivia-container {
+        width: 90%; 
+        padding: 15px;
+        border-radius: 15px; 
+        box-shadow: 0 0 10px #6c5ce7, 0 0 20px #8e44ad; 
+    }
+
+    #trivia-container::before {
+        border-radius: 20px; 
+        filter: blur(8px); 
+    }
+
+    /* Trivia Question */
+    #trivia-question {
+        font-size: 18px; 
+        line-height: 1.5; 
+        margin-bottom: 15px;
+    }
+
+    /* Trivia Answers - Buttons */
+    #trivia-answers {
+        gap: 10px; 
+    }
+
+    #trivia-answers button {
+        font-size: 16px; 
+        padding: 12px; 
+        border-radius: 12px; 
+    }
+
+    #trivia-answers button:hover {
+        box-shadow: 0 0 10px #8e44ad, 0 0 20px #9b59b6; 
+    }
+
+    /* Feedback Message */
+    #feedback {
+        font-size: 16px; 
+    }
+
+    /* Navigation Buttons */
+    .trivia-button {
+        font-size: 16px; 
+        padding: 10px 20px; 
+        margin-top: 15px; 
+        width: 100%; 
+        border-radius: 10px;
+    }
+
+    .trivia-button:hover {
+        box-shadow: 0 0 12px #9b59b6, 0 0 20px #8e44ad;
+    }
+
+    /* High Scores - Mobile Layout */
+    #high-scores-container {
+        flex-direction: column;
+        gap: 15px; 
+    }
+
+    #snake-highscore-box,
+    #trivia-highscore-box {
+        width: 100%; 
+        padding: 10px;
+        box-shadow: 0 0 10px #6c5ce7, 0 0 20px #8e44ad; 
+        border-radius: 12px; 
+    }
+
+    #snake-highscore-box h3,
+    #trivia-highscore-box h3 {
+        font-size: 18px; 
+        margin-bottom: 10px;
+    }
+
+    #snake-score-list li,
+    #trivia-score-list li {
+        font-size: 16px; 
+        margin: 5px 0;
+    }
+
+    /* Adjust Back Button */
+    #back-scores-button {
+        margin-top: 20px;
+        font-size: 16px;
+        padding: 12px 20px;
+        width: 100%; 
+        border-radius: 10px;
+    }
+}
+
+/* Extra Small Screens (Phones below 576px) */
+@media (max-width: 576px) {
+    #trivia-container {
+        width: 95%; 
+        padding: 10px;
+    }
+
+    #trivia-question {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    #trivia-answers button {
+        font-size: 14px; 
+        padding: 10px; 
+        border-radius: 10px;
+    }
+
+    .trivia-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #high-scores-container {
+        gap: 10px; 
+    }
+
+    #snake-highscore-box,
+    #trivia-highscore-box {
+        padding: 8px; 
+    }
+
+    #snake-highscore-box h3,
+    #trivia-highscore-box h3 {
+        font-size: 16px; 
+    }
+
+    #snake-score-list li,
+    #trivia-score-list li {
+        font-size: 14px; 
+    }
+
+    #back-scores-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+  /* Apply Animation to Trivia Button */
+.bonus-button {
+    animation: pulse 2s infinite; 
+}
+
+/* Keyframe Animation for Container */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Animation to Trivia Container */
+.bonus-container {
+    animation: slideIn 1s ease-out; 
+}
+
+/* Keyframe Animation for Gradient Flow */
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Apply Gradient Flow Effect on Hover */
+.bonus-button:hover {
+    background: linear-gradient(270deg, #6c5ce7, #9b59b6, #8e44ad);
+    background-size: 300% 300%;
+    animation: gradient-flow 2s infinite;
+}
+
 /* Trivia Bonus Section Container */
 .bonus-container {
     margin-top: 30px;
     padding: 15px 20px;
-    background: rgba(20, 20, 60, 0.9); /* Slightly darker semi-transparent background */
-    border: 2px solid #6c5ce7; /* Neon purple border */
-    border-radius: 20px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(108, 92, 231, 0.8), 0 0 40px rgba(155, 89, 182, 0.6); /* Glowing effect */
-    text-align: center; /* Center align content */
-    max-width: 600px; /* Limit the width */
+    background: rgba(20, 20, 60, 0.9); 
+    border: 2px solid #6c5ce7; 
+    border-radius: 20px; 
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.8), 0 0 40px rgba(155, 89, 182, 0.6); 
+    text-align: center; 
+    max-width: 600px; 
     margin-left: auto;
     margin-right: auto;
 }
 
 /* Bonus Trivia Button */
 .bonus-button {
-    padding: 14px 50px;
-    font-size: 20px;
+    padding: 12px 40px;
+    font-size: 18px; 
     font-weight: 700;
     background: linear-gradient(135deg, #6c5ce7, #9b59b6); /* Purple gradient */
     color: white;
@@ -632,6 +799,7 @@ h2 {
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 15px rgba(108, 92, 231, 0.8);
+    margin-top: 10px; /* Add spacing above button */
 }
 
 /* Hover Effect for Bonus Button */
@@ -643,20 +811,48 @@ h2 {
 /* Bonus Subtext */
 .bonus-subtext {
     margin-top: 10px;
+    margin-bottom: 15px; /* Increase spacing */
     font-size: 16px;
     color: #dfe6e9; /* Soft neutral color */
     font-weight: 500;
     text-shadow: 0px 0px 8px rgba(108, 92, 231, 0.7); /* Subtle glow */
 }
 
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(142, 68, 173, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(142, 68, 173, 0.9), 0 0 30px rgba(155, 89, 182, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(142, 68, 173, 0.7);
+    }
+}
 
-/* Bonus Description */
-.bonus-description {
-    font-size: 18px;
-    color: #dfe6e9; /* Light neutral color */
-    text-align: center;
-    margin-top: 10px;
-    font-style: italic;
+.bonus-button {
+    animation: pulseGlow 2s infinite;
+}
+
+/* Keyframe Animation for Button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(108, 92, 231, 0.8);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(108, 92, 231, 1);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(108, 92, 231, 0.8);
+    }
+}
+
+/* Apply Animation to Trivia Button */
+.bonus-button {
+    animation: pulse 2s infinite; /* Pulse animation runs indefinitely */
 }
 
 #instructions-container {
@@ -666,46 +862,7 @@ h2 {
 
 
 
-/* ==================== Game board with walls ==================== */
-#gameCanvas.walls-enabled {
-    border: 4px solid #f9ca24;
-    box-shadow: 0 0 10px #f9ca24; 
-}
 
-/* ==================== Align form elements ==================== */
-input[type="radio"], input[type="checkbox"] {
-    margin-right: 10px; 
-    width: 20px; 
-    height: 20px; 
-    display: flex;
-}
-
-/* Align labels to be on the same line as the radio button/checkbox */
-label {
-    display: flex;
-    margin-bottom: 10px; 
-    vertical-align: middle;
-}
-
-/* Create a better structure for the radio buttons and checkboxes */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.form-group input[type="radio"],
-.form-group input[type="checkbox"] {
-    margin-right: 10px;
-}
-
-.radio-group, .checkbox-group {
-    margin-bottom: 10px;
-}
 
 
 /* ==================== Mobile Styles ==================== */

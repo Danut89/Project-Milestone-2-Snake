@@ -1,64 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake</title>
+    <title>Snacky Snake</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
-
     <!-- Main Menu -->
-        <!-- Main Menu -->
-    <section class="menu-container" id="main-menu">
-        <h1 class="game-title">Snacky Snake</h1>
-        <p class="game-instructions">Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> anywhere to change direction</p>
-        <p class="game-instructions">Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume</p>
-        <p class="game-instructions">The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become</p>
-        <p class="game-instructions"><em>Don't eat yourself</em></p>
-        <div class="button-container">
-            <button id="play-snake-button" class="menu-button">Play</button>
-            <button id="options-button" class="menu-button">Options</button>
-            <button id="high-scores-button" class="menu-button">Scores</button>
-            <button id="instructions-button" class="menu-button">Instructions</button>
-            <!-- Instructions Modal -->
-            <div id="instructions-container">
-                <h2>Game Instructions</h2>
-                <p>Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> to change direction.</p>
-                <p>Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume.</p>
-                <p>The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become.</p>
-                <p><em>Don't eat yourself!</em></p>
-                <button id="close-instructions" class="close">Close</button>
-            </div>
-            
-
-    <!-- Trivia Bonus Section -->
-    <div class="bonus-container">
-        <button id="play-trivia-button" class="menu-button trivia-button bonus-button">
-            <i class="fas fa-brain"></i> Play Trivia
-        </button>
-        <p class="bonus-subtext">Bonus Content: Test and train your coding skills!</p>
-    </div>
-     
+    <main class="menu-container" id="main-menu">
+        <h1 class="game-title">ByteSnake</h1>
+        <div class="game-instructions">
+            <p>Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> to change direction.</p>
+            <p>Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume.</p>
+            <p>The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become.</p>
+            <p><em>Don't eat yourself!</em></p>
         </div>
-    </section>
-    
-    
+        <nav class="button-container">
+            <button id="play-snake-button" class="menu-button" aria-label="Play Snake Game">Play</button>
+            <button id="options-button" class="menu-button" aria-label="Game Options">Options</button>
+            <button id="high-scores-button" class="menu-button" aria-label="High Scores">Scores</button>
+            <button id="instructions-button" class="menu-button" aria-label="Game Instructions">Instructions</button>
+        </nav>
 
-    <!-- Game Options -->
-    <section id="options-menu" class="menu hidden">
-        <h2 class="menu-title">Options</h2>
+        <!-- Instructions Modal -->
+        <div id="instructions-container" role="dialog" aria-labelledby="instructions-title" aria-hidden="true">
+            <h2 id="instructions-title">Game Instructions</h2>
+            <p>Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> to change direction.</p>
+            <p>Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume.</p>
+            <p>The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become.</p>
+            <p><em>Don't eat yourself!</em></p>
+            <button id="close-instructions" class="menu-button" aria-label="Close Instructions">Close</button>
+        </div>
+
+        <!-- Trivia Bonus Section -->
+        <aside class="bonus-container">
+            <p class="bonus-subtext">🧠 Bonus: Code Trivia Challenge-Test and train your coding skills!</p>
+            <button id="play-trivia-button" class="menu-button bonus-button" aria-label="Play Trivia Challenge">
+                <i class="fas fa-brain"></i> Play Trivia
+            </button>
+        </aside>
+    </main>
+
+    <section id="options-menu" class="menu hidden" aria-labelledby="options-title">
+        <h2 id="options-title" class="menu-title">Options</h2>
         <div class="options-content">
+            <!-- Checkboxes -->
             <div class="option-group">
-                <label>
+                <label for="walls-checkbox">
                     <input type="checkbox" id="walls-checkbox"> Walls
                 </label>
-                <label>
+                <label for="audio-checkbox">
                     <input type="checkbox" id="audio-checkbox"> Sound
                 </label>
             </div>
-            <div class="option-group">
+    
+            <!-- Radio buttons for Game Speed -->
+            <fieldset class="option-group">
                 <label>
                     <input type="radio" name="speed" value="slow"> Slow
                 </label>
@@ -68,59 +69,61 @@
                 <label>
                     <input type="radio" name="speed" value="fast"> Fast
                 </label>
-            </div>
+            </fieldset>
         </div>
-        <button id="options-play-button" class="menu-button">Play</button>
-        <button id="back-options-button" class="menu-button">Back</button>
+    
+        <!-- Buttons -->
+        <div class="button-container">
+            <button id="options-play-button" class="menu-button" aria-label="Play Game">Play</button>
+            <button id="back-options-button" class="menu-button" aria-label="Back to Main Menu">Back</button>
+        </div>
     </section>
+    
 
     <!-- High Scores Menu -->
-    <section id="high-scores-menu" class="menu-title menu hidden">
-        <h2>High Scores</h2>
-        <ul id="score-list"></ul>
-        <button id="back-scores-button" class="menu-button">Back</button>
+    <section id="high-scores-menu" class="menu hidden" aria-labelledby="high-scores-title">
+        <h2 id="high-scores-title">High Scores</h2>
+        <ul id="score-list" aria-live="polite"></ul>
+        <button id="back-scores-button" class="menu-button" aria-label="Back to Main Menu">Back</button>
     </section>
 
     <!-- Game Board -->
-    <section id="game-board-container" class="hidden">
-        <canvas id="backgroundCanvas"></canvas>
-        <canvas id="gameCanvas"></canvas>
+    <section id="game-board-container" class="hidden" aria-hidden="true">
+        <canvas id="backgroundCanvas" aria-hidden="true"></canvas>
+        <canvas id="gameCanvas" aria-label="Game Canvas"></canvas>
         <div id="pause-overlay">Game Paused            
             <button id="pause-restart-button" class="menu-button">Restart</button>
             <button class="quit-button menu-button">Quit to Menu</button>
         </div>
-        <section id="game-over-overlay" class="hidden">
+        <div id="game-over-overlay" class="hidden">
             <h2>Game Over</h2>
-            <p id="final-score">Your final score is: 0</p>
-            <button id="restart-button" class="menu-button">Restart</button>
-            <button id="back-to-menu-button" class="menu-button">Back to Menu</button>
-        </section>
+            <p id="final-score" aria-live="assertive">Your final score is: 0</p>
+            <button id="restart-button" class="menu-button" aria-label="Restart Game">Restart</button>
+            <button id="back-to-menu-button" class="menu-button" aria-label="Back to Main Menu">Back to Menu</button>
+        </div>
     </section>
 
-    <div id="trivia-container" class="hidden">
+    <!-- Trivia Game -->
+    <section id="trivia-container" class="hidden" aria-labelledby="trivia-title">
         <h1 id="trivia-title">Trivia Game</h1>
         <div id="trivia-question-box">
             <p id="trivia-question"></p>
         </div>
         <div id="trivia-answers"></div>
         <p id="feedback"></p>
-        <button id="next-question-button" class="trivia-button">Next Question</button>
-        <button id="back-to-main-menu" class="trivia-button">Back to Main Menu</button>
-    </div>
-    
-    
+        <button id="next-question-button" class="menu-button trivia-button" aria-label="Next Question">Next Question</button>
+        <button id="back-to-main-menu" class="menu-button trivia-button" aria-label="Back to Main Menu">Back to Menu</button>
+    </section>
 
     <!-- Audio Elements -->
     <audio id="eat-sound" src="assets/sounds/mixkit-game-ball-tap-2073.wav" preload="auto"></audio>
     <audio id="game-over-sound" src="assets/sounds/mixkit-arcade-mechanical-bling-210.wav" preload="auto"></audio>
     <audio id="button-sound" src="assets/sounds/448086__breviceps__normal-click.wav" preload="auto"></audio>
 
-
-    <!-- JavaScript for the game -->
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script src="assets/js/game.js"></script>
     <script src="assets/js/highscores.js"></script>
 </body>
-</html>
 
+</html>
