@@ -586,7 +586,81 @@ The following tools, technologies, and libraries were used to develop and test t
 | **Animated Elements**     | Hover over buttons and check interactive animations.                              | Buttons display hover animations and transitions smoothly.                                                    | Hover animations worked as intended.                                                             | ✅ **Pass**          |
 
 - This table documents the manual testing process, confirming that all features were tested and responded correctly. You can also include specific screenshots if needed.
+
 ---
+
+## Testing User Stories
+
+### 1. As a Player, I want to start the Snake game easily.
+| **Feature**       | **Action**                     | **Expected Result**                               | **Actual Result** |
+|--------------------|--------------------------------|--------------------------------------------------|-------------------|
+| Play button        | Click on the "Play" button.   | The game starts immediately with the snake moving.| As expected ✅     |
+
+### 2. As a Player, I want clear instructions on how to play.
+| **Feature**            | **Action**                     | **Expected Result**                                       | **Actual Result** |
+|-------------------------|--------------------------------|----------------------------------------------------------|-------------------|
+| Instructions (Desktop)  | View instructions on main menu.| Clear instructions displayed on the screen.              | As expected ✅     |
+| Instructions (Mobile)   | Tap on the "Instructions" button. | A modal opens, displaying gameplay instructions.         | As expected ✅     |
+
+### 3. As a Player, I want the option to pause and resume the game.
+| **Feature**           | **Action**                          | **Expected Result**                                          | **Actual Result** |
+|------------------------|-------------------------------------|-------------------------------------------------------------|-------------------|
+| Pause/Resume feature   | Press Spacebar or Double Tap.       | The game pauses, showing a menu with options to resume.      | As expected ✅     |
+
+### 4. As a Player, I want to see my score at the end.
+| **Feature**           | **Action**                      | **Expected Result**                                         | **Actual Result** |
+|------------------------|---------------------------------|------------------------------------------------------------|-------------------|
+| Game Over screen       | Allow the game to end naturally.| Final score displayed clearly with options to restart/menu. | As expected ✅     |
+
+### 5. As a Player, I want to test my coding knowledge in the trivia challenge.
+| **Feature**             | **Action**                            | **Expected Result**                                       | **Actual Result** |
+|--------------------------|---------------------------------------|----------------------------------------------------------|-------------------|
+| Trivia Challenge         | Click on "Play Trivia" button.       | Trivia game starts with randomized coding questions.      | As expected ✅     |
+| Real-Time Feedback       | Answer a trivia question.            | Correct/incorrect answers highlighted with feedback.      | As expected ✅     |
+
+### 6. As a Player with Accessibility Needs, I want the game to be keyboard accessible.
+| **Feature**            | **Action**                         | **Expected Result**                                      | **Actual Result** |
+|-------------------------|------------------------------------|---------------------------------------------------------|-------------------|
+| Keyboard Navigation     | Use arrow keys to navigate the snake. | The snake moves in the expected direction.              | As expected ✅     |
+| Focus States            | Tab through menu buttons.          | Active buttons are highlighted for keyboard navigation.  | As expected ✅     |
+
+### 7. As a Player with Accessibility Needs, I want clear and readable text.
+| **Feature**            | **Action**                       | **Expected Result**                                      | **Actual Result** |
+|-------------------------|----------------------------------|---------------------------------------------------------|-------------------|
+| Game Instructions       | View the instructions on any device.| Instructions are clear and easy to read.                 | As expected ✅     |
+
+### 8. As a Player with Accessibility Needs, I want high-contrast visuals.
+| **Feature**            | **Action**                         | **Expected Result**                                      | **Actual Result** |
+|-------------------------|------------------------------------|---------------------------------------------------------|-------------------|
+| Game visuals            | Play the game.                    | Snake, food, and menu elements are distinguishable.      | As expected ✅     |
+
+### 9. As a Player with Accessibility Needs, I want proper focus states for controls.
+| **Feature**            | **Action**                         | **Expected Result**                                      | **Actual Result** |
+|-------------------------|------------------------------------|---------------------------------------------------------|-------------------|
+| Menu buttons            | Tab through interactive buttons.  | Buttons display focus indicators for keyboard users.     | As expected ✅     |
+
+### 10. As a Developer/Contributor, I want clean and organized code.
+| **Feature**           | **Action**                           | **Expected Result**                                      | **Actual Result** |
+|------------------------|--------------------------------------|---------------------------------------------------------|-------------------|
+| Code Structure         | Review project files.               | Code is modular, organized, and easy to understand.      | As expected ✅     |
+
+### 11. As a Developer/Contributor, I want modular JavaScript functions.
+| **Feature**            | **Action**                          | **Expected Result**                                      | **Actual Result** |
+|-------------------------|-------------------------------------|---------------------------------------------------------|-------------------|
+| Game Functionality      | Check functions in `game.js`.       | Functions are modular and reusable.                     | As expected ✅     |
+
+### 12. As a Developer/Contributor, I want the game to follow accessibility best practices.
+| **Feature**            | **Action**                          | **Expected Result**                                      | **Actual Result** |
+|-------------------------|-------------------------------------|---------------------------------------------------------|-------------------|
+| Accessibility Features  | Test keyboard controls and visuals. | Game is accessible with high contrast and keyboard input.| As expected ✅     |
+
+### 13. As a Developer/Contributor, I want the README to document all game features.
+| **Feature**            | **Action**                           | **Expected Result**                                      | **Actual Result** |
+|-------------------------|--------------------------------------|---------------------------------------------------------|-------------------|
+| README Documentation    | Review the README file.             | README includes all features, testing results, and tech stack.| As expected ✅     |
+
+
+
 
 
 
