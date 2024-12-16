@@ -15,13 +15,13 @@
         <h1 class="game-title">ByteSnake</h1>
         <div class="game-instructions">
             <p>Use the <span class="highlighted">ARROW</span> keys or <span class="highlighted">SWIPE</span> to change direction.</p>
-            <p>Press <span class="highlighted">SPACE</span> or <span class="highlighted">TWO-FINGER TAP</span> to pause or resume.</p>
+            <p>Press <span class="highlighted">SPACE</span> or <span class="highlighted">Double TAP</span> to pause or resume.</p>
             <p>The more you eat, the bigger you grow and the <span class="highlighted messy">messier</span> things become.</p>
             <p><em>Don't eat yourself!</em></p>
         </div>
         <nav class="button-container">
             <button id="play-snake-button" class="menu-button" aria-label="Play Snake Game">Play</button>
-            <button id="options-button" class="menu-button" aria-label="Game Options">Options</button>
+            <button id="options-button" class="menu-button" aria-label="Game Options">Settings</button>
             <button id="high-scores-button" class="menu-button" aria-label="High Scores">Scores</button>
             <button id="instructions-button" class="menu-button" aria-label="Game Instructions">Instructions</button>
         </nav>
@@ -40,13 +40,13 @@
         <aside class="bonus-container">
             <p class="bonus-subtext">🧠 Bonus: Code Trivia Challenge-Test and train your coding skills!</p>
             <button id="play-trivia-button" class="menu-button bonus-button" aria-label="Play Trivia Challenge">
-                <i class="fas fa-brain"></i> Play Trivia
+                <i class="fas fa-lightbulb"></i> Play Trivia
             </button>
         </aside>
     </main>
 
     <section id="options-menu" class="menu hidden" aria-labelledby="options-title">
-        <h2 id="options-title" class="menu-title">Options</h2>
+        <h2 id="options-title" class="menu-title">Settings</h2>
         <div class="options-content">
             <!-- Checkboxes -->
             <div class="option-group">
@@ -82,7 +82,7 @@
 
     <!-- High Scores Menu -->
     <section id="high-scores-menu" class="menu hidden" aria-labelledby="high-scores-title">
-        <h2 id="high-scores-title">High Scores</h2>
+        <h2 id="high-scores-title" class="menu-title">High Scores</h2>
         <ul id="score-list" aria-live="polite"></ul>
         <button id="back-scores-button" class="menu-button" aria-label="Back to Main Menu">Back</button>
     </section>

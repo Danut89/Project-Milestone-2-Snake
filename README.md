@@ -114,32 +114,32 @@ By prioritizing accessibility, **ByteSnake** ensures an engaging and enjoyable e
 
 ### As a Player with Accessibility Needs
 
-1. **I want the game to be keyboard accessible**  
+6. **I want the game to be keyboard accessible**  
    *so that I can play without relying on a mouse or touch screen.*
 
-2. **I want clear and readable text**  
+7. **I want clear and readable text**  
    *so that I can follow the game instructions without confusion.*
 
-3. **I want high-contrast visuals**  
+8. **I want high-contrast visuals**  
    *so that I can easily differentiate between game elements.*
 
-4. **I want buttons and controls to have proper focus states**  
+9. **I want buttons and controls to have proper focus states**  
    *so that I know where I am while navigating the game.*
 
 ---
 
 ### As a Developer/Contributor
 
-1. **I want clean and organized code**  
+10. **I want clean and organized code**  
    *so that I can understand and maintain the project easily.*
 
-2. **I want modular JavaScript functions**  
+11. **I want modular JavaScript functions**  
    *so that the code is reusable and easy to debug.*
 
-3. **I want the game to follow accessibility best practices**  
+12. **I want the game to follow accessibility best practices**  
    *so that it is inclusive to all users.*
 
-4. **I want the README to document all game features**  
+13. **I want the README to document all game features**  
    *so that others can understand and contribute to the project.*
 
 ---
@@ -258,14 +258,15 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
 
 ## **Features**
 
-### **Game Area**
-- **Interactive Game Canvas**: 
-  - The game is displayed on an interactive canvas where the snake moves dynamically, eating food, and growing longer.
-  - Players navigate the snake using arrow keys or swipe gestures.
-  - The food appears randomly and features sparks with vibrant colors when consumed.
+ ### **Game Area**
+- **Interactive Game Canvas**  
+  - The game is displayed on an interactive canvas where the snake moves dynamically, eating food, and growing longer.  
+  - Players navigate the snake using arrow keys or swipe gestures.  
+  - The food appears randomly and features sparks with vibrant colors when consumed.  
+  - **User Stories Covered:** 1, 2, 6, 8  
 
 <details>
-<summary>Game Area Image</summary>
+<summary>Screenshoot Game-Area</summary>
 
 ![Game Area](assets/images/readme-images/Game-area.png)
 
@@ -273,138 +274,231 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
 
 ---
 
-
-- **Game Over Screen**:  
+- **Game Over Screen**  
   - When the game ends, the player is presented with their final score.  
-  - Includes a **Restart** button for quick replay and a **Back to Menu** button for easy navigation.
-
+  - Includes a Restart button for quick replay and a Back to Menu button for easy navigation.  
+  - **User Stories Covered:** 3, 4  
 <details>
-<summary>Show Screenshot</summary>
+<summary>Screenshoot Game-Over</summary>
 
 
 ![Game Over Screen](assets/images/readme-images/Game-Over.png)
 
 </details>
 
-**User Stories Covered**: 1, 2, 4, 5, 6.
-
 ---
 
 ### **Main Menu**
-- **Menu Options**:  
-  - A clean and intuitive menu that provides access to:
-    - **Play Game**: Starts the classic snake game.
-    - **Options**: Allows customization of gameplay features.
-    - **High Scores**: Displays a table of the highest scores.
-    - **Trivia Challenge**: Launches an educational coding trivia game.
+- **Desktop Menu Options**  
+  - A clean and intuitive menu that provides access to:  
+    - Play Game: Starts the classic snake game.  
+    - Options: Allows customization of gameplay features.  
+    - High Scores: Displays a table of the highest scores.  
+    - Trivia Challenge: Launches an educational coding trivia game. 
+    - **Instructions Button (Mobile Only):**  
+    - On mobile devices, an **Instructions** button appears in the main menu.  
+    - Opens a modal with clear gameplay instructions.  
+    - Allows users to understand the game without cluttering the main screen. 
+    - **User Stories Covered:** 1, 2, 5  
 
 <details>
-<summary>Show Screenshot</summary>
+<summary>Screenshoot Main-Menu</summary>
 
-![Main Menu](assets/screenshots/main-menu.png)
+![Main Menu](assets/images/readme-images/Main-Menu.png)
 
 </details>
 
-- **Animated Buttons**:  
-  - Buttons are visually engaging with glowing hover effects and smooth animations.
+### **Mobile Menu Options**  
 
-**User Stories Covered**: 8, 10.
+- On mobile devices, the menu is optimized to provide better usability with a smaller screen:
+
+- **Instructions Button:**  
+  - A dedicated **Instructions** button is provided on the main menu.  
+  - Opens a modal with clear gameplay instructions, including game controls and mechanics.  
+  - Ensures that the instructions remain accessible without cluttering the smaller screen.  
+
+- **Menu Options:**  
+  Similar to the desktop version, mobile users can access:  
+  - **Play Game:** Starts the snake game.  
+  - **Options:** Adjust gameplay settings.  
+  - **High Scores:** View the top scores.  
+  - **Trivia Challenge:** Test your coding knowledge.  
+  - **User Stories Covered:** 2, 7, 8.
+ 
+ <details>
+<summary>Screenshoot Mobile Main-Menu</summary>
+
+![Mobile Main-Menu](assets/images/readme-images/Mobile%20Main-Menu.png)
+
+</details>
+
+<details>
+<summary>Screenshoot Mobile Instructions-Modal</summary>
+
+![Mobile Instuctions-Modal](assets/images/readme-images/Mobile%20Instuctions-modal.png)
+
+</details>
 
 ---
 
-### **Customizable Gameplay**
-- **Wall Mode**:  
-  - Enable or disable walls to increase or decrease difficulty.  
-  - Visual cues indicate whether the walls are on or off.
-
+- **Animated Buttons**  
+  - Buttons are visually engaging with glowing hover effects and smooth animations.  
+  - **User Stories Covered:** 8, 9  
 <details>
-<summary>Show Screenshot</summary>
+<summary>Screenshoot Buttons</summary>
 
-![Wall Mode](assets/screenshots/wall-mode.png)
+
+![Animated Buttons](assets/images/readme-images/Buttons.png)
 
 </details>
 
-- **Speed Adjustment**:  
-  - Players can select from three speed options: Slow, Medium, or Fast.
+---
 
-- **Sound Effects**:  
-  - Enable or disable sound effects such as button clicks, food consumption, and game over sounds.
+### **Settings**
+- **Wall Mode**  
+  - Enable or disable walls to increase or decrease difficulty.  
+  - Visual cues indicate whether the walls are on or off.  
 
-**User Stories Covered**: 7, 9, 10.
+- **Speed Adjustment**  
+  - Players can select from three speed options: Slow, Medium, or Fast.  
+
+- **Sound Effects**  
+  - Enable or disable sound effects such as button clicks, food consumption, and game over sounds.  
+  - **User Stories Covered:** 3, 7, 9  
+<details>
+<summary>Screenshoot Settings-Menu</summary>
+
+![Settings](assets/images/readme-images/Settings-Menu.png)
+
+</details>
 
 ---
 
 ### **Trivia Challenge**
-- **Educational Gameplay**:  
-  - A separate trivia game mode tests the player's coding knowledge with multiple-choice questions.
-  - Randomized questions and answers ensure replayability.
+- **Educational Gameplay**  
+  - A separate trivia game mode tests the player's coding knowledge with multiple-choice or true/false questions.  
+  - The Trivia Challenge uses the Open Trivia Database API to fetch random coding-related questions in real-time.
+  - Randomized questions and answers ensure replayability.  
+  - **User Stories Covered:** 5, 12  
+
+- **Real-Time Feedback**  
+  - Correct answers are highlighted in green, and incorrect answers in red, with a message indicating the correct answer.  
+  - **User Stories Covered:** 5, 9  
 
 <details>
-<summary>Show Screenshot</summary>
+<summary>Screenshoot Trivia-Game</summary>
 
-![Trivia Challenge](assets/screenshots/trivia-challenge.png)
+![Trivia Challenge](assets/images/readme-images/Corect-Answer.png)
 
 </details>
 
 - **Real-Time Feedback**:  
   - Correct answers are highlighted in green, and incorrect answers in red, with a message indicating the correct answer.
 
+
+
 **User Stories Covered**: 9, 14.
 
 ---
 
 ### **High Scores**
-- **Score Table**:  
-  - Displays the top scores to encourage replayability and competition.
-  - Players can track their personal bests.
+- **Score Table**  
+  - Displays the top scores to encourage replayability and competition.  
+  - Players can track their personal bests.  
+  - **User Stories Covered:** 4, 5  
 
 <details>
 <summary>Show Screenshot</summary>
 
-![High Scores](assets/screenshots/high-scores.png)
+![High Scores](assets/images/readme-images/Highscore-Menu.png)
 
 </details>
-
-**User Stories Covered**: 4, 5, 12.
 
 ---
 
 ### **Pause and Resume**
-- **Pause Overlay**:  
-  - Players can pause the game using the spacebar or a two-finger tap.  
-  - The pause overlay provides options to **Resume**, **Restart**, or **Quit to Menu**.
+- **Pause Overlay**  
+  - Players can pause the game using the spacebar or a double tap.  
+  - The pause overlay provides options to Resume, Restart, or Quit to Menu.  
+  - **User Stories Covered:** 3, 6  
+
 
 <details>
-<summary>Show Screenshot</summary>
+<summary>Screenshot Pause-Game</summary>
 
-![Pause Screen](assets/screenshots/pause-screen.png)
+![Pause Screen](assets/images/readme-images/Pause-Resume.png)
 
 </details>
-
-**User Stories Covered**: 3, 5.
 
 ---
 
 ### **Accessibility Features**
-- **Keyboard and Touch Controls**:  
+- **Keyboard and Touch Controls**  
   - Supports both keyboard and swipe gestures for navigation.  
+  - **User Stories Covered:** 6, 8  
 
-- **Readable Text and Contrasting Colors**:  
-  - High contrast visuals and large, clear fonts improve usability for all players.  
+- **Readable Text and Contrasting Colors**  
+  - High-contrast visuals and large, clear fonts improve usability for all players.  
+  - **User Stories Covered:** 7, 8  
 
-- **Responsive Design**:  
-  - The game adapts seamlessly to various screen sizes, including desktops, tablets, and mobile devices.
+- **Responsive Design**  
+  - The game adapts seamlessly to various screen sizes, including desktops, tablets, and mobile devices.  
+  - **User Stories Covered:** 8, 9 
 
 <details>
-<summary>Show Screenshot</summary>
+<summary>Screenshot Accesibility</summary>
 
-![Responsive Design](assets/screenshots/responsive-design.png)
+![Accesibility Design](assets/images/readme-images/Accesibility.png)
 
 </details>
 
-**User Stories Covered**: 11, 13.
-
 ---
+
+### **Developer-Focused Features**
+- **Clean and Modular Code**  
+  - The project follows a clean and organized code structure to ensure readability and maintainability.  
+  - JavaScript functions are modular for better reusability and debugging.  
+  - **User Stories Covered:** 10, 11
+
+  ---
+
+  - **Accessibility Best Practices**  
+  - The game implements accessibility best practices to ensure inclusivity for all users.  
+  - **User Stories Covered:** 12, 13  
+
+  ---
+
+  ## API Integration
+
+### Open Trivia Database API
+The game uses the **Open Trivia Database API** to power the Trivia Challenge feature. This API provides random multiple-choice coding questions, ensuring a fresh and educational experience for players.
+
+**API Endpoint:**
+- [Open Trivia Database](https://opentdb.com/api_config.php)
+
+### How It Works
+1. **Fetching Questions**:  
+   - Questions are fetched dynamically using JavaScript's `fetch()` method.  
+   - API responses return a set of randomized questions with both correct and incorrect answers.  
+
+2. **Randomized Display**:  
+   - Answers are shuffled to provide a challenging and fair experience.  
+
+3. **Real-Time Feedback**:  
+   - Correct answers are highlighted in green.  
+   - Incorrect answers are highlighted in red, and the correct answer is displayed to the player.
+
+**Code Example:**
+```javascript
+// Fetch trivia questions from Open Trivia Database
+fetch('https://opentdb.com/api.php?amount=10&category=18&type=multiple')
+    .then(response => response.json())
+    .then(data => {
+        const questionData = data.results[0];
+        displayTriviaQuestion(questionData);
+    })
+    .catch(error => console.error('Error fetching trivia:', error));
+```
 
 ### **Future Development**
 
@@ -430,6 +524,47 @@ These features aim to provide a more dynamic and versatile gaming experience whi
 
 ---
 
+## Technologies Used
+
+The following tools, technologies, and libraries were used to develop and test the game:
+
+### Core Development Tools
+- **HTML5 Canvas**: Used for rendering the game area and interactive visuals.
+- **CSS3**: Provides styling, layout design, and responsive visuals for the game.
+- **JavaScript (ES6+)**: Manages game logic, interactivity, and dynamic rendering.
+
+### APIs and Libraries
+- **[Open Trivia Database API](https://opentdb.com/api_config.php)**: Supplies real-time coding trivia questions for the Trivia Challenge feature.
+- **[Hammer.js](https://hammerjs.github.io/)**: Enables swipe gesture controls on mobile devices.
+- **[Font Awesome](https://fontawesome.com/)**: Provides icons for buttons and additional visual elements.
+- **[Google Fonts](https://fonts.google.com/)**: Used for custom typography, including fonts like 'Poppins' and 'Roboto Mono'.
+
+### Development Environments
+- **[GitPod](https://www.gitpod.io/)**: Cloud-based development environment used for coding and testing the game.
+- **[Visual Studio Code](https://code.visualstudio.com/)**: Local code editor used for initial development and debugging.
+
+### Version Control
+- **[Git](https://git-scm.com/)**: Used for version control to track changes and manage project history.
+- **[GitHub](https://github.com/)**: Hosted the project repository for collaboration and code storage.
+- **[GitHub Pages](https://pages.github.com/)**: Deployed the game for easy access and sharing.
+
+### Testing Tools
+- **Browser Developer Tools**: Used for real-time testing, debugging, and ensuring responsiveness on different screen sizes.
+- **[Lighthouse](https://developers.google.com/web/tools/lighthouse)**: Ensured accessibility, performance, and SEO compliance.
+- **[W3C JSLint Validator](https://jslint.com/)**: Validated the JavaScript code for syntax and best practices compliance.
+- **[ChatGPT](https://openai.com/chatgpt)**: Assisted in testing, debugging, and improving game logic and design.
+
+
+### Design and Media
+- **[TinyPNG](https://tinypng.com/)**: Optimized and resized images for better performance and loading times.
+- **Online Image Resources**: High-quality game images used for backgrounds and visual elements.
+
+### Additional Tools
+- **[WAVE Accessibility Tool](https://wave.webaim.org/)**: Verified the game's accessibility compliance.
+- **Markdown Editor**: Used to draft and structure the project’s README file.
+
+This section highlights all the tools and technologies involved in the development.
+---
 
 ## Installation
 
