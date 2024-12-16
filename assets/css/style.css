@@ -2,7 +2,7 @@
 
 /* ==================== Global Styles ==================== */
 body {
-    background-image: url(../images/wp3906251-snake-game-wallpapers.jpg);
+    background-image: url(../images/background-image.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1034,7 +1034,7 @@ fieldset legend {
 
 @media (max-width: 768px) {
     body {
-        background-image: url(../images/wp3906251-snake-game-wallpapers.jpg);
+        background-image: url(/assets/images/background-image.jpg);
         background-size: cover; /* Ensure the image covers the entire screen */
         background-repeat: no-repeat; /* Prevent tiling */
         background-position: 10% center; /* Focus on the left side of the image */

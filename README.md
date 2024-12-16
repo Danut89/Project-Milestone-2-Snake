@@ -563,8 +563,33 @@ The following tools, technologies, and libraries were used to develop and test t
 - **[WAVE Accessibility Tool](https://wave.webaim.org/)**: Verified the game's accessibility compliance.
 - **Markdown Editor**: Used to draft and structure the project’s README file.
 
-This section highlights all the tools and technologies involved in the development.
 ---
+
+
+## Manual Testing
+
+| **Feature**               | **Testing Method**                                                                 | **Expected Behavior**                                                                                        | **Response**                                                                                     | **Pass/Fail**       |
+|---------------------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|---------------------|
+| **Start Game**            | Click the "Play Game" button on the main menu.                                     | Game starts, snake appears on the canvas, ready to move.                                                     | Game started correctly, and snake was displayed on the canvas.                                  | ✅ **Pass**          |
+| **Movement Controls**     | Use arrow keys or swipe gestures to move the snake.                               | Snake moves in the direction pressed without overlapping itself or walls (if walls enabled).                 | Snake moved smoothly with keyboard and swipe gestures.                                           | ✅ **Pass**          |
+| **Pause and Resume**      | Press the spacebar or double-tap the screen to pause and resume the game.          | Game pauses, overlay appears. On resume, the game continues seamlessly.                                       | Pause and resume functionality worked correctly.                                                 | ✅ **Pass**          |
+| **Food Collection**       | Move the snake to collect food.                                                   | Food disappears when eaten, snake grows, score increases, and sparks appear.                                 | Food collected successfully, snake grew, score updated, and sparks displayed correctly.          | ✅ **Pass**          |
+| **Game Over**             | Run into the wall (if walls enabled) or the snake’s body.                         | Game stops, Game Over overlay appears, final score is displayed, and restart or back-to-menu options shown.  | Game Over overlay displayed correctly with score and buttons.                                    | ✅ **Pass**          |
+| **Wall Mode**             | Enable or disable wall mode in the options menu.                                  | Walls are activated or deactivated, visual indicators change accordingly.                                     | Walls toggled successfully, with appropriate visual cues.                                        | ✅ **Pass**          |
+| **Speed Adjustment**      | Select a speed (Slow, Medium, Fast) from the options menu.                        | Snake moves at the selected speed.                                                                           | Snake speed adjusted accurately based on the selection.                                          | ✅ **Pass**          |
+| **Sound Effects**         | Enable or disable sound effects in the options menu.                              | Sound effects toggle correctly for food collection and game events.                                           | Sound effects were toggled on and off successfully.                                              | ✅ **Pass**          |
+| **Trivia Challenge**      | Click the "Play Trivia" button from the main menu.                                | Trivia mode starts, questions and answers display correctly, feedback is provided for correct/incorrect answers. | Trivia mode loaded successfully, questions randomized, and feedback displayed.                   | ✅ **Pass**          |
+| **High Scores**           | Navigate to the High Scores menu from the main menu.                              | High Scores table is displayed with correct formatting and scores.                                            | High Scores displayed correctly and updated after the game.                                      | ✅ **Pass**          |
+| **Responsive Design**     | Test the game on various devices (desktop, tablet, mobile).                       | Game adapts correctly to different screen sizes and maintains usability.                                      | Game displayed correctly on all devices, maintaining accessibility and responsiveness.           | ✅ **Pass**          |
+| **Instructions Button**   | Click the instructions button (mobile view).                                      | Modal opens with clear game instructions, can be closed via the close button or clicking outside.            | Instructions modal displayed and closed correctly.                                               | ✅ **Pass**          |
+| **Accessibility**         | Use keyboard navigation to access menus and interact with game options.           | All interactive elements are accessible using keyboard (Tab, Enter).                                         | Menus and options were accessible with the keyboard.                                             | ✅ **Pass**          |
+| **Animated Elements**     | Hover over buttons and check interactive animations.                              | Buttons display hover animations and transitions smoothly.                                                    | Hover animations worked as intended.                                                             | ✅ **Pass**          |
+
+- This table documents the manual testing process, confirming that all features were tested and responded correctly. You can also include specific screenshots if needed.
+---
+
+
+
 
 ## Installation
 
