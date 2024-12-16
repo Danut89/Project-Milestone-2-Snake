@@ -66,8 +66,8 @@ function hideElement(element) {
   let backgroundCtx = backgroundCanvas.getContext("2d");
   
   const gameCanvas = document.getElementById("gameCanvas");
-  gameCanvas.width = 400;
-  gameCanvas.height = 460;
+  gameCanvas.width = 500;
+  gameCanvas.height = 560;
   const gameCtx = gameCanvas.getContext("2d");
   
   // ==================== Hammer.js Configuration ==================== //
