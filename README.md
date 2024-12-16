@@ -659,6 +659,146 @@ The following tools, technologies, and libraries were used to develop and test t
 |-------------------------|--------------------------------------|---------------------------------------------------------|-------------------|
 | README Documentation    | Review the README file.             | README includes all features, testing results, and tech stack.| As expected ✅     |
 
+---
+
+
+## Automated Testing
+
+The game has been rigorously tested for **accessibility**, **performance**, **code validation**, **browser compatibility**, and **responsiveness**. Below are the results along with screenshots of the testing process.
+
+---
+
+### 1. Accessibility and Performance Testing
+
+Accessibility and performance were tested using a combination of **Lighthouse** and **WAVE** tools. The results confirm the game meets high standards for usability and speed.
+
+| **Tool**          | **Purpose**                                      | **Result**              |
+|--------------------|-------------------------------------------------|-------------------------|
+| **Lighthouse**     | Evaluates accessibility and performance scores. | **Accessibility: 95% ✅**<br>**Performance: 93% ✅** |
+| **WAVE**           | Checks for accessibility issues and contrast.   | **No errors ✅**<br>**Contrast: Passed ✅** |
+| **Manual Testing** | Tests smooth gameplay and load times.           | **Responsive and Fast ✅** |
+
+---
+
+**Screenshots:**  
+- **Lighthouse - Mobile Accessibility and Performance**  
+<details>
+<summary>Screenshoot Mobile-test</summary>
+
+![Mobile](assets/images/testing-screenshoots/Lighhouse%20test%20mobile.png)
+
+</details>
+
+---
+
+- **Lighthouse - Desktop Accessibility and Performance**  
+<details>
+<summary>Desktop test</summary>
+
+![Desktop](assets/images/testing-screenshoots/Lighthouse%20Desktop%20test%201.png)
+
+</details>
+
+---
+
+- **WAVE - No Errors**  
+<details>
+<summary>Wave error-test</summary>
+
+![Wave no-errors](assets/images/testing-screenshoots/Wave-noerror.png)
+
+</details>  
+
+---
+
+- **WAVE - Contrast Check**  
+<details>
+<summary>Wave contrast-test</summary>
+
+![Wave contrast-check](assets/images/testing-screenshoots/Wave-contrast.png)
+
+</details>  
+
+---
+
+### 2. Code Validation
+
+All project files were validated to ensure they are free of syntax errors and adhere to W3C standards.
+
+| **File**         | **Validator**               | **Result**         |
+|------------------|----------------------------|--------------------|
+| `index.html`     | W3C HTML Validator          | **No errors ✅**   |
+| `style.css`      | W3C CSS Validator           | **No errors ✅**   |
+| `game.js`        | JSHint (JavaScript Linting) | **No errors ✅**   |
+
+---
+
+**Screenshots:**  
+- **HTML Validation**  
+<details>
+<summary>Screenshoot Html validation</summary>
+
+![HTML validation](assets/images/testing-screenshoots/HTML-validation.png)
+
+</details>    
+
+---
+
+- **CSS Validation**  
+<details>
+<summary>Screenshoot CSS validation</summary>
+
+![CSS validation](assets/images/testing-screenshoots/CSS-validation.png)
+
+</details>  
+
+---
+
+- **JavaScript Validation**  
+<details>
+<summary>Screenshoot JavaScript validation</summary>
+
+![JavaScript validation](assets/images/testing-screenshoots/JS-validation.png)
+
+</details>  
+
+---
+
+### 3. Browser Compatibility
+
+The game was tested across multiple browsers to ensure consistent functionality and appearance.
+
+| **Browser**          | **Version**      | **Result**           |
+|-----------------------|------------------|----------------------|
+| **Google Chrome**     | Latest           | **Fully Functional ✅** |
+| **Mozilla Firefox**   | Latest           | **Fully Functional ✅** |
+| **Safari**            | Latest           | **Fully Functional ✅** |
+| **Microsoft Edge**    | Latest           | **Fully Functional ✅** |
+| **Mobile Browsers**   | Chrome, Safari   | **Fully Functional ✅** |
+
+---
+
+### 4. Responsiveness
+
+The game was tested on various devices and screen sizes to ensure usability and a fully responsive layout across all platforms.
+
+| **Device**             | **Screen Size**             | **Result**           |
+|-------------------------|-----------------------------|----------------------|
+| **Desktop (Standard)**  | 1920x1080 (Full HD)         | **Fully Responsive ✅** |
+| **Desktop (Widescreen)**| 2560x1440 (QHD)             | **Fully Responsive ✅** |
+| **Tablet (Standard)**   | 768x1024 (iPad Portrait)    | **Fully Responsive ✅** |
+| **Tablet (Landscape)**  | 1024x768 (iPad Landscape)   | **Fully Responsive ✅** |
+| **Mobile**              | 414x896 (iPhone XR)         | **Fully Responsive ✅** |
+| **Mobile**              | 375x812 (iPhone X/11 Pro)   | **Fully Responsive ✅** |
+| **Mobile**              | 375x667 (iPhone SE/6/7/8)   | **Fully Responsive ✅** |
+| **Mobile**              | 360x800 (Samsung Galaxy S20)| **Fully Responsive ✅** |
+| **Mobile**              | 320x568 (iPhone 5/5S)       | **Fully Responsive ✅** |
+| **Mobile**              | 320x480 (Small Devices)     | **Fully Responsive ✅** |
+
+---
+
+By combining **automated tools** (Lighthouse, WAVE, and Validators) with **manual testing**, the game achieves exceptional **accessibility**, **performance**, and **compatibility** across devices and browsers.
+
 
 
 
