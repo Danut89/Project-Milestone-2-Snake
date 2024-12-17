@@ -268,27 +268,26 @@ The fonts used in **ByteSnake** are carefully chosen for **clarity**, **modern a
 
 ---
 
-1. **Poppins**  
+### 1. **Poppins**  
    - **Usage**: Used for **all headings** and general **UI text**.  
-   - **Why**: Poppins offers a clean, modern sans-serif style with smooth curves, making it ideal for titles and menus.  
+    - Walls On/Off text  
+    - **Why**: Poppins offers a clean, modern sans-serif style with smooth curves, making it ideal for titles and menus.   
 
-   **Example**:  
-   > *"Poppins is clean, minimalistic, and provides an elegant look to headings and UI elements."*  
 
----
-
-2. **Roboto Mono**  
+### 2. **Roboto Mono**  
 
 - **Usage**: Applied to:  
    - **Score Display**  
-   - **Walls On/Off Text**  
-   - **Trivia Questions and Answer Buttons**  
-   - **Game Buttons**  
+   - **Trivia Play Buttons**  
+   
 
 - **Why**: Roboto Mono is a clear and legible **monospaced font**, which adds a **coding-inspired design** that complements the trivia challenge and score display. It improves contrast and focus for critical information.  
 
-- **Example**:  
-   > *"Roboto Mono ensures key elements like scores and trivia questions are clear and easy to read."*
+
+   ### 3. **Arial**  
+- **Usage**:  
+   - General buttons throughout the game  
+- **Why**: Arial is a widely supported, simple sans-serif font that ensures smooth rendering across all devices and maintains a modern look for button elements.
    
    ---
 
@@ -335,23 +334,9 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
   - **User Stories Covered:** 1, 2, 6, 8  
 
 <details>
-<summary>Screenshoot Game-Area</summary>
+<summary>Screenshoot Game-Canvas</summary>
 
 ![Game Area](assets/images/readme-images/Game-area.png)
-
-</details>
-
----
-
-- **Game Over Screen**  
-  - When the game ends, the player is presented with their final score.  
-  - Includes a Restart button for quick replay and a Back to Menu button for easy navigation.  
-  - **User Stories Covered:** 3, 4  
-<details>
-<summary>Screenshoot Game-Over</summary>
-
-
-![Game Over Screen](assets/images/readme-images/Game-Over.png)
 
 </details>
 
@@ -371,14 +356,13 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
     - **User Stories Covered:** 1, 2, 5  
 
 <details>
-<summary>Screenshoot Main-Menu</summary>
+<summary>Screenshoot Desktop Main-Menu</summary>
 
 ![Main Menu](assets/images/readme-images/Main-Menu.png)
 
 </details>
 
-### **Mobile Menu Options**  
-
+- **Mobile Menu Options**  
 - On mobile devices, the menu is optimized to provide better usability with a smaller screen:
 
 - **Instructions Button:**  
@@ -408,7 +392,6 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
 
 </details>
 
----
 
 - **Animated Buttons**  
   - Buttons are visually engaging with glowing hover effects and smooth animations.  
@@ -501,7 +484,21 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
 
 ---
 
-### **Audio Controls Added**
+- **Game Over Screen**  
+  - When the game ends, the player is presented with their final score.  
+  - Includes a Restart button for quick replay and a Back to Menu button for easy navigation.  
+  - **User Stories Covered:** 3, 4  
+<details>
+<summary>Screenshoot Game-Over</summary>
+
+
+![Game Over Screen](assets/images/readme-images/Game-Over.png)
+
+</details>
+
+---
+
+### **Audio Controls**
 
 - A **speaker icon** has been added to toggle the background game music on or off.  
 - By default, the game music starts **OFF** to avoid autoplay issues and give users control over audio preferences.
@@ -519,8 +516,6 @@ The **Speaker Icon** functionality, along with a looping game soundtrack, is now
 
 </details>
 
----
-
 <details>
 <summary>Screenshot Speaker-off </summary>
 
@@ -528,12 +523,8 @@ The **Speaker Icon** functionality, along with a looping game soundtrack, is now
 
 </details>
 
----
-
 **Speaker Placement**:
 - The speaker icon is located at the **top-right corner** of the game area for easy access without interfering with gameplay.
-
----
 
 **Code Example**:
 
@@ -573,8 +564,6 @@ The **Speaker Icon** functionality, along with a looping game soundtrack, is now
   - JavaScript functions are modular for better reusability and debugging.  
   - **User Stories Covered:** 10, 11
 
-  ---
-
   - **Accessibility Best Practices**  
   - The game implements accessibility best practices to ensure inclusivity for all users.  
   - **User Stories Covered:** 12, 13  
@@ -583,7 +572,7 @@ The **Speaker Icon** functionality, along with a looping game soundtrack, is now
 
 ## Wireframes
 
-The following wireframes illustrate the layout and structure of the game’s key screens. Mobile wireframes are provided only for the Main Menu, as the other screens maintain the same layout across devices.
+The following wireframes illustrate the layout and structure of the game’s key screens. 
 
 ---
 
@@ -603,7 +592,6 @@ The main menu includes options to:
 
 </details>  
 
----
 
 **Mobile Version**  
 <details>
@@ -630,7 +618,6 @@ The Game Area includes:
 
 </details>  
 
----
 
 **Mobile Version**  
 <details>
@@ -758,6 +745,8 @@ fetch('https://opentdb.com/api.php?amount=10&category=18&type=multiple')
     .catch(error => console.error('Error fetching trivia:', error));
 ```
 
+---
+
 ### **Future Development**
 
 While the current version of **ByteSnake** delivers engaging gameplay and educational content, we envision expanding its features in future updates to enhance the experience further. These include:
@@ -797,10 +786,6 @@ The following tools, technologies, and libraries were used to develop and test t
 - **[Font Awesome](https://fontawesome.com/)**: Provides icons for buttons, including the **speaker ON/OFF** toggle for background sound.
 - **[Google Fonts](https://fonts.google.com/)**: Used for custom typography, including fonts like 'Poppins' and 'Roboto Mono'.
 
-### Audio and Background Sound
-- **Background Sound Loop**: A looping audio track integrated into the game, with toggling enabled through a **speaker icon**.
-- **Audio Elements**: Managed using the `HTML5 <audio>` API and JavaScript for play/pause functionality.
-
 ### Development Environments
 - **[GitPod](https://www.gitpod.io/)**: Cloud-based development environment used for coding and testing the game.
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Local code editor used for initial development and debugging.
@@ -828,11 +813,6 @@ The following tools, technologies, and libraries were used to develop and test t
 ### Additional Tools
 - **[WAVE Accessibility Tool](https://wave.webaim.org/)**: Verified the game's accessibility compliance.
 - **Markdown Editor**: Used to draft and structure the project’s README file.
-
----
-
-
-
 
 ---
 

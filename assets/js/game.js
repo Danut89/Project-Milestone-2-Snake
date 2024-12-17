@@ -410,7 +410,7 @@ function drawGame() {
   const iconY = tileSize * 2.25 - 18; // Align icon vertically with the score
 
   // Set smaller font size for the wall status text
-  gameCtx.font = "16px 'Roboto Mono', monospace";
+  gameCtx.font = "18px Poppins";
 
 
   // Add space between icon and text

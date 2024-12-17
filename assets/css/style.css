@@ -74,7 +74,6 @@ body {
 
 /* ==================== Buttons General Rules ==================== */
 .menu-button {
-    font-family: 'Roboto Mono', monospace;
     padding: 14px 40px;
     margin: 12px;
     font-size: 22px;
@@ -501,7 +500,6 @@ fieldset legend {
 
 /* Trivia Answer Buttons */
 #trivia-answers button {
-    font-family: 'Roboto Mono', monospace;
     font-size: 16px;
     font-weight: 500;
     color: #ffffff;
@@ -893,6 +891,7 @@ fieldset legend {
 
 /* Bonus Trivia Button */
 .bonus-button {
+    font-family: 'Roboto Mono' monospace;
     padding: 12px 40px;
     font-size: 18px; 
     font-weight: 700;
@@ -919,7 +918,6 @@ fieldset legend {
     color: #dfe6e9; /* Soft neutral color */
     font-weight: 500;
     text-shadow: 0px 0px 8px rgba(108, 92, 231, 0.7); /* Subtle glow */
-    text-transform: uppercase;
 }
 
 @keyframes pulseGlow {
