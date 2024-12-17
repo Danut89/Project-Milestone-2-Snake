@@ -1142,3 +1142,33 @@ fieldset legend {
         display: none !important;
     }
 }
+
+/* ==================== Speaker icon style ==================== */
+#speaker-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(108, 92, 231, 0.8); 
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px #6c5ce7;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+#speaker-icon:hover {
+    background-color: #8e44ad; 
+    box-shadow: 0 0 15px #8e44ad;
+}
+
+/* Adjust icon state */
+.speaker-off {
+    background-color: #dc3545; 
+    box-shadow: 0 0 10px #dc3545;
+}
