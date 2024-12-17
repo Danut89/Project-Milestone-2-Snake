@@ -476,6 +476,151 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
 
   ---
 
+## Wireframes
+
+The following wireframes illustrate the layout and structure of the game’s key screens. Mobile wireframes are provided only for the Main Menu, as the other screens maintain the same layout across devices.
+
+---
+
+### **1. Main Menu Wireframes**
+
+The main menu includes options to:  
+- Start the game  
+- Access settings  
+- View high scores  
+- Play the trivia challenge  
+
+**Desktop Version**  
+<details>
+<summary>View Desktop Wireframe</summary>
+
+![Main Menu Desktop](assets/images/wireframes/Wireframe%20Desktop%20Main-Menu.png)
+
+</details>  
+
+---
+
+**Mobile Version**  
+<details>
+<summary>View Mobile Wireframe</summary>
+
+![Main Menu Mobile](assets/images/wireframes/Wireframe%20Mobile%20Main-Menu.png)
+
+</details>  
+
+---
+
+### **2. Game Area Wireframes**
+
+The Game Area includes:  
+- Snake movement on the canvas  
+- Food elements appearing randomly  
+- Score display and game interactions  
+
+**Desktop Version**  
+<details>
+<summary>View Desktop Wireframe</summary>
+
+![Game Area Desktop](assets/images/wireframes/Wireframe%20Game-Area.png)
+
+</details>  
+
+---
+
+**Mobile Version**  
+<details>
+<summary>View Mobile Wireframe</summary>
+
+![Game=Area Mobile](assets/images/wireframes/Wireframe%20Mobile-Game-Area.png)
+
+</details>
+
+---
+
+### **3. Settings Menu Wireframes**
+
+The settings menu allows players to customize the game:  
+- Toggle Wall Mode  
+- Adjust Snake Speed  
+- Enable/Disable Sound Effects  
+
+**Desktop Version**  
+<details>
+<summary>View Desktop Wireframe</summary>
+
+![Settings Menu Desktop](assets/images/wireframes/Wireframe%20Settings-Menu.png)
+
+</details>  
+
+---
+
+### **4. High Scores Menu Wireframes**
+
+Displays the high scores table with a clean and structured layout.
+
+**Desktop Version**  
+<details>
+<summary>View Desktop Wireframe</summary>
+
+![High Scores Desktop](assets/images/wireframes/Wireframes%20Scores-Menu.png)
+
+</details>  
+
+---
+
+### **5. Trivia Game Wireframes**
+
+The trivia challenge presents randomized coding questions and provides real-time feedback.
+
+**Desktop Version**  
+<details>
+<summary>View Desktop Wireframe</summary>
+
+![Trivia Game Desktop](assets/images/wireframes/Wireframe%20Trivia-Game.png)
+
+</details>  
+
+---
+
+### **6. Pause and Resume Screen Wireframes**
+
+The pause screen provides options to:  
+- Resume the game  
+- Restart the game  
+- Quit to Main Menu  
+
+**Desktop Version**  
+<details>
+<summary>View Desktop Wireframe</summary>
+
+![Pause Screen Desktop](assets/images/wireframes/Wireframe%20Game-Paused.png)
+
+</details>  
+
+---
+
+### **7. Game Over Screen Wireframes**
+
+Displays the final score and options to restart the game or return to the Main Menu.
+
+**Desktop Version**  
+<details>
+<summary>View Desktop Wireframe</summary>
+
+![Game Over Desktop](assets/images/wireframes/Wireframe%20Game-Over.png)
+
+</details>  
+
+---
+
+### **Summary**
+
+- While a mobile version of the Main Menu wireframe and Game-Area wireframe are  included to highlight their adjusted layout, additional mobile wireframes for other features (e.g., Settings Menu, High Scores, Trivia Game, Pause Screen, and Game Over Screen) were not necessary. These screens maintain a consistent layout and visual appearance across desktop and mobile devices, with responsive design ensuring proper scaling and usability on smaller screens.
+
+- These wireframes were created to ensure a clear and consistent user experience. The game was designed with a responsive layout to maintain usability across devices while focusing on simplicity and accessibility.
+
+---
+
   ## API Integration
 
 ### Open Trivia Database API
