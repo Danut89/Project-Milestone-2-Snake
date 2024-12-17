@@ -205,6 +205,7 @@ The following colors are used consistently throughout the interface to enhance r
 - ![#4b426e](https://via.placeholder.com/15/4b426e/000000?text=+) `#4b426e` - Dark Purple (Score area background)
 - ![#202a34](https://via.placeholder.com/15/202a34/000000?text=+) `#202a34` - Dark Blue (Game board background)
 
+---
 
 ### Buttons and Interactive Elements  
 The following colors are used to enhance interactivity and ensure a visually engaging experience for users:
@@ -216,6 +217,7 @@ The following colors are used to enhance interactivity and ensure a visually eng
 - ![#00cec9](https://via.placeholder.com/15/00cec9/000000?text=+) `#00cec9` - Aqua Blue (Highlighted instructions text)
 - ![#e17055](https://via.placeholder.com/15/e17055/000000?text=+) `#e17055` - Orange Red (Messy text shadow)
 
+---
 
 ### Game Elements  
 These colors define the key game components, ensuring clarity, consistency, and engagement for players:
@@ -226,6 +228,7 @@ These colors define the key game components, ensuring clarity, consistency, and 
 - ![#DC3545](https://via.placeholder.com/15/DC3545/000000?text=+) `#DC3545` - Trivia wrong answer highlight
 - ![#28A745](https://via.placeholder.com/15/28A745/000000?text=+) `#28A745` - Trivia correct answer highlight
 
+---
 
 #### Food & Sparks
 The food and spark effects in **ByteSnake** use a predefined color array to create vibrant and dynamic visuals. These colors enhance the game's aesthetic and give it a modern, cyber-inspired feel.
@@ -248,6 +251,7 @@ The combination of these vibrant colors gives the game an energetic and visually
 - ![#aaf0d1](https://via.placeholder.com/15/aaf0d1/000000?text=+) `#aaf0d1` - Magic Mint
 - ![#50bfe6](https://via.placeholder.com/15/50bfe6/000000?text=+) `#50bfe6` - Blizzard Blue
 
+---
 
 ### Trivia and Overlays  
 These colors enhance the visual appeal and interactivity of the trivia section and overlays, ensuring a futuristic and engaging design:
@@ -256,19 +260,37 @@ These colors enhance the visual appeal and interactivity of the trivia section a
 - ![#9b59b6](https://via.placeholder.com/15/9b59b6/000000?text=+) `#9b59b6` - Purple Gradient (Trivia highlights)
 - ![#34495e](https://via.placeholder.com/15/34495e/000000?text=+) `#34495e` - Dark Blue Gradient (Trivia background)
 
+---
 
-### Fonts
-The fonts used in **ByteSnake** are chosen for clarity, modern aesthetics, and a blend of nostalgic appeal:
+### Fonts  
+
+The fonts used in **ByteSnake** are carefully chosen for **clarity**, **modern aesthetics**, and to enhance the **gaming experience** without sacrificing readability.
+
+---
 
 1. **Poppins**  
-   - Used for all headings, buttons, and general UI text.
-   - Clean and modern sans-serif font for an elegant look.
+   - **Usage**: Used for **all headings** and general **UI text**.  
+   - **Why**: Poppins offers a clean, modern sans-serif style with smooth curves, making it ideal for titles and menus.  
+
+   **Example**:  
+   > *"Poppins is clean, minimalistic, and provides an elegant look to headings and UI elements."*  
+
+---
 
 2. **Roboto Mono**  
-   - Applied for trivia questions and code-related text.
-   - Provides a clear, monospaced font ideal for coding themes.
 
-All fonts are sourced from [Google Fonts](https://fonts.google.com).
+- **Usage**: Applied to:  
+   - **Score Display**  
+   - **Walls On/Off Text**  
+   - **Trivia Questions and Answer Buttons**  
+   - **Game Buttons**  
+
+- **Why**: Roboto Mono is a clear and legible **monospaced font**, which adds a **coding-inspired design** that complements the trivia challenge and score display. It improves contrast and focus for critical information.  
+
+- **Example**:  
+   > *"Roboto Mono ensures key elements like scores and trivia questions are clear and easy to read."*
+   
+   ---
 
 
 ### Animations  

@@ -393,7 +393,7 @@ function drawGame() {
 
   // Draw the score text
   gameCtx.fillStyle = "#fff"; 
-  gameCtx.font = "30px Poppins";
+  gameCtx.font = "bold 30px 'Roboto Mono'";
   gameCtx.fillText("Score: " + score, tileSize, tileSize * 2.25);
   gameCtx.shadowBlur = 0;
 
@@ -410,7 +410,8 @@ function drawGame() {
   const iconY = tileSize * 2.25 - 18; // Align icon vertically with the score
 
   // Set smaller font size for the wall status text
-  gameCtx.font = "18px Poppins"; 
+  gameCtx.font = "16px 'Roboto Mono', monospace";
+
 
   // Add space between icon and text
   const spaceBetween = 10; 
