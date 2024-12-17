@@ -204,6 +204,16 @@ All project files were validated to ensure they are free of syntax errors and ad
 
 ---
 
+- **HTML-404 Validation**  
+<details>
+<summary>Screenshoot 404-page validation</summary>
+
+![404-Page validation](assets/images/testing-screenshoots/404-page-validation.png)
+
+</details>  
+
+---
+
 - **CSS Validation**  
 <details>
 <summary>Screenshoot CSS validation</summary>
