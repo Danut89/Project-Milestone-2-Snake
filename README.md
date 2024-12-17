@@ -839,3 +839,61 @@ cd your-directory-path
 - Local Issues: Verify all project files are cloned properly. If necessary, run git pull to fetch the latest updates.
 - For more detailed troubleshooting on cloning a repository, refer to the official GitHub documentation:
 **[GitHub Docs: Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)**  
+
+---
+
+## Credits  
+
+### Tutorials and Inspiration  
+The following tutorials and resources greatly contributed to the development of this game:  
+
+- **YouTube Tutorials:**  
+   - "Build a Snake Game Using JavaScript and HTML5 Canvas" by *Code Explained*. [Link to tutorial](https://www.youtube.com/watch?v=9TcU2C1AACw)
+   - "Create Snake Game Step-by-Step Using Canvas" by *Coding With Mosh*. [Link to tutorial](https://www.youtube.com/watch?v=7Azlj0f9vas)
+   - "Game Development with JavaScript" by *Traversy Media*. [Link to tutorial](https://www.youtube.com/watch?v=PA57h3mFHik)
+   - "A game of Snake written in JavaScript" 🐍 by *Bro Code*. [Link to tutorial](https://www.youtube.com/watch?v=Je0B3nHhKmM)
+
+- **Documentation:**  
+   - [MDN Web Docs: Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)  
+   - [MDN Web Docs: Game Loops and Animations](https://developer.mozilla.org/en-US/docs/Games/Techniques/Frame_rate)  
+
+- **Other References:**  
+   - W3Schools: [HTML Canvas Tutorial](https://www.w3schools.com/html/html5_canvas.asp)  
+   - CSS-Tricks: [Centering in CSS](https://css-tricks.com/centering-css-complete-guide/)  
+
+---
+
+### Code Adapted from Other Sources  
+The following code snippets were used, modified, or adapted in this project:  
+
+- **Random Number Generator:** Function to generate a random number between two values.  
+- **Game Loop Logic:** General game loop structure adapted from MDN Web Docs.  
+- **Keyboard Input Handling:** Code to detect arrow keys for movement.  
+- **Canvas Rendering Techniques:** Techniques for rendering shapes, text, and animations on the canvas.  
+
+Where applicable, detailed credits and links to sources are provided directly in the code comments.  
+
+---
+
+### Audio and Visual Content  
+- **Sound Effects:**  
+   - *Food Collection Sound* sourced from [Freesound.org](https://freesound.org).  
+   - *Button Click Sound* adapted from [Freesound.org](https://freesound.org). 
+   - *Game Over Sound* sourced from  [Freesound.org](https://freesound.org). 
+
+- **Background Image:**  
+   - Sourced from an online resource. (Note: If you have the original link, it is best to include it here for proper attribution.)  
+
+- **Visual Assets:**  
+   - Button animations and interface elements were custom-designed for this project.   
+
+---
+
+### Acknowledgments  
+Special thanks to the following for their support and tools:  
+- **ChatGPT (OpenAI):** Assistance with debugging and brainstorming solutions.  
+- **GitHub:** Version control and project hosting.  
+- **Visual Studio Code:** Primary code editor for development.  
+- **Gitpod:** Cloud-based coding environment for seamless development.  
+
+Thank you to everyone who contributed to this project, whether directly or indirectly! 🚀  
