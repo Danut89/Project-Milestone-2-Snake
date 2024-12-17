@@ -553,6 +553,8 @@ The following tools, technologies, and libraries were used to develop and test t
 - **[Lighthouse](https://developers.google.com/web/tools/lighthouse)**: Ensured accessibility, performance, and SEO compliance.
 - **[W3C JSLint Validator](https://jslint.com/)**: Validated the JavaScript code for syntax and best practices compliance.
 - **[ChatGPT](https://openai.com/chatgpt)**: Assisted in testing, debugging, and improving game logic and design.
+- **[wave](https://wave.webaim.org/)**: Used for testing, performance and contrast errors.
+
 
 
 ### Design and Media
@@ -674,7 +676,7 @@ Accessibility and performance were tested using a combination of **Lighthouse** 
 
 | **Tool**          | **Purpose**                                      | **Result**              |
 |--------------------|-------------------------------------------------|-------------------------|
-| **Lighthouse**     | Evaluates accessibility and performance scores. | **Accessibility: 95% ✅**<br>**Performance: 93% ✅** |
+| **Lighthouse**     | Evaluates accessibility and performance scores. | **Accessibility: 100% ✅**<br>**Performance: 99% ✅** |
 | **WAVE**           | Checks for accessibility issues and contrast.   | **No errors ✅**<br>**Contrast: Passed ✅** |
 | **Manual Testing** | Tests smooth gameplay and load times.           | **Responsive and Fast ✅** |
 
