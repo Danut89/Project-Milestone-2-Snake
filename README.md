@@ -479,6 +479,50 @@ This section highlights the design philosophy behind **ByteSnake**, emphasizing 
 
 ---
 
+### **Audio Controls Added**
+
+- A **speaker icon** has been added to toggle the background game music on or off.  
+- By default, the game music starts **OFF** to avoid autoplay issues and give users control over audio preferences.
+
+**Functionality**:
+- Clicking the **speaker icon** toggles the background music.  
+- The icon dynamically changes between:  
+
+The **Speaker Icon** functionality, along with a looping game soundtrack, is now implemented for user control of background audio. The toggle uses **Font Awesome** icons to represent the **ON/OFF** states visually, providing an intuitive and user-friendly experience.
+
+<details>
+<summary>Screenshot Speaker-on</summary>
+
+![Speaker On](assets/images/readme-images/speaker-on.png)
+
+</details>
+
+---
+
+<details>
+<summary>Screenshot Speaker-off </summary>
+
+![Speaker Off](assets/images/readme-images/speaker-off.png)
+
+</details>
+
+---
+
+**Speaker Placement**:
+- The speaker icon is located at the **top-right corner** of the game area for easy access without interfering with gameplay.
+
+---
+
+**Code Example**:
+
+```html
+<!-- Speaker Icon -->
+<div id="speaker-icon">
+    <i class="fa-solid fa-volume-off"></i>
+</div>
+```
+---
+
 ### **Accessibility Features**
 - **Keyboard and Touch Controls**  
   - Supports both keyboard and swipe gestures for navigation.  
@@ -728,8 +772,12 @@ The following tools, technologies, and libraries were used to develop and test t
 ### APIs and Libraries
 - **[Open Trivia Database API](https://opentdb.com/api_config.php)**: Supplies real-time coding trivia questions for the Trivia Challenge feature.
 - **[Hammer.js](https://hammerjs.github.io/)**: Enables swipe gesture controls on mobile devices.
-- **[Font Awesome](https://fontawesome.com/)**: Provides icons for buttons and additional visual elements.
+- **[Font Awesome](https://fontawesome.com/)**: Provides icons for buttons, including the **speaker ON/OFF** toggle for background sound.
 - **[Google Fonts](https://fonts.google.com/)**: Used for custom typography, including fonts like 'Poppins' and 'Roboto Mono'.
+
+### Audio and Background Sound
+- **Background Sound Loop**: A looping audio track integrated into the game, with toggling enabled through a **speaker icon**.
+- **Audio Elements**: Managed using the `HTML5 <audio>` API and JavaScript for play/pause functionality.
 
 ### Development Environments
 - **[GitPod](https://www.gitpod.io/)**: Cloud-based development environment used for coding and testing the game.
@@ -743,19 +791,26 @@ The following tools, technologies, and libraries were used to develop and test t
 ### Testing Tools
 - **Browser Developer Tools**: Used for real-time testing, debugging, and ensuring responsiveness on different screen sizes.
 - **[Lighthouse](https://developers.google.com/web/tools/lighthouse)**: Ensured accessibility, performance, and SEO compliance.
+- **[W3C HTML Validator](https://validator.w3.org/)**: Validated the HTML files to ensure compliance with W3C standards.
+- **[W3C CSS Validator](https://jigsaw.w3.org/css-validator/)**: Checked the CSS files for syntax errors and best practices.
+- **[JSHint](https://jshint.com/)**: Validated the JavaScript code for syntax errors and best practices.
 - **[W3C JSLint Validator](https://jslint.com/)**: Validated the JavaScript code for syntax and best practices compliance.
 - **[ChatGPT](https://openai.com/chatgpt)**: Assisted in testing, debugging, and improving game logic and design.
-- **[wave](https://wave.webaim.org/)**: Used for testing, performance and contrast errors.
-
-
+- **[WAVE](https://wave.webaim.org/)**: Used for testing accessibility and visual contrast errors.
 
 ### Design and Media
 - **[TinyPNG](https://tinypng.com/)**: Optimized and resized images for better performance and loading times.
 - **Online Image Resources**: High-quality game images used for backgrounds and visual elements.
+- **Custom Visual Design**: Designed hover effects, glowing visuals, and transitions for a polished user experience.
 
 ### Additional Tools
 - **[WAVE Accessibility Tool](https://wave.webaim.org/)**: Verified the game's accessibility compliance.
 - **Markdown Editor**: Used to draft and structure the project’s README file.
+
+---
+
+
+
 
 ---
 
