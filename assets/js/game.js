@@ -747,7 +747,7 @@ backToMenuTrivia.addEventListener("click", () => {
 // ==================== Background Music Control ==================== //
 
 // Audio setup
-const gameMusic = new Audio("/assets/sounds/game-loop-sound.wav");
+const gameMusic = new Audio("./assets/sounds/game-loop-sound.wav");
 gameMusic.loop = true;
 gameMusic.volume = 0.5;
 
