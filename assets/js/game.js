@@ -423,11 +423,12 @@ function hideElement(element) {
       gameCtx.fillRect(iconX, iconY, 16, 16); // Small solid square as icon
       gameCtx.fillText("Walls On", iconX + 18 + spaceBetween, iconY + 12); // Text with added space after icon
     } else {
-      // Draw an outline of a rectangle for "walls off"
-      gameCtx.strokeStyle = "#6c5ce7"; // Light color for the walls off state
-      gameCtx.lineWidth = 2;
-      gameCtx.strokeRect(iconX, iconY, 16, 16); // Draw an empty square
-      gameCtx.fillText("Walls Off", iconX + 18 + spaceBetween, iconY + 12); // Text with added space after icon
+       // Draw an outline of a rectangle for "walls off"
+       gameCtx.strokeStyle = "#81ecec"; // Light color for the walls off state
+       gameCtx.lineWidth = 2;
+       gameCtx.strokeRect(iconX, iconY, 16, 16); // Draw an empty square
+       gameCtx.fillStyle = "#81ecec"; // Light lavender color for better contrast
+       gameCtx.fillText("Walls Off", iconX + 18 + spaceBetween, iconY + 12); // Text with added space after icon
     }
   
     gameCtx.beginPath();

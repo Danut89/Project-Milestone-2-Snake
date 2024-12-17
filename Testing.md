@@ -189,6 +189,7 @@ All project files were validated to ensure they are free of syntax errors and ad
 | `index.html`     | W3C HTML Validator          | **No errors ✅**   |
 | `style.css`      | W3C CSS Validator           | **No errors ✅**   |
 | `game.js`        | JSHint (JavaScript Linting) | **No errors ✅**   |
+| `highscore.js`        | JSHint (JavaScript Linting) | **No errors ✅**   |
 
 ---
 
@@ -218,6 +219,16 @@ All project files were validated to ensure they are free of syntax errors and ad
 <summary>Screenshoot JavaScript validation</summary>
 
 ![JavaScript validation](assets/images/testing-screenshoots/JS-validation.png)
+
+</details>  
+
+---
+
+- **Highscore Validation**  
+<details>
+<summary>Screenshoot Highscore validation</summary>
+
+![Highscore validation](assets/images/testing-screenshoots/High-Score%20validation.png)
 
 </details>  
 
