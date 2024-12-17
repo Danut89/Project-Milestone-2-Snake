@@ -575,22 +575,6 @@ The following tools, technologies, and libraries were used to develop and test t
 
 ---
 
-## Installation
-
-To get started with **ByteSnake**, follow these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/bytesnake.git
-
-
-### Steps:
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/cyber-snake.git
-
-
 ## 🐛 Bug Section
 
 ### 1. Bug: Missing Top Border When Walls Are Enabled
@@ -801,3 +785,57 @@ This fix ensures that the sparks always have a valid color, even in edge cases. 
 | **Screen Flicker on Pause**      | Screen flickered briefly when resuming game.  | Fixed by optimizing `requestAnimationFrame`. |
 | **Score Not Updating**           | Final score did not display correctly.        | Corrected score logic in `game.js`. |
 | **Snake Collision Issue**        | Snake didn’t detect collision with itself.    | Fixed by adding self-collision checks. |
+
+---
+
+## Deployment  
+
+The project has been deployed using **GitHub Pages** and is hosted on the live link below:  
+
+**[Play the Game Here](https://danut89.github.io/Project-Milestone-2-Snake/)**  
+
+---
+
+### How to Deploy  
+
+To deploy this project using **GitHub Pages** from its GitHub repository, the following steps were taken:  
+
+1. Navigate to your GitHub repository.  
+2. From the top menu, select **Settings**.  
+3. Scroll down to the **GitHub Pages** section.  
+4. Under **Source**, click the dropdown menu labeled **None** and select **Main Branch** (or `master` depending on your branch name).  
+5. Click **Save** (if required).  
+6. Once saved, GitHub automatically deploys the project.  
+
+> **Note:** It may take a few minutes for the site to go live. Refresh the page, and the **GitHub Pages** section will show the link to your deployed website.
+
+---
+
+### How to Run Locally  
+
+To clone and run this project locally, follow these steps:
+
+1. Go to the project's GitHub repository:  
+   **[GitHub Repository Link](https://github.com/danut89/Project-Milestone-2-Snake)**  
+
+2. Under the repository name, click the green **Code** button and copy the HTTPS URL: https://github.com/danut89/Project-Milestone-2-Snake.git
+
+3. Open your local terminal (Command Prompt, Git Bash, or IDE terminal).  
+
+4. Navigate to the directory where you want to clone the project:  
+```bash
+cd your-directory-path
+```
+5. Clone the repository: git clone https://github.com/danut89/Project-Milestone-2-Snake.git
+
+6. Open the project folder in your preferred code editor (e.g., VS Code).
+
+7. To view the project in your browser, open the index.html file. Alternatively, use a live server (e.g., in VS Code install the Live Server extension):
+- Right-click on index.html
+- Select Open with Live Server
+
+### Troubleshooting
+- GitHub Pages Not Showing: Ensure the correct branch is selected under GitHub Pages settings. Clear your browser cache and refresh.
+- Local Issues: Verify all project files are cloned properly. If necessary, run git pull to fetch the latest updates.
+- For more detailed troubleshooting on cloning a repository, refer to the official GitHub documentation:
+**[GitHub Docs: Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)**  
