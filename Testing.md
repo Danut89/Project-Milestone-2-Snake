@@ -3,22 +3,34 @@
 
 # Table of Contents
 
-1. [Manual Testing](#manual-testing)
+1. [The principles of automated and manual testing](#the-principles-of-automated-and-manual-testing)
 
-2. [Testing User Stories](#testing-user-stories)
+2. [Manual Testing](#manual-testing)
+3. [Testing User Stories](#testing-user-stories)
    - [Player Stories](#1-as-a-player-i-want-to-start-the-snake-game-easily)
    - [Accessibility Stories](#6-as-a-player-with-accessibility-needs-i-want-the-game-to-be-keyboard-accessible)
    - [Developer Stories](#10-as-a-developercontributor-i-want-clean-and-organized-code)
 
-3. [Automated Testing](#automated-testing)
+4. [Automated Testing](#automated-testing)
    - [Accessibility and Performance](#1-accessibility-and-performance-testing)
    - [Code Validation](#2-code-validation)
    - [Browser Compatibility](#3-browser-compatibility)
    - [Responsiveness](#4-responsiveness)
 
-3. [Testing Tools Used](#testing-tools-used)
+5. [Testing Tools Used](#testing-tools-used)
    - [Future Testsing Plan](#future-testing-plans)
    - [User Feedback](#user-feedback)
+
+---
+
+## The principles of automated and manual testing
+
+**Automated Testing:**  
+Automated tests provide fast, repeatable, and consistent validation of our application's functionality. They are ideal for regression, performance, and load testing—scenarios where frequent, high-volume checks are needed and human error must be minimized. This approach is especially effective in CI/CD environments, where rapid feedback on code changes is crucial.
+
+**Manual Testing:**  
+Manual testing leverages human insight to explore and evaluate aspects that automated tests might overlook, such as usability and overall user experience. It is best used for exploratory testing, UI/UX assessments, and complex scenarios that require contextual judgment. This method ensures that the application not only works correctly but also meets real-world usability standards.
+
 
 ---
 

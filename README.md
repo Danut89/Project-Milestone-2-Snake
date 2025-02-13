@@ -44,6 +44,7 @@
   - [Pause and Resume Screen](#6-pause-and-resume-screen-wireframes)
   - [Game Over Screen](#7-game-over-screen-wireframes)
   - [Wireframes Explanation](#summary)
+- [Testing](#testing)
 - [API Integration](#api-integration)
 - [Technologies Used](#technologies-used)
   - [Core Development Tools](#core-development-tools)
@@ -52,7 +53,7 @@
   - [Version Control](#version-control)
   - [Testing Tools](#testing-tools)
   - [Design and Media](#design-and-media)
-- [Bug Fixes](#bug-fixes)
+- [Bug Fixes](#🐛-bug-section)
   - [1. Missing Top Border When Walls Are Enabled](#1-bug-missing-top-border-when-walls-are-enabled)
   - [2. Food Overlapping Snake](#2-bug-food-overlapping-snake)
   - [3. Sparks Defaulting to White](#3-bug-sparks-defaulting-to-white-or-causing-errors)
@@ -713,6 +714,12 @@ Displays the final score and options to restart the game or return to the Main M
 
 ---
 
+## Testing
+
+For more details about our testing approach, please check out our [Testing Folder](./Testing.md), which contains all the automated and manual testing resources, scripts, and documentation.
+
+
+---
   ## API Integration
 
 ### Open Trivia Database API
