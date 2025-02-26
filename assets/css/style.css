@@ -891,7 +891,7 @@ fieldset legend {
 
 /* Bonus Trivia Button */
 .bonus-button {
-    font-family: 'Roboto Mono' monospace;
+    font-family: 'Roboto Mono', monospace;
     padding: 12px 40px;
     font-size: 18px; 
     font-weight: 700;
@@ -1171,4 +1171,45 @@ fieldset legend {
 .speaker-off {
     background-color: #dc3545; 
     box-shadow: 0 0 10px #dc3545;
+}
+
+/* ==================== Footer Styles ==================== */
+#game-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-left {
+    margin-left: 15px;
+}
+
+.footer-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.footer-right a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.footer-right a:hover {
+    color: #f5cb5c; /* Accent color */
+}
+
+/* Style for the social media icons */
+.footer-right i {
+    font-size: 20px;
 }
