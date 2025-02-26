@@ -1213,3 +1213,9 @@ fieldset legend {
 .footer-right i {
     font-size: 20px;
 }
+
+@media screen and (max-width: 430px) {
+    .footer-right a {
+        display: none; /* Hides social media icons on small screens */
+    }
+}
